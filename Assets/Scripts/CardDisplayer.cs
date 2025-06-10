@@ -14,6 +14,8 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
+    public CardHolder holder;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

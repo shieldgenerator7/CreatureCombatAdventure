@@ -150,9 +150,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
-            if (holdIndex >= 0)
+            if (card.holder)
             {
-                holders[holdIndex].card = null;
+                card.holder.card = null;
             }
             Vector2 v = context.ReadValue<Vector2>();
             do {

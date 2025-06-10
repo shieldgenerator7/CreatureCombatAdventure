@@ -20,6 +20,7 @@ public class CardHolder : MonoBehaviour
         cardDisplayer.transform.position = transform.position;
         cardDisplayer.transform.localScale = Vector3.one * cardScale;
         card = cardDisplayer.card;
+        cardDisplayer.holder = this;
     }
 
     public void Update()
