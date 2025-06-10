@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions.AddCallbacks(this);
 
         card = cardList[cardIndex];
-        holders[holdIndex].acceptDrop(card);
     }
 
     // Update is called once per frame
@@ -72,6 +71,15 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             if (cardIndex < cardList.Count)
             {
                 card = cardList[cardIndex];
+                CardHolder holder = holders.Find(h => h.card == card);
+                if (holder != null)
+                {
+                    holdIndex = holders.IndexOf(holders.Find(h => h.card == card));
+                }
+                else
+                {
+                    holdIndex = -1;
+                }
             }
             else
             {
@@ -103,16 +111,23 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
+            if (holdIndex >= 0)
+            {
+                holders[holdIndex].card = null;
+            }
             Vector2 v = context.ReadValue<Vector2>();
-            holdIndex += (int)v.x;
-            if (holdIndex >= holders.Count)
-            {
-                holdIndex = 0;
+            do {
+                holdIndex += (int)v.x;
+                if (holdIndex >= holders.Count)
+                {
+                    holdIndex = 0;
+                }
+                if (holdIndex < 0)
+                {
+                    holdIndex = holders.Count - 1;
+                }
             }
-            if (holdIndex < 0)
-            {
-                holdIndex = holders.Count - 1;
-            }
+            while (holders[holdIndex].card != null);
             holders[holdIndex].acceptDrop(card);
             updateDisplay();
         }
