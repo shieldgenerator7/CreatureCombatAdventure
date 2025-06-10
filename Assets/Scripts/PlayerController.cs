@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public CardDisplayer card;
+    public List<CardDisplayer> cardList;
+    private CardDisplayer card;
+    private int cardIndex = 0;
 
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
@@ -21,6 +23,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerControls = new PlayerControls();
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
+
+        card = cardList[cardIndex];
+        holders[holdIndex].acceptDrop(card);
     }
 
     // Update is called once per frame
@@ -40,7 +45,28 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (context.phase == InputActionPhase.Started)
+        {
+            cardIndex++;
+            if (cardIndex < cardList.Count)
+            {
+                card = cardList[cardIndex];
+                holdIndex++;
+                if (holdIndex >= holders.Count)
+                {
+                    holdIndex = 0;
+                }
+                if (holdIndex < 0)
+                {
+                    holdIndex = holders.Count - 1;
+                }
+                holders[holdIndex].acceptDrop(card);
+            }
+            else
+            {
+
+            }
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)

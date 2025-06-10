@@ -778,7 +778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7335392186dca4195af776ecaeb6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1122776667}
+  cardList:
+  - {fileID: 1122776667}
+  - {fileID: 1716930829}
+  - {fileID: 1739608642}
   holders:
   - {fileID: 901721112439956051}
   - {fileID: 25562877}
@@ -1133,6 +1136,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c76e441bfb30c1438cdf9625d190472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1716930829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1513873044340084015, guid: b98361835c21e624fb93628a934303be, type: 3}
+  m_PrefabInstance: {fileID: 821852872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb136b0c10caf5d43b19b1fe9c0beb15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1739608642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1513873044340084015, guid: b98361835c21e624fb93628a934303be, type: 3}
+  m_PrefabInstance: {fileID: 153454299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb136b0c10caf5d43b19b1fe9c0beb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1817436470
