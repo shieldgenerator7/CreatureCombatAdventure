@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         if (context.phase == InputActionPhase.Started)
         {
             cardIndex++;
-            if (cardIndex >= enemyRanks.Count)
+            if (cardIndex >= cardList.Count)
             {
                 cardIndex = 0;
             }
