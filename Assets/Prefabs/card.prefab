@@ -687,6 +687,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+  srImage: {fileID: 8281727461894058666}
+  srFrame: {fileID: 5700533069594773376}
+  smFrame: {fileID: 8455390967518850875}
   txtName: {fileID: 8754985311175449306}
   txtCost: {fileID: 8386760401915285524}
   txtRPS: {fileID: 8840333746876875126}
@@ -943,7 +946,7 @@ GameObject:
   - component: {fileID: 8434532292854688707}
   - component: {fileID: 8281727461894058666}
   m_Layer: 0
-  m_Name: astalir_0
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
