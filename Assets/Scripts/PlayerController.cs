@@ -51,10 +51,49 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     void updateDisplay()
     {
-        int enemyPower = 5;
+        int enemyPower = 0;
+        int allyPower = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            CreatureCard ally = allyRanks[i].card;
+            CreatureCard enemy = enemyRanks[i].card;
+            if (!enemy)
+            {
+                allyPower += ally?.power ?? 0;
+            }
+            if (!ally)
+            {
+                enemyPower += enemy?.power ?? 0;
+            }
+            if (ally && enemy)
+            {
+                int _ap = ally.power;
+                int _ep = enemy.power;
+                if(beats(ally.rps, enemy.rps))
+                {
+                    _ep -= _ap;
+                }
+                if (beats(enemy.rps, ally.rps))
+                {
+                    _ap-= _ep;
+                }
+                allyPower += _ap;
+                enemyPower += _ep;
+            }
+        }
+
         txtPowerEnemy.text = $"{enemyPower}";
-        int allyPower = 7;
         txtPowerAlly.text = $"{allyPower}";
+
+    }
+
+    //TODO: move to more suitable spot (utility?)
+    public bool beats(RockPaperScissors rps1, RockPaperScissors rps2)
+    {
+        return rps1 == RockPaperScissors.ROCK && rps2 == RockPaperScissors.SCISSORS
+            || rps1 == RockPaperScissors.PAPER && rps2 == RockPaperScissors.ROCK
+            || rps1 == RockPaperScissors.SCISSORS && rps2 == RockPaperScissors.PAPER;
     }
 
 
