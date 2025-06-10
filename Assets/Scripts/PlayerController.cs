@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     PlayerControls.PlayerActions playerActions;
 
     public List<CardHolder> holders;
-    public int holdIndex = 0;
+    public int holdIndex = -1;
+
+    public List<CardHolder> enemyRanks;
+    public List<CardHolder> allyRanks;
+
+    public TMP_Text txtPowerEnemy;
+    public TMP_Text txtPowerAlly;
 
 
 
@@ -43,24 +50,28 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions.Disable();
     }
 
+    void updateDisplay()
+    {
+        int enemyPower = 5;
+        txtPowerEnemy.text = $"{enemyPower}";
+        int allyPower = 7;
+        txtPowerAlly.text = $"{allyPower}";
+    }
+
+
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
             cardIndex++;
+            if (cardIndex >= enemyRanks.Count)
+            {
+                cardIndex = 0;
+            }
             if (cardIndex < cardList.Count)
             {
                 card = cardList[cardIndex];
-                holdIndex++;
-                if (holdIndex >= holders.Count)
-                {
-                    holdIndex = 0;
-                }
-                if (holdIndex < 0)
-                {
-                    holdIndex = holders.Count - 1;
-                }
-                holders[holdIndex].acceptDrop(card);
             }
             else
             {
@@ -103,6 +114,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 holdIndex = holders.Count - 1;
             }
             holders[holdIndex].acceptDrop(card);
+            updateDisplay();
         }
     }
 
