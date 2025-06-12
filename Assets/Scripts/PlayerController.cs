@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             {
                 Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+                bool dropped = false;
                 foreach (RaycastHit2D rch2d in rch2ds)
                 {
                     if (rch2d.collider)
@@ -136,9 +137,14 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                         if (ch)
                         {
                             ch.acceptDrop(heldCardDisplayer);
+                            dropped = true;
                             break;
                         }
                     }
+                }
+                if (!dropped)
+                {
+                    heldCardDisplayer.holder.acceptDrop(heldCardDisplayer);
                 }
             }
             heldCardDisplayer = null;
