@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 }
                 if (!dropped)
                 {
-                    heldCardDisplayer.holder.acceptDrop(heldCardDisplayer);
+                    heldCardDisplayer.holder?.acceptDrop(heldCardDisplayer);
                 }
             }
             heldCardDisplayer = null;
