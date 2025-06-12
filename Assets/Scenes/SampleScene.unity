@@ -1435,6 +1435,7 @@ MonoBehaviour:
   - {fileID: 1464254896}
   txtPowerEnemy: {fileID: 918513778}
   txtPowerAlly: {fileID: 1020419568}
+  heldCardDisplayer: {fileID: 0}
 --- !u!114 &1122776667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1513873044340084015, guid: b98361835c21e624fb93628a934303be, type: 3}

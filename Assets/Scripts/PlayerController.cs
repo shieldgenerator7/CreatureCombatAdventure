@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     public TMP_Text txtPowerEnemy;
     public TMP_Text txtPowerAlly;
 
+    [SerializeField]
+    private CardDisplayer heldCardDisplayer = null;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -102,27 +105,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
-            cardIndex++;
-            if (cardIndex >= cardList.Count)
+            Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            RaycastHit2D rch2d = Physics2D.Raycast(mousepos, Vector2.zero, 0);
+            if (rch2d.collider)
             {
-                cardIndex = 0;
-            }
-            if (cardIndex < cardList.Count)
-            {
-                card = cardList[cardIndex];
-                CardHolder holder = holders.Find(h => h.card == card);
-                if (holder != null)
-                {
-                    holdIndex = holders.IndexOf(holders.Find(h => h.card == card));
-                }
-                else
-                {
-                    holdIndex = -1;
-                }
-            }
-            else
-            {
-
+                heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
             }
         }
     }
