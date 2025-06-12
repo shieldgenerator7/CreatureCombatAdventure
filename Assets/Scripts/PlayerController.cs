@@ -112,14 +112,35 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             foreach(RaycastHit2D rch2d in rch2ds) { 
             if (rch2d.collider)
             {
+                    CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
+                    if (cd)
+                    {
                 heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                 holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
                     break;
+                    }
             }
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
+            if (heldCardDisplayer != null)
+            {
+                Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+                foreach (RaycastHit2D rch2d in rch2ds)
+                {
+                    if (rch2d.collider)
+                    {
+                        CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
+                        if (ch)
+                        {
+                            ch.acceptDrop(heldCardDisplayer);
+                            break;
+                        }
+                    }
+                }
+            }
             heldCardDisplayer = null;
         }
     }
