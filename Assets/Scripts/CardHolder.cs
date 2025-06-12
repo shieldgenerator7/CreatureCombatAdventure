@@ -17,6 +17,10 @@ public class CardHolder : MonoBehaviour
     }
 
     public void acceptDrop(CardDisplayer cardDisplayer) { 
+        if (cardDisplayer.holder != null)
+        {
+            cardDisplayer.holder.card = null;
+        }
         cardDisplayer.transform.position = transform.position;
         cardDisplayer.transform.localScale = Vector3.one * cardScale;
         card = cardDisplayer.card;
