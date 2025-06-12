@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField]
     private Vector2 holdOffset = Vector2.zero;
 
+    [SerializeField]
+    private CardHolder hoverHolder = null;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -156,6 +159,10 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 {
                     heldCardDisplayer.holder?.acceptDrop(heldCardDisplayer);
                 }
+                if (hoverHolder != null)
+                {
+                    hoverHolder.acceptMouseHover(false);
+                }
             }
             heldCardDisplayer = null;
 
@@ -184,6 +191,30 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             heldCardDisplayer.transform.position = mousepos + holdOffset;
+
+
+            //hover holder pos
+            if (hoverHolder != null)
+            {
+                hoverHolder.acceptMouseHover(false);
+            }
+            RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+            foreach (RaycastHit2D rch2d in rch2ds)
+            {
+                if (rch2d.collider)
+                {
+                    CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
+                    if (ch)
+                    {
+                        if (!ch.card)
+                        {
+                            hoverHolder = ch;
+                            hoverHolder.acceptMouseHover(true);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 
