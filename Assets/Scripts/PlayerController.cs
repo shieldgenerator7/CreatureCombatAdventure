@@ -108,11 +108,14 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         if (context.phase == InputActionPhase.Started)
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            RaycastHit2D rch2d = Physics2D.Raycast(mousepos, Vector2.zero, 0);
+            RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+            foreach(RaycastHit2D rch2d in rch2ds) { 
             if (rch2d.collider)
             {
                 heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                 holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
+                    break;
+            }
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
