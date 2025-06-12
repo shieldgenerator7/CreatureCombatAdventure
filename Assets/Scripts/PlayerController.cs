@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                     CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                     if (ch)
                     {
-                        if (!ch.card)
+                        if (!ch.card || ch.card == heldCardDisplayer.card)
                         {
                             hoverHolder = ch;
                             hoverHolder.acceptMouseHover(true);
