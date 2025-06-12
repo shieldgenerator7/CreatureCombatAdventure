@@ -136,9 +136,12 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                         if (ch)
                         {
+                            if (!ch.card)
+                            {
                             ch.acceptDrop(heldCardDisplayer);
                             dropped = true;
                             break;
+                            }
                         }
                     }
                 }
