@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
 
-        for(int i =0; i < cardList.Count; i++)
+        for (int i = 0; i < cardList.Count; i++)
         {
             CardDisplayer card = cardList[i];
             card.cardLayer = i;
@@ -81,13 +81,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             {
                 int _ap = ally.power;
                 int _ep = enemy.power;
-                if(beats(ally.rps, enemy.rps))
+                if (beats(ally.rps, enemy.rps))
                 {
                     _ep -= _ap;
                 }
                 if (beats(enemy.rps, ally.rps))
                 {
-                    _ap-= _ep;
+                    _ap -= _ep;
                 }
                 allyPower += _ap;
                 enemyPower += _ep;
@@ -115,17 +115,18 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
-            foreach(RaycastHit2D rch2d in rch2ds) { 
-            if (rch2d.collider)
+            foreach (RaycastHit2D rch2d in rch2ds)
             {
+                if (rch2d.collider)
+                {
                     CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                     if (cd)
                     {
-                heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
-                holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
-                    break;
+                        heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
+                        holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
+                        break;
                     }
-            }
+                }
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
@@ -144,9 +145,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                         {
                             if (!ch.card)
                             {
-                            ch.acceptDrop(heldCardDisplayer);
-                            dropped = true;
-                            break;
+                                ch.acceptDrop(heldCardDisplayer);
+                                dropped = true;
+                                break;
                             }
                         }
                     }

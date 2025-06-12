@@ -10,7 +10,7 @@ public class CardHolder : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public void checkDrop(CardDisplayer cardDisplayer, Vector2 mousePos)
@@ -18,7 +18,8 @@ public class CardHolder : MonoBehaviour
 
     }
 
-    public void acceptDrop(CardDisplayer cardDisplayer) { 
+    public void acceptDrop(CardDisplayer cardDisplayer)
+    {
         if (cardDisplayer.holder != null)
         {
             cardDisplayer.holder.card = null;

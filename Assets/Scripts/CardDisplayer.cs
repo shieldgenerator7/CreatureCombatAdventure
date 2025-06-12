@@ -29,7 +29,7 @@ public class CardDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void updateDisplay()
@@ -46,10 +46,10 @@ public class CardDisplayer : MonoBehaviour
         //layers
         int baseLayer = cardLayer * 10;
         srBack.sortingOrder = baseLayer;
-        srFrame.sortingOrder = baseLayer+1;
+        srFrame.sortingOrder = baseLayer + 1;
         smFrame.backSortingOrder = baseLayer + 1;
-        srImage.sortingOrder = baseLayer+2;
-        smFrame.frontSortingOrder = baseLayer+2;
+        srImage.sortingOrder = baseLayer + 2;
+        smFrame.frontSortingOrder = baseLayer + 2;
         cvs.sortingOrder = baseLayer + 3;
 
     }
