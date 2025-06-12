@@ -37,6 +37,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions.AddCallbacks(this);
 
         card = cardList[cardIndex];
+        for(int i =0; i < cardList.Count; i++)
+        {
+            CardDisplayer card = cardList[i];
+            card.cardLayer = i;
+            card.updateDisplay();
+        }
+
     }
 
     // Update is called once per frame

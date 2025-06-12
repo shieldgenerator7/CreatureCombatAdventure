@@ -5,16 +5,20 @@ public class CardDisplayer : MonoBehaviour
 {
     public CreatureCard card;
 
+    public SpriteRenderer srBack;
     public SpriteRenderer srImage;
     public SpriteRenderer srFrame;
     public SpriteMask smFrame;
 
+    public Canvas cvs;
     public TMP_Text txtName;
     public TMP_Text txtCost;
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
     public CardHolder holder;
+
+    public int cardLayer = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,5 +42,15 @@ public class CardDisplayer : MonoBehaviour
         txtCost.text = $"{card.cost}";
         txtRPS.text = $"{card.rps}";
         txtPower.text = $"{card.power}";
+
+        //layers
+        int baseLayer = cardLayer * 10;
+        srBack.sortingOrder = baseLayer;
+        srFrame.sortingOrder = baseLayer+1;
+        smFrame.backSortingOrder = baseLayer + 1;
+        srImage.sortingOrder = baseLayer+2;
+        smFrame.frontSortingOrder = baseLayer+2;
+        cvs.sortingOrder = baseLayer + 3;
+
     }
 }
