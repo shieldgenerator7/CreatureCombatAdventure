@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8910858947654451167}
   - component: {fileID: 5700533069594773376}
   - component: {fileID: 8455390967518850875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: image mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 962954861286440808}
   - component: {fileID: 8085152875850070734}
   - component: {fileID: 8840333746876875126}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7142105263979854654}
   - component: {fileID: 4105740870381661796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: card back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 4429253798594105613}
   - component: {fileID: 9174440215240852588}
   - component: {fileID: 8754985311175449306}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 2467476209242567587}
   - component: {fileID: 887035321929046720}
   - component: {fileID: 2398072674507024772}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985846607709686699}
   - component: {fileID: 1513873044340084015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 1237001959502597284}
   - component: {fileID: 3245545434810245815}
   - component: {fileID: 6636766963297556264}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 2107591262836506240}
   - component: {fileID: 3847515917678587063}
   - component: {fileID: 8386760401915285524}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8434532292854688707}
   - component: {fileID: 8281727461894058666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
