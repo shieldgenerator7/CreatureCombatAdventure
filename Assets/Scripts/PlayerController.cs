@@ -7,14 +7,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
     public List<CardDisplayer> cardList;
-    private CardDisplayer card;
-    private int cardIndex = 0;
 
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
 
     public List<CardHolder> holders;
-    public int holdIndex = -1;
 
     public List<CardHolder> enemyRanks;
     public List<CardHolder> allyRanks;
@@ -39,7 +36,6 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
 
-        card = cardList[cardIndex];
         for(int i =0; i < cardList.Count; i++)
         {
             CardDisplayer card = cardList[i];
@@ -220,28 +216,6 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
-        {
-            if (card.holder)
-            {
-                card.holder.card = null;
-            }
-            Vector2 v = context.ReadValue<Vector2>();
-            do {
-                holdIndex += (int)v.x;
-                if (holdIndex >= holders.Count)
-                {
-                    holdIndex = 0;
-                }
-                if (holdIndex < 0)
-                {
-                    holdIndex = holders.Count - 1;
-                }
-            }
-            while (holders[holdIndex].card != null);
-            holders[holdIndex].acceptDrop(card);
-            updateDisplay();
-        }
     }
 
     public void OnNext(InputAction.CallbackContext context)
