@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
 
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnSelect(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
