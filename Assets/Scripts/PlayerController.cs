@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     [SerializeField]
     private CardDisplayer heldCardDisplayer = null;
+    [SerializeField]
+    private Vector2 holdOffset = Vector2.zero;
 
 
 
@@ -110,7 +112,12 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             if (rch2d.collider)
             {
                 heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
+                holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
             }
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            heldCardDisplayer = null;
         }
     }
 
@@ -131,6 +138,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnLook(InputAction.CallbackContext context)
     {
+        if (heldCardDisplayer != null)
+        {
+            Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            heldCardDisplayer.transform.position = mousepos + holdOffset;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
