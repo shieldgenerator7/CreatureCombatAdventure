@@ -148,6 +148,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 }
             }
             heldCardDisplayer = null;
+
+            updateDisplay();
         }
     }
 
