@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -169,5 +170,15 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     public void OnSprint(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void OnExit(InputAction.CallbackContext context)
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+
     }
 }
