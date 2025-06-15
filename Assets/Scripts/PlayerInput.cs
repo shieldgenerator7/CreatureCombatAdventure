@@ -4,11 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
+public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 {
-
-    public WranglerController controller;
-
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
 
