@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public List<CardDisplayer> cardDisplayerList;
+    private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
