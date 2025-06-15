@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public List<CardDisplayer> cardList;
+    public List<CardDisplayer> cardDisplayerList;
 
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
 
-        for (int i = 0; i < cardList.Count; i++)
+        for (int i = 0; i < cardDisplayerList.Count; i++)
         {
-            CardDisplayer card = cardList[i];
+            CardDisplayer card = cardDisplayerList[i];
             card.cardLayer = i;
             card.updateDisplay();
         }
