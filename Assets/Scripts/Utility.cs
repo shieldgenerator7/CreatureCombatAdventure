@@ -3,6 +3,20 @@ using UnityEngine;
 
 public static class Utility
 {
+    /**
+     * Converts number to symbol string. Examples:
+     * 0 = O
+     * 1 = I
+     * 2 = Z
+     * 3 = ZI
+     * 4 = A
+     * 5 = AI
+     * 6 = AZ
+     * 7 = AZI
+     * 8 = B
+     * 9 = BI
+     * 10 = BZ 
+    */
     public static string GetSymbolString(int number)
     {
         if (number < 0)
