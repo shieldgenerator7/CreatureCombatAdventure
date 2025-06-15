@@ -25,7 +25,11 @@ public class AIInput : WranglerInput
         base.processTurn();
         //try playing cards
         //find card
-        CardDisplayer cd = controller.CardDisplayerList.FirstOrDefault(cd=>cd.holder == null);
+        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd=>cd.holder == null);
+        if (unplayedCardList.Count > 0 )
+        {
+            int randIndex1 = Random.Range(0, unplayedCardList.Count);
+            CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
         {
             List<CardHolder> emptyHolderList = holders.FindAll((holder) => holder.card == null);
@@ -38,6 +42,7 @@ public class AIInput : WranglerInput
                     controller.placeCard(cd, ch);
                 }
             }
+        }
         }
     }
 }
