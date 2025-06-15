@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public List<CreatureCard> cardList;
+    public Player player;
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             Destroy(card.gameObject);
         });
         cardDisplayerList.Clear();
-        cardList.ForEach(card =>
+        player.cardList.ForEach(card =>
         {
             GameObject go = Instantiate(cardDisplayerPrefab);
             CardDisplayer cd = go.GetComponent<CardDisplayer>();
