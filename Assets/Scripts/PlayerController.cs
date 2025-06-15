@@ -43,8 +43,10 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         for (int i = 0; i < cardDisplayerList.Count; i++)
         {
             CardDisplayer card = cardDisplayerList[i];
-            card.cardLayer = i;
+            card.cardLayer = i+1;
             card.updateDisplay();
+            //TODO: make function to layout cards in hand / other holder
+            card.transform.position = new Vector2(-8 + i * 8, -10);
         }
 
     }
