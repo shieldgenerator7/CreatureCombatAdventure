@@ -21,11 +21,11 @@ public static class Utility
         {
             for(int i =symbolList.Length-1; i>= 0; i--)
             {
-                int power = (int)Mathf.Pow(number,i);
+                int power = (int)Mathf.Pow(2,i);
                 if (number >= power)
                 {
                     str += symbolList[i];
-                    number -= i;
+                    number -= power;
                     break;
                 }
             }
