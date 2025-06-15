@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             cd.card = card;
             cd.updateDisplay();
             cd.transform.position = new Vector2(0, -5);
+            cd.owner = this;
 
             cardDisplayerList.Add(cd);
         });
@@ -147,9 +148,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                     CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                     if (cd)
                     {
+                        if (cd.owner == this) { 
                         heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                         holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
                         break;
+                        }
                     }
                 }
             }
