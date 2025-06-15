@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
+    public List<CreatureCard> cardList;
+    public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
     PlayerControls playerControls;
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
 
+        createCards();
+
         for (int i = 0; i < cardDisplayerList.Count; i++)
         {
             CardDisplayer card = cardDisplayerList[i];
@@ -49,6 +53,25 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     void Update()
     {
 
+    }
+
+    private void createCards()
+    {
+        cardDisplayerList.ForEach(card =>
+        {
+            Destroy(card.gameObject);
+        });
+        cardDisplayerList.Clear();
+        cardList.ForEach(card =>
+        {
+            GameObject go = Instantiate(cardDisplayerPrefab);
+            CardDisplayer cd = go.GetComponent<CardDisplayer>();
+            cd.card = card;
+            cd.updateDisplay();
+            cd.transform.position = new Vector2(0, -5);
+
+            cardDisplayerList.Add(cd);
+        });
     }
 
     private void OnEnable()
