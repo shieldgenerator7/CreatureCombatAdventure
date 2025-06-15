@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public Player player;
+    public Wrangler player;
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 

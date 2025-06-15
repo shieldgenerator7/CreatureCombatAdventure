@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Player
+public class Wrangler
 {
     public string name;
     public List<CreatureCard> cardList;
