@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -60,5 +61,7 @@ public class WranglerController : MonoBehaviour
             card.holder.card = null;
         }
         holder.acceptDrop(card);
+        OnCardPlaced?.Invoke();
     }
+    public event Action OnCardPlaced;
 }
