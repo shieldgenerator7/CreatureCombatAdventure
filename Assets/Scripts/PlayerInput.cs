@@ -6,9 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
 {
-    public Wrangler player;
-    public GameObject cardDisplayerPrefab;
-    private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
+
+    public WranglerController controller;
 
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
@@ -38,43 +37,12 @@ public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
 
-        createCards();
-
-        for (int i = 0; i < cardDisplayerList.Count; i++)
-        {
-            CardDisplayer card = cardDisplayerList[i];
-            card.cardLayer = i+1;
-            card.updateDisplay();
-            //TODO: make function to layout cards in hand / other holder
-            card.transform.position = new Vector2(-8 + i * 8, -10);
-        }
-
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    private void createCards()
-    {
-        cardDisplayerList.ForEach(card =>
-        {
-            Destroy(card.gameObject);
-        });
-        cardDisplayerList.Clear();
-        player.cardList.ForEach(card =>
-        {
-            GameObject go = Instantiate(cardDisplayerPrefab);
-            CardDisplayer cd = go.GetComponent<CardDisplayer>();
-            cd.card = card;
-            cd.updateDisplay();
-            cd.transform.position = new Vector2(0, -5);
-            cd.owner = this;
-
-            cardDisplayerList.Add(cd);
-        });
     }
 
     private void OnEnable()
@@ -148,7 +116,7 @@ public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
                     CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                     if (cd)
                     {
-                        if (cd.owner == this) { 
+                        if (controller.canPickupCard(cd)) { 
                         heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                         holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
                         break;
@@ -171,9 +139,9 @@ public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                         if (ch)
                         {
-                            if (!ch.card && ch.owner == this)
+                            if (controller.canPlaceCardAt(heldCardDisplayer, ch))
                             {
-                                ch.acceptDrop(heldCardDisplayer);
+                                controller.placeCard(heldCardDisplayer, ch);
                                 dropped = true;
                                 break;
                             }
@@ -231,7 +199,7 @@ public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
                     CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                     if (ch)
                     {
-                        if ((!ch.card || ch.card == heldCardDisplayer.card) && ch.owner == this)
+                        if (controller.canPlaceCardAt(heldCardDisplayer,ch))
                         {
                             hoverHolder = ch;
                             hoverHolder.acceptMouseHover(true);

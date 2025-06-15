@@ -5,7 +5,7 @@ public class CardDisplayer : MonoBehaviour
 {
     public CreatureCard card;
 
-    public PlayerInput owner;
+    public WranglerController owner;
 
     public SpriteRenderer srBack;
     public SpriteRenderer srImage;
