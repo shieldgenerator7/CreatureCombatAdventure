@@ -25,7 +25,7 @@ public class AIInput : WranglerInput
         base.processTurn();
         //try playing cards
         //find card
-        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd=>cd.holder == null);
+        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd=>cd.holder == null || controller.handHolderList.Contains(cd.holder));
         if (unplayedCardList.Count > 0 )
         {
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
