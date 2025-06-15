@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<WranglerController> controllers;
+    public AIInput aiInput;
 
 
     public List<CardHolder> holders;
@@ -22,12 +23,23 @@ public class GameManager : MonoBehaviour
         {
             controller.OnCardPlaced += updateDisplay;
         });
+        controllers
+            .FindAll(c => aiInput.controller != c)
+            .ForEach(c =>
+                {
+                    c.OnTurnTaken += processNextTurn;
+                });
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void processNextTurn()
+    {
+        aiInput.processTurn();
     }
 
 

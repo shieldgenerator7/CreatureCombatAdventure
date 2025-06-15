@@ -43,6 +43,8 @@ public class WranglerController : MonoBehaviour
         });
     }
 
+    public List<CardDisplayer> CardDisplayerList =>cardDisplayerList;
+
     public bool canPickupCard(CardDisplayer cardDisplayer)
     {
         return cardDisplayer.owner == this;
@@ -62,6 +64,8 @@ public class WranglerController : MonoBehaviour
         }
         holder.acceptDrop(card);
         OnCardPlaced?.Invoke();
+        OnTurnTaken?.Invoke();
     }
     public event Action OnCardPlaced;
+    public event Action OnTurnTaken;
 }
