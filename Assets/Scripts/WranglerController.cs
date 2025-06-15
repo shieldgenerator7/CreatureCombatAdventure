@@ -9,6 +9,8 @@ public class WranglerController : MonoBehaviour
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
+    public List<CardHolder> handHolderList;
+
     private void Awake()
     {
         createCards();
@@ -19,7 +21,10 @@ public class WranglerController : MonoBehaviour
             card.cardLayer = i + 1;
             card.updateDisplay();
             //TODO: make function to layout cards in hand / other holder
-            card.transform.position = new Vector2(-8 + i * 8, -10);
+            //add to hand holder
+            int holderIndex = i % handHolderList.Count;
+            handHolderList[holderIndex].acceptDrop(card);
+            //
         }
     }
 
