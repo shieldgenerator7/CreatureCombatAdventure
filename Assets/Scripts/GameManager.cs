@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
                 {
                     c.OnTurnTaken += processNextTurn;
                 });
+        updateDisplay();
     }
 
     // Update is called once per frame
