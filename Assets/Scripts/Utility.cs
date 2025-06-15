@@ -49,4 +49,19 @@ public static class Utility
         }
         return str;
     }
+
+    public static string GetSymbolString(RockPaperScissors rps)
+    {
+        switch (rps)
+        {
+            case RockPaperScissors.ROCK:
+                return "[R]";
+            case RockPaperScissors.PAPER:
+                return "|P|";
+            case RockPaperScissors.SCISSORS:
+                return "\\S/";
+            default:
+                throw new System.Exception($"Unknown rps symbol: {rps}");
+        }
+    }
 }

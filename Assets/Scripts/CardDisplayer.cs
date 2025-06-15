@@ -42,7 +42,7 @@ public class CardDisplayer : MonoBehaviour
 
         txtName.text = card.name;
         txtCost.text = $"{Utility.GetSymbolString(card.cost)}";
-        txtRPS.text = $"{card.rps}";
+        txtRPS.text = $"{Utility.GetSymbolString(card.rps)}";
         txtPower.text = $"{Utility.GetSymbolString(card.power)}";
 
         //layers
