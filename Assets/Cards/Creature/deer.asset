@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: deer
   m_EditorClassIdentifier: 
   name: Deer
-  cost: 0
+  cost: 1
   image: {fileID: 1832485392093907632, guid: d280eb7bba0d92444a9cb2d8ec9e74b9, type: 3}
   frame: {fileID: 21300000, guid: 6612606b893ff154bb0eef96c11848a0, type: 3}
   rps: 0
-  power: 3
+  power: 1

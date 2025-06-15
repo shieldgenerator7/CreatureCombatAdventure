@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cloud
   m_EditorClassIdentifier: 
   name: Cloud
-  cost: 0
+  cost: 1
   image: {fileID: 21300000, guid: ef46512cc8a1152458fbc5e5f9c75ef0, type: 3}
   frame: {fileID: 21300000, guid: 6612606b893ff154bb0eef96c11848a0, type: 3}
   rps: 1
-  power: 3
+  power: 1
