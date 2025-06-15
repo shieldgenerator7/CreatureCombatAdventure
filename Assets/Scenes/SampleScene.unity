@@ -1406,9 +1406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardList:
-  - {fileID: 1122776667}
-  - {fileID: 1716930829}
-  - {fileID: 1739608642}
+  - {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+  - {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+  - {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+  cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   holders:
   - {fileID: 901721112439956051}
   - {fileID: 25562877}
