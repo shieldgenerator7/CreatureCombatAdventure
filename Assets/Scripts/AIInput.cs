@@ -24,10 +24,9 @@ public class AIInput : WranglerInput
     {
         base.processTurn();
         //try playing cards
+        if (canPlayAnyCard()) {
         //find card
         List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd=>cd.holder == null || controller.handHolderList.Contains(cd.holder));
-        if (unplayedCardList.Count > 0 )
-        {
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
             CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
@@ -44,5 +43,17 @@ public class AIInput : WranglerInput
             }
         }
         }
+    }
+
+    private bool canPlayAnyCard()
+    {
+        return controller.CardDisplayerList.Any(c =>
+            //not on the board
+            (c.holder == null || controller.handHolderList.Contains(c.holder))
+            //can be played
+            && controller.canPickupCard(c)
+            //can be placed at any position
+            && holders.Any(h => controller.canPlaceCardAt(c, h))
+            );
     }
 }
