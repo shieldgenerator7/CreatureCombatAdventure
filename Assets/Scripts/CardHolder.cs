@@ -27,6 +27,7 @@ public class CardHolder : MonoBehaviour
         }
         cardDisplayer.transform.position = transform.position;
         cardDisplayer.transform.localScale = Vector3.one * cardScale;
+        cardDisplayer.transform.rotation = transform.rotation;
         card = cardDisplayer.card;
         cardDisplayer.holder = this;
     }
