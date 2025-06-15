@@ -24,13 +24,19 @@ public class AIInput : WranglerInput
     {
         base.processTurn();
         //try playing cards
+        //find card
         CardDisplayer cd = controller.CardDisplayerList.FirstOrDefault(cd=>cd.holder == null);
-        if (cd)
+        if (cd && controller.canPickupCard(cd))
         {
             List<CardHolder> emptyHolderList = holders.FindAll((holder) => holder.card == null);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
+                CardHolder ch = emptyHolderList[randIndex];
+                if (controller.canPlaceCardAt(cd, ch))
+                {
+                    controller.placeCard(cd, ch);
+                }
             }
         }
     }
