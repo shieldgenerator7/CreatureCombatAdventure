@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        txtPowerEnemy.text = $"{enemyPower}";
-        txtPowerAlly.text = $"{allyPower}";
+        txtPowerEnemy.text = $"{Utility.GetSymbolString(enemyPower)}";
+        txtPowerAlly.text = $"{Utility.GetSymbolString(allyPower)}";
 
     }
 

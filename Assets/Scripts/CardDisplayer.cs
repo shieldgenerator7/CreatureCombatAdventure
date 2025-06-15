@@ -41,9 +41,9 @@ public class CardDisplayer : MonoBehaviour
         smFrame.sprite = card.frame;
 
         txtName.text = card.name;
-        txtCost.text = $"{card.cost}";
+        txtCost.text = $"{Utility.GetSymbolString(card.cost)}";
         txtRPS.text = $"{card.rps}";
-        txtPower.text = $"{card.power}";
+        txtPower.text = $"{Utility.GetSymbolString(card.power)}";
 
         //layers
         int baseLayer = cardLayer * 10;
