@@ -987,6 +987,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
     - {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
     - {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   handHolderList:
   - {fileID: 731102397}
@@ -1889,6 +1890,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
     - {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
     - {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   handHolderList:
   - {fileID: 64678183}
