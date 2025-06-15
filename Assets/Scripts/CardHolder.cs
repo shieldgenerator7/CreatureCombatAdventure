@@ -4,7 +4,7 @@ public class CardHolder : MonoBehaviour
 {
     public float cardScale = 0.25f;
     public CreatureCard card;
-    public PlayerController owner;
+    public PlayerInput owner;
 
     public SpriteRenderer highlight;
 

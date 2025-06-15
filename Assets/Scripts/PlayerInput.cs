@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
+public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
 {
     public Player player;
     public GameObject cardDisplayerPrefab;
