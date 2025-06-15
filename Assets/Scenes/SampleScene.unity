@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardHolder (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1056722127}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.2
@@ -839,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardHolder (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1056722127}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.43
@@ -1330,6 +1338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardHolder (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1056722127}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.28
@@ -1398,6 +1410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardHolder (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1056722127}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.11
@@ -1534,6 +1550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardHolder (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1056722127}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.32

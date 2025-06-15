@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                         if (ch)
                         {
-                            if (!ch.card)
+                            if (!ch.card && ch.owner == this)
                             {
                                 ch.acceptDrop(heldCardDisplayer);
                                 dropped = true;
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                     CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
                     if (ch)
                     {
-                        if (!ch.card || ch.card == heldCardDisplayer.card)
+                        if ((!ch.card || ch.card == heldCardDisplayer.card) && ch.owner == this)
                         {
                             hoverHolder = ch;
                             hoverHolder.acceptMouseHover(true);
