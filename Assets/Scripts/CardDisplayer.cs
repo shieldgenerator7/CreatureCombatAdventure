@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,18 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtCost;
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
+
+    private bool mousedOver = false;
+    public bool MousedOver
+    {
+        get => mousedOver;
+        set
+        {
+            mousedOver = value;
+            OnMousedOver?.Invoke(this, value);
+        }
+    }
+    public event Action<CardDisplayer, bool> OnMousedOver;
 
     public int cardLayer = 0;
 

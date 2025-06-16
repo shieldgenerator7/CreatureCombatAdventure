@@ -41,7 +41,9 @@ public class CardHolder
     public void removeCard(Card card)
     {
         cardList.Remove(card);
+        OnCardRemoved?.Invoke(card);
     }
+    public event Action<Card> OnCardRemoved;
 
 
     public static implicit operator bool(CardHolder cardHolder) => cardHolder != null;

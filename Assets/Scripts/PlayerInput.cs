@@ -17,6 +17,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
     private CardHolderDisplayer hoverHolder = null;
 
+    private CardDisplayer mousedOverCard = null;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -134,6 +136,27 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         }
                     }
                 }
+            }
+        }
+        else
+        {
+            CardDisplayer cd = getMousedOverCard();
+            if (cd)
+            { 
+                if (cd != mousedOverCard && mousedOverCard)
+                {
+                    mousedOverCard.MousedOver = false;
+                }
+                mousedOverCard = cd;
+                mousedOverCard.MousedOver = true;
+            }
+            else
+            {
+                if (mousedOverCard != null)
+                {
+                    mousedOverCard.MousedOver = false;
+                }
+                mousedOverCard = null;
             }
         }
     }
