@@ -27,11 +27,19 @@ public class AIInput : WranglerInput
         if (canPlayAnyCard()) {
         //find card
         List<Card> unplayedCardList = controller.player.cardList.FindAll(card => card.holder == null || controller.player.handHolder.hasCard(card));
+            if (unplayedCardList.Count == 0)
+            {
+                unplayedCardList = controller.player.cardList;
+            }
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
             Card card = unplayedCardList[randIndex1];
         if (card && controller.canPickupCard(card))
         {
             List<CardHolder> emptyHolderList = controller.player.cardHolders.FindAll((holder) => holder.CardCount == 0);
+                if (emptyHolderList.Count == 0)
+                {
+                    emptyHolderList = controller.player.cardHolders.FindAll(holder=>holder.CardCount<holder.limit);
+                }
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
