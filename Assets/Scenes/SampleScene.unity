@@ -484,6 +484,18 @@ PrefabInstance:
       propertyPath: spreadWidth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (12)
@@ -496,6 +508,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1056722128}
+    - target: {fileID: 8700110212287645149, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_Size.x
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1151,6 +1167,18 @@ PrefabInstance:
       propertyPath: spreadWidth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544220482031850828, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (7)
@@ -1162,6 +1190,10 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700110212287645149, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: m_Size.x
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
