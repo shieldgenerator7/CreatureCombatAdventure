@@ -28,6 +28,6 @@ public class CardHolderDisplayer : MonoBehaviour
 
     public void removeCard(CardDisplayer card)
     {
-        cardHolder.Remove(card.card);
+        cardHolder.removeCard(card.card);
     }
 }
