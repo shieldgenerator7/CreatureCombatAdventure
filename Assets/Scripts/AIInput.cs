@@ -26,7 +26,8 @@ public class AIInput : WranglerInput
         //try playing cards
         if (canPlayAnyCard()) {
         //find card
-        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd=>cd.holder == null || controller.handHolderList.Contains(cd.holder));
+            //TODO: put back in
+        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd => cd.holder == null);// || controller.handHolderList.Contains(cd.holder));
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
             CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
@@ -49,7 +50,8 @@ public class AIInput : WranglerInput
     {
         return controller.CardDisplayerList.Any(c =>
             //not on the board
-            (c.holder == null || controller.handHolderList.Contains(c.holder))
+            //TODO: put back in
+            (c.holder == null)// || controller.handHolderList.Contains(c.holder))
             //can be played
             && controller.canPickupCard(c)
             //can be placed at any position

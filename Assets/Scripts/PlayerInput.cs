@@ -98,7 +98,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 }
                 if (hoverHolder != null)
                 {
-                    hoverHolder.acceptMouseHover(false);
+                    //TODO: put this back in
+                    //hoverHolder.acceptMouseHover(false);
                 }
             }
             heldCardDisplayer = null;
@@ -131,7 +132,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             //hover holder pos
             if (hoverHolder != null)
             {
-                hoverHolder.acceptMouseHover(false);
+                //TODO: put back in
+                //hoverHolder.acceptMouseHover(false);
             }
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
             foreach (RaycastHit2D rch2d in rch2ds)
@@ -144,7 +146,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         if (controller.canPlaceCardAt(heldCardDisplayer,ch))
                         {
                             hoverHolder = ch;
-                            hoverHolder.acceptMouseHover(true);
+                            //TODO: put back in
+                            //hoverHolder.acceptMouseHover(true);
                             break;
                         }
                     }
