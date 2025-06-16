@@ -135,7 +135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlight: {fileID: 8752794954129201810}
   spreadWidth: 0
+  spreadDir: {x: 0, y: 0}
   maxSpreadBuffer: 2
+  mouseOverPopupDistance: 0.25
+  baseLayer: 0
 --- !u!61 &8700110212287645149
 BoxCollider2D:
   m_ObjectHideFlags: 0
