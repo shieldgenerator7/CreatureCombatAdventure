@@ -78,7 +78,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 {
                     if (rch2d.collider)
                     {
-                        CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.cardHolder;
+                        CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
                         if (ch != null)
                         {
                             if (controller.canPlaceCardAt(heldCard, ch))

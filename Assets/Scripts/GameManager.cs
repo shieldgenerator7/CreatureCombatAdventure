@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
     public AIInput aiInput;
 
@@ -49,8 +50,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            CreatureCardData ally = allyRanks[i].cardHolder.Card?.data;
-            CreatureCardData enemy = enemyRanks[i].cardHolder.Card?.data;
+            CreatureCardData ally = allyRanks[i].CardHolder.Card?.data;
+            CreatureCardData enemy = enemyRanks[i].CardHolder.Card?.data;
             if (!enemy)
             {
                 allyPower += ally?.power ?? 0;

@@ -31,14 +31,14 @@ public class AIInput : WranglerInput
             Card card = unplayedCardList[randIndex1];
         if (card && controller.canPickupCard(card))
         {
-            List<CardHolderDisplayer> emptyHolderList = holders.FindAll((holder) => holder.cardHolder.CardCount == 0);
+            List<CardHolder> emptyHolderList = controller.player.cardHolders.FindAll((holder) => holder.CardCount == 0);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
-                CardHolderDisplayer ch = emptyHolderList[randIndex];
-                if (controller.canPlaceCardAt(card, ch.cardHolder))
+                CardHolder ch = emptyHolderList[randIndex];
+                if (controller.canPlaceCardAt(card, ch))
                 {
-                    controller.placeCard(card, ch.cardHolder);
+                    controller.placeCard(card, ch);
                 }
             }
         }
@@ -53,7 +53,7 @@ public class AIInput : WranglerInput
             //can be played
             && controller.canPickupCard(c)
             //can be placed at any position
-            && holders.Any(h => controller.canPlaceCardAt(c, h.cardHolder))
+            && controller.player.cardHolders.Any(h => controller.canPlaceCardAt(c, h))
             );
     }
 }

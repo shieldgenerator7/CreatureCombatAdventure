@@ -15,10 +15,10 @@ public class WranglerController : MonoBehaviour
     private void Awake()
     {
         //holders
-        handHolder.cardHolder = player.handHolder;
+        handHolder.init(player.handHolder);
         for(int i =0; i < holderList.Count; i++)
         {
-            holderList[i].cardHolder=player.cardHolders[i];
+            holderList[i].init(player.cardHolders[i]);
             player.cardHolders[i].owner = player;
         }
 

@@ -5,7 +5,14 @@ public class CardHolderDisplayer : MonoBehaviour
     public SpriteRenderer highlight;
     public float cardScale = 0.25f;
 
-    public CardHolder cardHolder;
+    private CardHolder cardHolder;
+    public CardHolder CardHolder => cardHolder;
+
+    public void init(CardHolder cardHolder)
+    {
+        this.cardHolder = cardHolder;
+    }
+
 
     public void acceptDrop(CardDisplayer cardDisplayer)
     {
