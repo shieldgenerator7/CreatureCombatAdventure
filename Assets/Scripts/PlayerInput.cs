@@ -61,6 +61,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         if (controller.canPickupCard(card)) {
                         heldCard = cd;
                         holdOffset = (Vector2)cd.transform.position - mousepos;
+                            cd.cardLayer = 100;
+                            cd.updateDisplay();
                         break;
                         }
                     }

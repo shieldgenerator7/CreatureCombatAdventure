@@ -25,15 +25,6 @@ public class WranglerController : MonoBehaviour
 
         //cards
         createCards();
-
-        //place cards in hand holder
-        for (int i = 0; i < cardDisplayerList.Count; i++)
-        {
-            CardDisplayer card = cardDisplayerList[i];
-            card.cardLayer = i + 1;
-            card.updateDisplay();
-            handHolder.CardHolder.acceptDrop(card.card);
-        }
     }
 
     private void createCards()
@@ -48,9 +39,8 @@ public class WranglerController : MonoBehaviour
             GameObject go = Instantiate(cardDisplayerPrefab);
             CardDisplayer cd = go.GetComponent<CardDisplayer>();
             cd.card = card;
-            cd.updateDisplay();
-            cd.transform.position = new Vector2(0, -5);
             card.owner = this.player;
+            handHolder.CardHolder.acceptDrop(card);
 
             cardDisplayerList.Add(cd);
         });

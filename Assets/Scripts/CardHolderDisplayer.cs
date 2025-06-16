@@ -41,6 +41,8 @@ public class CardHolderDisplayer : MonoBehaviour
             {
                 CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
                 cd.transform.position = (Vector2)transform.position + new Vector2(startX + spreadBuffer * i, 0);
+                cd.cardLayer = i + 1;
+                cd.updateDisplay();
             }
         }
         //TODO: functionality to lay them out vertically
