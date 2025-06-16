@@ -49,31 +49,10 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
-            Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
-            List<CardDisplayer> cards = new List<CardDisplayer>();
-            foreach (RaycastHit2D rch2d in rch2ds)
-            {
-                if (rch2d.collider)
-                {
-                    CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
-                    if (cd)
-                    {
-                        Card card = cd.card;
-                        if (controller.canPickupCard(card)) {
-                            cards.Add(cd);
-                        }
-                    }
-                }
-            }
-            if (cards.Count > 0) {
-                int max = cards.Max(cd => cd.cardLayer);
-                CardDisplayer cd = cards.Find(c=>c.cardLayer==max);
+                CardDisplayer cd = getMousedOverCard();
                 heldCard = cd;
-                holdOffset = (Vector2)cd.transform.position - mousepos;
                 cd.cardLayer = 100;
                 cd.updateDisplay();
-            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -186,5 +165,35 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         Application.Quit();
 #endif
 
+    }
+
+    private CardDisplayer getMousedOverCard()
+    {
+        Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+        List<CardDisplayer> cards = new List<CardDisplayer>();
+        foreach (RaycastHit2D rch2d in rch2ds)
+        {
+            if (rch2d.collider)
+            {
+                CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
+                if (cd)
+                {
+                    Card card = cd.card;
+                    if (controller.canPickupCard(card))
+                    {
+                        cards.Add(cd);
+                    }
+                }
+            }
+        }
+        if (cards.Count > 0)
+        {
+            int max = cards.Max(cd => cd.cardLayer);
+            CardDisplayer cd = cards.Find(c => c.cardLayer == max);
+            holdOffset = (Vector2)cd.transform.position - mousepos;
+            return cd;
+        }
+        return null;
     }
 }
