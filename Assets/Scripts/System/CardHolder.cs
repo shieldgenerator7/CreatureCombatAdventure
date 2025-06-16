@@ -33,7 +33,9 @@ public class CardHolder
         }
         cardList.Add(card);
         card.holder = this;
+        OnCardDropped?.Invoke(card);
     }
+    public event Action<Card> OnCardDropped;
 
 
     public void removeCard(Card card)

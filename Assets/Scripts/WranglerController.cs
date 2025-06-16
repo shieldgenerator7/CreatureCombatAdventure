@@ -31,10 +31,7 @@ public class WranglerController : MonoBehaviour
             CardDisplayer card = cardDisplayerList[i];
             card.cardLayer = i + 1;
             card.updateDisplay();
-            //TODO: make function to layout cards in hand / other holder
-            //add to hand holder
-            handHolder.acceptDrop(card);
-            //
+            handHolder.CardHolder.acceptDrop(card.card);
         }
     }
 

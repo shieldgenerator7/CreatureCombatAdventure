@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -50,5 +51,10 @@ public class CardDisplayer : MonoBehaviour
         smFrame.frontSortingOrder = baseLayer + 2;
         cvs.sortingOrder = baseLayer + 3;
 
+    }
+
+    internal static CardDisplayer Find(Card card)
+    {
+        return FindObjectsByType<CardDisplayer>(FindObjectsSortMode.None).FirstOrDefault(cd => cd.card == card);
     }
 }
