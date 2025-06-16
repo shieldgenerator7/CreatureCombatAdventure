@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: baseLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (1)
@@ -410,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
@@ -1117,6 +1125,10 @@ PrefabInstance:
       propertyPath: baseLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (5)
@@ -1418,6 +1430,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
@@ -1723,6 +1739,10 @@ PrefabInstance:
       propertyPath: baseLayer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (7)
@@ -1824,6 +1844,10 @@ PrefabInstance:
       propertyPath: baseLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (6)
@@ -1888,6 +1912,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
@@ -1958,6 +1986,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
@@ -2082,6 +2114,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
@@ -2283,6 +2319,10 @@ PrefabInstance:
     - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: baseLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadDir.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name

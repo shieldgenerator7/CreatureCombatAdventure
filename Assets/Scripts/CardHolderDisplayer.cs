@@ -5,6 +5,7 @@ public class CardHolderDisplayer : MonoBehaviour
 {
     public SpriteRenderer highlight;
     public float spreadWidth = 0;
+    public Vector2 spreadDir = Vector2.zero;
     public float maxSpreadBuffer = 2;
     public float mouseOverPopupDistance = 2;
     public int baseLayer = 0;
@@ -55,6 +56,24 @@ public class CardHolderDisplayer : MonoBehaviour
                 if (cd.MousedOver)
                 {
                     cd.cardLayer = baseLayer+50;
+                    cd.transform.position += Vector3.up * mouseOverPopupDistance;
+                }
+                cd.updateDisplay();
+            }
+        }
+        else if (spreadDir != Vector2.zero)
+        {
+            Vector2 startPos = transform.position;
+            Vector2 normDir = spreadDir.normalized;
+            float spreadBuffer = Mathf.Min(spreadDir.magnitude / cardHolder.CardCount, maxSpreadBuffer);
+            for (int i = 0; i < cardHolder.CardCount; i++)
+            {
+                CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
+                cd.transform.position = (Vector2)transform.position + (normDir*(spreadBuffer*i));
+                cd.cardLayer = baseLayer + i + 1;
+                if (cd.MousedOver)
+                {
+                    cd.cardLayer = baseLayer + 50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
                 cd.updateDisplay();
