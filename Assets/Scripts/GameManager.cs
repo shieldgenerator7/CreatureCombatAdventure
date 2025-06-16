@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
                 enemyPower += _ep;
             }
         }
+        enemyPower=Mathf.Clamp(enemyPower, 0, enemyPower);
+        allyPower=Mathf.Clamp(allyPower, 0, allyPower);
 
         txtPowerEnemy.text = $"{Utility.GetSymbolString(enemyPower)}";
         txtPowerAlly.text = $"{Utility.GetSymbolString(allyPower)}";
