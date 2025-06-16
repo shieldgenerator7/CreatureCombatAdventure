@@ -7,6 +7,7 @@ public class CardHolderDisplayer : MonoBehaviour
     public float spreadWidth = 0;
     public float maxSpreadBuffer = 2;
     public float mouseOverPopupDistance = 2;
+    public int baseLayer = 0;
 
     private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
@@ -50,10 +51,10 @@ public class CardHolderDisplayer : MonoBehaviour
             {
                 CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
                 cd.transform.position = (Vector2)transform.position + new Vector2(startX + spreadBuffer * i, 0);
-                cd.cardLayer = i + 1;
+                cd.cardLayer = baseLayer + i + 1;
                 if (cd.MousedOver)
                 {
-                    cd.cardLayer = 50;
+                    cd.cardLayer = baseLayer+50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
                 cd.updateDisplay();
@@ -67,6 +68,11 @@ public class CardHolderDisplayer : MonoBehaviour
         if (spreadWidth > 0)
         {
             layoutCards();
+        }
+        else
+        {
+            cd.cardLayer = baseLayer;
+            cd.updateDisplay();
         }
     }
 

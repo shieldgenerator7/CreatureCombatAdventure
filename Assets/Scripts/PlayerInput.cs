@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 {
+    public int pickupLayer = 1000;
+
     PlayerControls playerControls;
     PlayerControls.PlayerActions playerActions;
 
@@ -53,7 +55,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         {
                 CardDisplayer cd = getMousedOverCard();
                 heldCard = cd;
-                cd.cardLayer = 100;
+                cd.cardLayer = pickupLayer;
                 cd.updateDisplay();
         }
         else if (context.phase == InputActionPhase.Canceled)
