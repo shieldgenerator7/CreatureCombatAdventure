@@ -1,21 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
-public class CardHolder : MonoBehaviour
+public class CardHolder
 {
-    public float cardScale = 0.25f;
     public List<CreatureCard> cardList;
-    public WranglerController owner;
+    public Wrangler owner;
     public int limit = 1;
-
-    public SpriteRenderer highlight;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     public CreatureCard Card => cardList.FirstOrDefault();
     public int CardCount => cardList.Count;
@@ -25,40 +15,27 @@ public class CardHolder : MonoBehaviour
         return cardList.Contains(card);
     }
 
-    public void checkDrop(CardDisplayer cardDisplayer, Vector2 mousePos)
-    {
 
-    }
-
-    public bool canAcceptCard(CardDisplayer card)
+    public bool canAcceptCard(CreatureCard card)
     {
         return cardList.Count < limit;
     }
 
-    public void acceptDrop(CardDisplayer cardDisplayer)
+    public void acceptDrop(CreatureCard card)
     {
-        if (cardDisplayer.holder != null)
-        {
-            cardDisplayer.holder.removeCard(cardDisplayer);
-        }
-        cardDisplayer.transform.position = transform.position;
-        cardDisplayer.transform.localScale = Vector3.one * cardScale;
-        cardDisplayer.transform.rotation = transform.rotation;
-        cardList.Add(cardDisplayer.card);
-        cardDisplayer.holder = this;
+        //TODO: make CardData and Card class separate, and reinstate this
+        //if (card.holder != null)
+        //{
+        //    card.holder.removeCard(card);
+        //}
+        cardList.Add(card);
+        //card.holder = this;
     }
 
-    public void acceptMouseHover(bool hover)
+
+    public void removeCard(CreatureCard card)
     {
-        highlight.enabled = hover;
+        cardList.Remove(card);
     }
 
-    public void removeCard(CardDisplayer card)
-    {
-        cardList.Remove(card.card);
-    }
-
-    public void Update()
-    {
-    }
 }
