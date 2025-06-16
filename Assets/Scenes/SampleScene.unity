@@ -840,7 +840,7 @@ MonoBehaviour:
     - limit: 1
     - limit: 1
     handHolder:
-      limit: 1
+      limit: 10
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   handHolder: {fileID: 1682267908}
   holderList:
@@ -1622,7 +1622,7 @@ MonoBehaviour:
     - limit: 1
     - limit: 1
     handHolder:
-      limit: 1
+      limit: 10
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   handHolder: {fileID: 509329240}
   holderList:
