@@ -805,8 +805,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fa9588964babf468bbe846313977e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  holders: []
+  controller: {fileID: 584776702}
+  holders:
+  - {fileID: 901721112439956055}
+  - {fileID: 1229759141}
+  - {fileID: 1817436475}
+  - {fileID: 2083127731}
+  - {fileID: 1780539533}
 --- !u!114 &584776702
 MonoBehaviour:
   m_ObjectHideFlags: 0
