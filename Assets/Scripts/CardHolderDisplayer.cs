@@ -85,6 +85,7 @@ public class CardHolderDisplayer : MonoBehaviour
     public void removeCard(CardDisplayer card)
     {
         card.OnMousedOver -= listenForMouseOver;
+        layoutCards();
     }
 
     public static CardHolderDisplayer Find(CardHolder holder)
