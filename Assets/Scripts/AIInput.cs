@@ -6,7 +6,7 @@ using UnityEngine;
 public class AIInput : WranglerInput
 {
 
-    public List<CardHolder<Card>> holders;
+    public List<CardHolderDisplayer> holders;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,20 +26,19 @@ public class AIInput : WranglerInput
         //try playing cards
         if (canPlayAnyCard()) {
         //find card
-            //TODO: put back in
-        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd => cd.holder == null);// || controller.handHolderList.Contains(cd.holder));
+        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd => cd.holder == null || controller.handHolderList.Contains(cd.holder));
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
             CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
         {
-            List<CardHolder<Card>> emptyHolderList = holders.FindAll((holder) => holder.CardCount == 0);
+            List<CardHolderDisplayer> emptyHolderList = holders.FindAll((holder) => holder.cardHolder.CardCount == 0);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
-                CardHolder<Card> ch = emptyHolderList[randIndex];
-                if (controller.canPlaceCardAt(cd, ch))
+                CardHolderDisplayer ch = emptyHolderList[randIndex];
+                if (controller.canPlaceCardAt(cd, ch.cardHolder))
                 {
-                    controller.placeCard(cd, ch);
+                    controller.placeCard(cd, ch.cardHolder);
                 }
             }
         }
@@ -50,12 +49,11 @@ public class AIInput : WranglerInput
     {
         return controller.CardDisplayerList.Any(c =>
             //not on the board
-            //TODO: put back in
-            (c.holder == null)// || controller.handHolderList.Contains(c.holder))
+            (c.holder == null || controller.handHolderList.Contains(c.holder))
             //can be played
             && controller.canPickupCard(c)
             //can be placed at any position
-            && holders.Any(h => controller.canPlaceCardAt(c, h))
+            && holders.Any(h => controller.canPlaceCardAt(c, h.cardHolder))
             );
     }
 }

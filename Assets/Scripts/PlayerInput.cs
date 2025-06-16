@@ -14,7 +14,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     private CardDisplayer heldCardDisplayer = null;
     private Vector2 holdOffset = Vector2.zero;
 
-    private CardHolder<Card> hoverHolder = null;
+    private CardHolderDisplayer hoverHolder = null;
 
 
 
@@ -95,8 +95,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 }
                 if (hoverHolder != null)
                 {
-                    //TODO: put this back in
-                    //hoverHolder.acceptMouseHover(false);
+                    hoverHolder.acceptMouseHover(false);
                 }
             }
             heldCardDisplayer = null;
@@ -129,22 +128,20 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             //hover holder pos
             if (hoverHolder != null)
             {
-                //TODO: put back in
-                //hoverHolder.acceptMouseHover(false);
+                hoverHolder.acceptMouseHover(false);
             }
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
             foreach (RaycastHit2D rch2d in rch2ds)
             {
                 if (rch2d.collider)
                 {
-                    CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.cardHolder;
+                    CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
                     if (ch != null)
                     {
-                        if (controller.canPlaceCardAt(heldCardDisplayer,ch))
+                        if (controller.canPlaceCardAt(heldCardDisplayer,ch.cardHolder))
                         {
                             hoverHolder = ch;
-                            //TODO: put back in
-                            //hoverHolder.acceptMouseHover(true);
+                            hoverHolder.acceptMouseHover(true);
                             break;
                         }
                     }
