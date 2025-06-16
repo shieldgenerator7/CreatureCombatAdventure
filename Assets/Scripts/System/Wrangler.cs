@@ -9,5 +9,6 @@ public class Wrangler
     public string name;
     public List<Card> cardList;
     public List<CardHolder> cardHolders;
+    public CardHolder handHolder;
 
 }
