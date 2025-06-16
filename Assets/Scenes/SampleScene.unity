@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllers:
   - {fileID: 1056722128}
-  - {fileID: 584776700}
+  - {fileID: 584776702}
   aiInput: {fileID: 584776701}
   enemyRanks:
   - {fileID: 901721112439956055}
@@ -764,7 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584776699}
   - component: {fileID: 584776701}
-  - component: {fileID: 584776700}
+  - component: {fileID: 584776702}
   m_Layer: 0
   m_Name: AI Controller
   m_TagString: Untagged
@@ -793,29 +793,6 @@ Transform:
   - {fileID: 910972578}
   m_Father: {fileID: 539059852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &584776700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584776698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ceeeb3a190e9104ebfee888a4faa21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player:
-    name: Player
-    cardList:
-    - {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-    - {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-    - {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-    - {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
-    - {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
-    - {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
-  cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
-  handHolder: {fileID: 1682267908}
 --- !u!114 &584776701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,7 +805,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fa9588964babf468bbe846313977e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 584776700}
+  controller: {fileID: 0}
+  holders: []
+--- !u!114 &584776702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584776698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ceeeb3a190e9104ebfee888a4faa21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    name: AI
+    cardList:
+    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
+    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
+    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+    cardHolders:
+    - limit: 1
+    - limit: 1
+    - limit: 2
+    - limit: 1
+    - limit: 1
+    handHolder:
+      limit: 1
+  cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
+  handHolder: {fileID: 1682267908}
+  holderList:
+  - {fileID: 901721112439956055}
+  - {fileID: 1229759141}
+  - {fileID: 1817436475}
+  - {fileID: 2083127731}
+  - {fileID: 1780539533}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1338,7 +1353,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -1589,14 +1604,28 @@ MonoBehaviour:
   player:
     name: Player
     cardList:
-    - {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-    - {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-    - {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-    - {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
-    - {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
-    - {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
+    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
+    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+    cardHolders:
+    - limit: 1
+    - limit: 1
+    - limit: 2
+    - limit: 1
+    - limit: 1
+    handHolder:
+      limit: 1
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
   handHolder: {fileID: 509329240}
+  holderList:
+  - {fileID: 1080114928}
+  - {fileID: 1788434050}
+  - {fileID: 1204048734}
+  - {fileID: 429547917}
+  - {fileID: 1464254900}
 --- !u!114 &1080114928 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
@@ -1781,7 +1810,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -1971,7 +2000,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2164,7 +2193,7 @@ PrefabInstance:
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 584776700}
+      objectReference: {fileID: 0}
     - target: {fileID: 8706118346507326328, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
