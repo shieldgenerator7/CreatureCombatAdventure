@@ -84,15 +84,7 @@ public class CardHolderDisplayer : MonoBehaviour
 
     private void listenForMouseOver(CardDisplayer cd, bool mousedOver)
     {
-        if (spreadWidth > 0)
-        {
             layoutCards();
-        }
-        else
-        {
-            cd.cardLayer = baseLayer;
-            cd.updateDisplay();
-        }
     }
 
 
