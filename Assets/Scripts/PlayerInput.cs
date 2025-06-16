@@ -54,9 +54,11 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         if (context.phase == InputActionPhase.Started)
         {
                 CardDisplayer cd = getMousedOverCard();
+            if (cd != null) {
                 heldCard = cd;
                 cd.cardLayer = pickupLayer;
                 cd.updateDisplay();
+            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
