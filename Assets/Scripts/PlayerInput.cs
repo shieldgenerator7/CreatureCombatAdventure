@@ -11,10 +11,10 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     PlayerControls.PlayerActions playerActions;
 
 
-    private Card heldCard = null;
+    private CardDisplayer heldCard = null;
     private Vector2 holdOffset = Vector2.zero;
 
-    private CardHolder hoverHolder = null;
+    private CardHolderDisplayer hoverHolder = null;
 
 
 
@@ -59,7 +59,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                     {
                         Card card = cd.card;
                         if (controller.canPickupCard(card)) {
-                        heldCard = card;
+                        heldCard = cd;
                         holdOffset = (Vector2)cd.transform.position - mousepos;
                         break;
                         }
@@ -81,9 +81,9 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
                         if (ch != null)
                         {
-                            if (controller.canPlaceCardAt(heldCard, ch))
+                            if (controller.canPlaceCardAt(heldCard.card, ch))
                             {
-                                controller.placeCard(heldCard, ch);
+                                controller.placeCard(heldCard.card, ch);
                                 dropped = true;
                                 break;
                             }
@@ -92,12 +92,11 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 }
                 if (!dropped)
                 {
-                    heldCard.holder?.acceptDrop(heldCard);
+                    heldCard.card.holder?.acceptDrop(heldCard.card);
                 }
                 if (hoverHolder != null)
                 {
-                    //TODO: put back in
-                    //hoverHolder.acceptMouseHover(false);
+                    hoverHolder.acceptMouseHover(false);
                 }
             }
             heldCard = null;
@@ -124,32 +123,29 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         if (heldCard != null)
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            //TODO: put back in
-            //heldCard.transform.position = mousepos + holdOffset;
+            heldCard.transform.position = mousepos + holdOffset;
 
 
             //hover holder pos
             if (hoverHolder != null)
             {
-                //TODO: put back in
-                //hoverHolder.acceptMouseHover(false);
+                hoverHolder.acceptMouseHover(false);
             }
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
             foreach (RaycastHit2D rch2d in rch2ds)
             {
                 if (rch2d.collider)
                 {
-                    //TODO: put back in
-                    //CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
-                    //if (ch != null)
-                    //{
-                    //    if (controller.canPlaceCardAt(heldCard,ch.cardHolder))
-                    //    {
-                    //        hoverHolder = ch;
-                    //        hoverHolder.acceptMouseHover(true);
-                    //        break;
-                    //    }
-                    //}
+                    CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
+                    if (ch != null)
+                    {
+                        if (controller.canPlaceCardAt(heldCard.card, ch.CardHolder))
+                        {
+                            hoverHolder = ch;
+                            hoverHolder.acceptMouseHover(true);
+                            break;
+                        }
+                    }
                 }
             }
         }
