@@ -886,11 +886,11 @@ MonoBehaviour:
     - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
     - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
     cardHolders:
-    - limit: 1
-    - limit: 1
-    - limit: 2
-    - limit: 1
-    - limit: 1
+    - limit: 3
+    - limit: 3
+    - limit: 3
+    - limit: 3
+    - limit: 3
     handHolder:
       limit: 10
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
@@ -1717,11 +1717,11 @@ MonoBehaviour:
     - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
     - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
     cardHolders:
-    - limit: 1
-    - limit: 1
-    - limit: 2
-    - limit: 1
-    - limit: 1
+    - limit: 3
+    - limit: 3
+    - limit: 3
+    - limit: 3
+    - limit: 3
     handHolder:
       limit: 10
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
