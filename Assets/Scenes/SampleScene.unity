@@ -480,6 +480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1056722126}
     m_Modifications:
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadWidth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (12)
@@ -1143,6 +1147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 584776699}
     m_Modifications:
+    - target: {fileID: 1904654658599864858, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: spreadWidth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (7)

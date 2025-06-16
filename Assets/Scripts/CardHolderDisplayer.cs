@@ -4,7 +4,8 @@ using UnityEngine;
 public class CardHolderDisplayer : MonoBehaviour
 {
     public SpriteRenderer highlight;
-
+    public float spreadWidth = 0;
+    public float maxSpreadBuffer = 2;
 
     private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
@@ -26,7 +27,23 @@ public class CardHolderDisplayer : MonoBehaviour
         cardDisplayer.transform.position = transform.position;
         cardDisplayer.transform.localScale = transform.localScale;
         cardDisplayer.transform.rotation = transform.rotation;
-        //TODO: make function to layout cards in hand / other holder
+        layoutCards();
+    }
+
+    private void layoutCards()
+    {
+        if (cardHolder.CardCount == 0) { return; }
+        if (spreadWidth > 0)
+        {
+            float startX = -spreadWidth / 2;
+            float spreadBuffer = Mathf.Min(spreadWidth / cardHolder.CardCount, maxSpreadBuffer);
+            for (int i = 0; i < cardHolder.CardCount; i++)
+            {
+                CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
+                cd.transform.position = (Vector2)transform.position + new Vector2(startX + spreadBuffer * i, 0);
+            }
+        }
+        //TODO: functionality to lay them out vertically
     }
 
 
