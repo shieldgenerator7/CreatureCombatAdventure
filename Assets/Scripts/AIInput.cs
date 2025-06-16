@@ -56,10 +56,8 @@ public class AIInput : WranglerInput
     private bool canPlayAnyCard()
     {
         return controller.player.cardList.Any(c =>
-            //not on the board
-            (c.holder == null || controller.player.handHolder.hasCard(c))
             //can be played
-            && controller.canPickupCard(c)
+            controller.canPickupCard(c)
             //can be placed at any position
             && controller.player.cardHolders.Any(h => controller.canPlaceCardAt(c, h))
             );
