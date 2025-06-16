@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8706118346507326328}
-  - component: {fileID: 4434139567156200557}
+  - component: {fileID: 1904654658599864858}
   - component: {fileID: 8700110212287645149}
   m_Layer: 7
   m_Name: CardHolder
@@ -121,7 +121,7 @@ Transform:
   - {fileID: 2544220482031850828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4434139567156200557
+--- !u!114 &1904654658599864858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,12 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3705004892695667713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c76e441bfb30c1438cdf9625d190472, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ff723f7839743f428a2dc215b006c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardScale: 0.25
-  card: {fileID: 0}
   highlight: {fileID: 8752794954129201810}
+  cardScale: 0.25
 --- !u!61 &8700110212287645149
 BoxCollider2D:
   m_ObjectHideFlags: 0

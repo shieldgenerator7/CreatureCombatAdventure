@@ -80,7 +80,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 {
                     if (rch2d.collider)
                     {
-                        CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolder<Card>>();
+                        CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.cardHolder;
                         if (ch != null)
                         {
                             if (controller.canPlaceCardAt(heldCardDisplayer, ch))
@@ -140,7 +140,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             {
                 if (rch2d.collider)
                 {
-                    CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolder<Card>>();
+                    CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.cardHolder;
                     if (ch != null)
                     {
                         if (controller.canPlaceCardAt(heldCardDisplayer,ch))

@@ -3,7 +3,7 @@ using System.Linq;
 
 public class CardHolder<T> where T : Card
 {
-    public List<T> cardList;
+    public List<T> cardList = new List<T>();
     public Wrangler owner;
     public int limit = 1;
 

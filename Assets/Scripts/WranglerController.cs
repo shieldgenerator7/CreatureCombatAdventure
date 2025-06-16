@@ -9,7 +9,7 @@ public class WranglerController : MonoBehaviour
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
-    public List<CardHolder<Card>> handHolderList;
+    public List<CardHolderDisplayer> handHolderList;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class WranglerController : MonoBehaviour
             //TODO: make function to layout cards in hand / other holder
             //add to hand holder
             int holderIndex = i % handHolderList.Count;
-            handHolderList[holderIndex].acceptDrop(card.card);
+            handHolderList[holderIndex].acceptDrop(card);
             //
         }
     }
