@@ -42,7 +42,7 @@ public class WranglerController : MonoBehaviour
             cd.card = card;
             cd.updateDisplay();
             cd.transform.position = new Vector2(0, -5);
-            cd.owner = this;
+            card.owner = this.player;
 
             cardDisplayerList.Add(cd);
         });
@@ -52,20 +52,20 @@ public class WranglerController : MonoBehaviour
 
     public bool canPickupCard(CardDisplayer cardDisplayer)
     {
-        return cardDisplayer.owner == this;
+        return cardDisplayer.card.owner == this.player;
     }
 
     public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder cardHolder)
     {
-        return cardDisplayer.owner == this && cardHolder.owner == this.player
+        return cardDisplayer.card.owner == this.player && cardHolder.owner == this.player
             && (cardHolder.canAcceptCard(cardDisplayer.card) || cardHolder.hasCard(cardDisplayer.card));
     }
 
     public void placeCard(CardDisplayer card, CardHolder holder)
     {
-        if (card.holder)
+        if (card.card.holder)
         {
-            card.holder.removeCard(card);
+            card.card.holder.removeCard(card.card);
         }
         holder.acceptDrop(card.card);
         OnCardPlaced?.Invoke();

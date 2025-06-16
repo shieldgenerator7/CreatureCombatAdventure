@@ -9,15 +9,16 @@ public class CardHolderDisplayer : MonoBehaviour
 
     public void acceptDrop(CardDisplayer cardDisplayer)
     {
-        if (cardDisplayer.holder != null)
+        //TODO: turn this into a listener maybe, listening for when a card is dropped
+        if (cardDisplayer.card.holder != null)
         {
-            cardDisplayer.holder.removeCard(cardDisplayer);
+            cardDisplayer.card.holder.removeCard(cardDisplayer.card);
         }
         cardDisplayer.transform.position = transform.position;
         cardDisplayer.transform.localScale = Vector3.one * cardScale;
         cardDisplayer.transform.rotation = transform.rotation;
         cardHolder.cardList.Add(cardDisplayer.card);
-        cardDisplayer.holder = this;
+        cardDisplayer.card.holder = this.cardHolder;
     }
 
 

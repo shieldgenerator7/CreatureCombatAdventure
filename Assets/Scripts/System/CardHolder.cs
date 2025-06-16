@@ -23,13 +23,12 @@ public class CardHolder
 
     public void acceptDrop(Card card)
     {
-        //TODO: make CardData and Card class separate, and reinstate this
-        //if (card.holder != null)
-        //{
-        //    card.holder.removeCard(card);
-        //}
+        if (card.holder != null)
+        {
+            card.holder.removeCard(card);
+        }
         cardList.Add(card);
-        //card.holder = this;
+        card.holder = this;
     }
 
 
@@ -37,5 +36,8 @@ public class CardHolder
     {
         cardList.Remove(card);
     }
+
+
+    public static implicit operator bool(CardHolder cardHolder) => cardHolder != null;
 
 }

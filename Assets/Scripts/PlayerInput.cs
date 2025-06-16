@@ -91,7 +91,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 }
                 if (!dropped)
                 {
-                    heldCardDisplayer.holder?.acceptDrop(heldCardDisplayer);
+                    heldCardDisplayer.card.holder?.acceptDrop(heldCardDisplayer.card);
                 }
                 if (hoverHolder != null)
                 {

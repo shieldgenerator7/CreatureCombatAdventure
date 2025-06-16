@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            CreatureCardData ally = (CreatureCardData)allyRanks[i].cardHolder.Card;
-            CreatureCardData enemy = (CreatureCardData)enemyRanks[i].cardHolder.Card;
+            CreatureCardData ally = allyRanks[i].cardHolder.Card?.data;
+            CreatureCardData enemy = enemyRanks[i].cardHolder.Card?.data;
             if (!enemy)
             {
                 allyPower += ally?.power ?? 0;

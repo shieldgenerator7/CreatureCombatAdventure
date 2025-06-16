@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class CardDisplayer : MonoBehaviour
 {
-    public CreatureCardData card;
-
-    public WranglerController owner;
+    public Card card;
 
     public SpriteRenderer srBack;
     public SpriteRenderer srImage;
@@ -17,8 +15,6 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtCost;
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
-
-    public CardHolderDisplayer holder;
 
     public int cardLayer = 0;
 
@@ -36,14 +32,14 @@ public class CardDisplayer : MonoBehaviour
 
     public void updateDisplay()
     {
-        srImage.sprite = card.image;
-        srFrame.sprite = card.frame;
-        smFrame.sprite = card.frame;
+        srImage.sprite = card.data.image;
+        srFrame.sprite = card.data.frame;
+        smFrame.sprite = card.data.frame;
 
-        txtName.text = card.name;
-        txtCost.text = $"{Utility.GetSymbolString(card.cost)}";
-        txtRPS.text = $"{Utility.GetSymbolString(card.rps)}";
-        txtPower.text = $"{Utility.GetSymbolString(card.power)}";
+        txtName.text = card.data.name;
+        txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
+        txtRPS.text = $"{Utility.GetSymbolString(card.data.rps)}";
+        txtPower.text = $"{Utility.GetSymbolString(card.data.power)}";
 
         //layers
         int baseLayer = cardLayer * 10;
