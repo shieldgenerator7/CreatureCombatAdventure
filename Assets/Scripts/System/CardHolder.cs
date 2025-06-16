@@ -1,27 +1,27 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class CardHolder
+public class CardHolder<T> where T : Card
 {
-    public List<CreatureCard> cardList;
+    public List<T> cardList;
     public Wrangler owner;
     public int limit = 1;
 
-    public CreatureCard Card => cardList.FirstOrDefault();
+    public T Card => cardList.FirstOrDefault();
     public int CardCount => cardList.Count;
 
-    public bool hasCard(CreatureCard card)
+    public bool hasCard(T card)
     {
         return cardList.Contains(card);
     }
 
 
-    public bool canAcceptCard(CreatureCard card)
+    public bool canAcceptCard(T card)
     {
         return cardList.Count < limit;
     }
 
-    public void acceptDrop(CreatureCard card)
+    public void acceptDrop(T card)
     {
         //TODO: make CardData and Card class separate, and reinstate this
         //if (card.holder != null)
@@ -33,7 +33,7 @@ public class CardHolder
     }
 
 
-    public void removeCard(CreatureCard card)
+    public void removeCard(T card)
     {
         cardList.Remove(card);
     }
