@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -50,6 +51,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
+            List<CardDisplayer> cards = new List<CardDisplayer>();
             foreach (RaycastHit2D rch2d in rch2ds)
             {
                 if (rch2d.collider)
@@ -59,14 +61,18 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                     {
                         Card card = cd.card;
                         if (controller.canPickupCard(card)) {
-                        heldCard = cd;
-                        holdOffset = (Vector2)cd.transform.position - mousepos;
-                            cd.cardLayer = 100;
-                            cd.updateDisplay();
-                        break;
+                            cards.Add(cd);
                         }
                     }
                 }
+            }
+            if (cards.Count > 0) {
+                int max = cards.Max(cd => cd.cardLayer);
+                CardDisplayer cd = cards.Find(c=>c.cardLayer==max);
+                heldCard = cd;
+                holdOffset = (Vector2)cd.transform.position - mousepos;
+                cd.cardLayer = 100;
+                cd.updateDisplay();
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
