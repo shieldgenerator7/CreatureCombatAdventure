@@ -1,9 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
+[Serializable]
 public class CardHolder
 {
+    [NonSerialized]
     public List<Card> cardList = new List<Card>();
+    [NonSerialized]
     public Wrangler owner;
     public int limit = 1;
 
