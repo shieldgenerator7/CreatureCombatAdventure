@@ -17,7 +17,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     private Vector2 holdOffset = Vector2.zero;
 
     [SerializeField]
-    private CardHolder hoverHolder = null;
+    private CardHolder<Card> hoverHolder = null;
 
 
 
@@ -80,7 +80,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 {
                     if (rch2d.collider)
                     {
-                        CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
+                        CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolder<Card>>();
                         if (ch)
                         {
                             if (controller.canPlaceCardAt(heldCardDisplayer, ch))
@@ -138,7 +138,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             {
                 if (rch2d.collider)
                 {
-                    CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolder>();
+                    CardHolder<Card> ch = rch2d.collider.gameObject.GetComponent<CardHolder<Card>>();
                     if (ch)
                     {
                         if (controller.canPlaceCardAt(heldCardDisplayer,ch))

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AIInput : WranglerInput
 {
 
-    public List<CardHolder> holders;
+    public List<CardHolder<Card>> holders;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,11 +31,11 @@ public class AIInput : WranglerInput
             CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
         {
-            List<CardHolder> emptyHolderList = holders.FindAll((holder) => holder.CardCount == 0);
+            List<CardHolder<Card>> emptyHolderList = holders.FindAll((holder) => holder.CardCount == 0);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
-                CardHolder ch = emptyHolderList[randIndex];
+                CardHolder<Card> ch = emptyHolderList[randIndex];
                 if (controller.canPlaceCardAt(cd, ch))
                 {
                     controller.placeCard(cd, ch);

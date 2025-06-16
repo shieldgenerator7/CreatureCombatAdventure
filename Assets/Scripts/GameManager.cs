@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     public AIInput aiInput;
 
 
-    public List<CardHolder> holders;
+    public List<CardHolder<Card>> holders;
 
-    public List<CardHolder> enemyRanks;
-    public List<CardHolder> allyRanks;
+    public List<CardHolder<Card>> enemyRanks;
+    public List<CardHolder<Card>> allyRanks;
 
     public TMP_Text txtPowerEnemy;
     public TMP_Text txtPowerAlly;
@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            CreatureCard ally = allyRanks[i].Card;
-            CreatureCard enemy = enemyRanks[i].Card;
+            CreatureCard ally = (CreatureCard)allyRanks[i].Card;
+            CreatureCard enemy = (CreatureCard)enemyRanks[i].Card;
             if (!enemy)
             {
                 allyPower += ally?.power ?? 0;

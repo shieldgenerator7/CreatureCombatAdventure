@@ -9,7 +9,7 @@ public class WranglerController : MonoBehaviour
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
-    public List<CardHolder> handHolderList;
+    public List<CardHolder<Card>> handHolderList;
 
     private void Awake()
     {
@@ -55,13 +55,13 @@ public class WranglerController : MonoBehaviour
         return cardDisplayer.owner == this;
     }
 
-    public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder cardHolder)
+    public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder<Card> cardHolder)
     {
         return cardDisplayer.owner == this && cardHolder.owner == this
             && (cardHolder.canAcceptCard(cardDisplayer) || cardHolder.hasCard(cardDisplayer.card));
     }
 
-    public void placeCard(CardDisplayer card, CardHolder holder)
+    public void placeCard(CardDisplayer card, CardHolder<Card> holder)
     {
         if (card.holder)
         {
