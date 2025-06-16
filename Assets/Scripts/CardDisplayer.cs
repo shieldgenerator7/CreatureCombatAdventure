@@ -18,7 +18,7 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
-    public CardHolder holder;
+    public CardHolderDisplayer holder;
 
     public int cardLayer = 0;
 

@@ -23,7 +23,7 @@ public class WranglerController : MonoBehaviour
             //TODO: make function to layout cards in hand / other holder
             //add to hand holder
             int holderIndex = i % handHolderList.Count;
-            handHolderList[holderIndex].acceptDrop(card);
+            handHolderList[holderIndex].acceptDrop(card.card);
             //
         }
     }
@@ -57,8 +57,8 @@ public class WranglerController : MonoBehaviour
 
     public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder<Card> cardHolder)
     {
-        return cardDisplayer.owner == this && cardHolder.owner == this
-            && (cardHolder.canAcceptCard(cardDisplayer) || cardHolder.hasCard(cardDisplayer.card));
+        return cardDisplayer.owner == this && cardHolder.owner == this.player
+            && (cardHolder.canAcceptCard(cardDisplayer.card) || cardHolder.hasCard(cardDisplayer.card));
     }
 
     public void placeCard(CardDisplayer card, CardHolder<Card> holder)
@@ -67,7 +67,7 @@ public class WranglerController : MonoBehaviour
         {
             card.holder.removeCard(card);
         }
-        holder.acceptDrop(card);
+        holder.acceptDrop(card.card);
         OnCardPlaced?.Invoke();
         OnTurnTaken?.Invoke();
     }
