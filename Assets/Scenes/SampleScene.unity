@@ -1830,8 +1830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1056722128}
-  heldCardDisplayer: {fileID: 0}
-  holdOffset: {x: 0, y: 0}
 --- !u!114 &1056722128
 MonoBehaviour:
   m_ObjectHideFlags: 0

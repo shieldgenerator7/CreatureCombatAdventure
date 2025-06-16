@@ -11,12 +11,9 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     PlayerControls.PlayerActions playerActions;
 
 
-    [SerializeField]
     private CardDisplayer heldCardDisplayer = null;
-    [SerializeField]
     private Vector2 holdOffset = Vector2.zero;
 
-    [SerializeField]
     private CardHolder<Card> hoverHolder = null;
 
 
