@@ -16,6 +16,7 @@ public class WranglerController : MonoBehaviour
     {
         //holders
         handHolder.init(player.handHolder);
+        player.handHolder.owner = player;
         for(int i =0; i < holderList.Count; i++)
         {
             holderList[i].init(player.cardHolders[i]);
