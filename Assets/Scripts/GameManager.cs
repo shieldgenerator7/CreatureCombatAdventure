@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public AIInput aiInput;
 
 
-    public List<CardHolder<CardData>> holders;
+    public List<CardHolder> holders;
 
     public List<CardHolderDisplayer> enemyRanks;
     public List<CardHolderDisplayer> allyRanks;
