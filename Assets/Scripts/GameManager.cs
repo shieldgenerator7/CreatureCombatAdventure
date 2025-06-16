@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -50,15 +51,17 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
+            int laneAlly = allyRanks[i].CardHolder.cardList.Sum(card => card.data.power);
+            int laneEnemy = enemyRanks[i].CardHolder.cardList.Sum(card => card.data.power);
             CreatureCardData ally = allyRanks[i].CardHolder.Card?.data;
             CreatureCardData enemy = enemyRanks[i].CardHolder.Card?.data;
             if (!enemy)
             {
-                allyPower += ally?.power ?? 0;
+                allyPower += laneAlly;
             }
             if (!ally)
             {
-                enemyPower += enemy?.power ?? 0;
+                enemyPower += laneEnemy;
             }
             if (ally && enemy)
             {
@@ -66,14 +69,14 @@ public class GameManager : MonoBehaviour
                 int _ep = enemy.power;
                 if (beats(ally.rps, enemy.rps))
                 {
-                    _ep -= _ap;
+                    laneEnemy -= _ap;
                 }
                 if (beats(enemy.rps, ally.rps))
                 {
-                    _ap -= _ep;
+                    laneAlly -= _ep;
                 }
-                allyPower += _ap;
-                enemyPower += _ep;
+                allyPower += laneAlly;
+                enemyPower += laneEnemy;
             }
         }
         enemyPower=Mathf.Clamp(enemyPower, 0, enemyPower);
