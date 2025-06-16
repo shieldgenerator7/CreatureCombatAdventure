@@ -7,5 +7,5 @@ using UnityEngine;
 public class Wrangler
 {
     public string name;
-    public List<CreatureCard> cardList;
+    public List<CreatureCardData> cardList;
 }

@@ -55,13 +55,13 @@ public class WranglerController : MonoBehaviour
         return cardDisplayer.owner == this;
     }
 
-    public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder<Card> cardHolder)
+    public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder<CardData> cardHolder)
     {
         return cardDisplayer.owner == this && cardHolder.owner == this.player
             && (cardHolder.canAcceptCard(cardDisplayer.card) || cardHolder.hasCard(cardDisplayer.card));
     }
 
-    public void placeCard(CardDisplayer card, CardHolder<Card> holder)
+    public void placeCard(CardDisplayer card, CardHolder<CardData> holder)
     {
         if (card.holder)
         {

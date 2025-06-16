@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public AIInput aiInput;
 
 
-    public List<CardHolder<Card>> holders;
+    public List<CardHolder<CardData>> holders;
 
     public List<CardHolderDisplayer> enemyRanks;
     public List<CardHolderDisplayer> allyRanks;
@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            CreatureCard ally = (CreatureCard)allyRanks[i].cardHolder.Card;
-            CreatureCard enemy = (CreatureCard)enemyRanks[i].cardHolder.Card;
+            CreatureCardData ally = (CreatureCardData)allyRanks[i].cardHolder.Card;
+            CreatureCardData enemy = (CreatureCardData)enemyRanks[i].cardHolder.Card;
             if (!enemy)
             {
                 allyPower += ally?.power ?? 0;

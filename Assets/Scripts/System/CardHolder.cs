@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class CardHolder<T> where T : Card
+public class CardHolder<T> where T : CardData
 {
     public List<T> cardList = new List<T>();
     public Wrangler owner;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CardDisplayer : MonoBehaviour
 {
-    public CreatureCard card;
+    public CreatureCardData card;
 
     public WranglerController owner;
 

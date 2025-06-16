@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //[CreateAssetMenu(menuName ="Cards/")]
-public abstract class Card : ScriptableObject
+public abstract class CardData : ScriptableObject
 {
     public new string name;
     public int cost;
