@@ -4,7 +4,7 @@ using UnityEngine;
 public class CardHolderDisplayer : MonoBehaviour
 {
     public SpriteRenderer highlight;
-    public float cardScale = 0.25f;
+
 
     private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
@@ -24,7 +24,7 @@ public class CardHolderDisplayer : MonoBehaviour
     private void acceptDrop(CardDisplayer cardDisplayer)
     {
         cardDisplayer.transform.position = transform.position;
-        cardDisplayer.transform.localScale = Vector3.one * cardScale;
+        cardDisplayer.transform.localScale = transform.localScale;
         cardDisplayer.transform.rotation = transform.rotation;
         //TODO: make function to layout cards in hand / other holder
     }
