@@ -204,6 +204,10 @@ PrefabInstance:
       value: Hand CardHolder (9)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 584776700}
@@ -415,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -648,6 +656,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -1249,6 +1261,10 @@ PrefabInstance:
       value: Hand CardHolder (5)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 584776700}
@@ -1401,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -1915,6 +1935,10 @@ PrefabInstance:
       value: Hand CardHolder (8)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 584776700}
@@ -1992,6 +2016,10 @@ PrefabInstance:
       value: Hand CardHolder (11)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 1056722128}
@@ -2067,6 +2095,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -2223,6 +2255,10 @@ PrefabInstance:
       value: Hand CardHolder (14)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 1056722128}
@@ -2375,6 +2411,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: Hand CardHolder (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -2541,6 +2581,10 @@ PrefabInstance:
       value: Hand CardHolder (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
       value: 
       objectReference: {fileID: 584776700}
@@ -2616,6 +2660,10 @@ PrefabInstance:
     - target: {fileID: 3705004892695667713, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: m_Name
       value: CardHolder (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
+      propertyPath: limit
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4434139567156200557, guid: ee2afc2d65f8fa34f93c2013856776ef, type: 3}
       propertyPath: owner
@@ -2870,6 +2918,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 539059852}
   - {fileID: 519420032}
-  - {fileID: 619394802}
   - {fileID: 1858829784}
   - {fileID: 282070384}
+  - {fileID: 619394802}

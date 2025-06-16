@@ -58,14 +58,14 @@ public class WranglerController : MonoBehaviour
     public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder cardHolder)
     {
         return cardDisplayer.owner == this && cardHolder.owner == this
-            && (cardHolder.card == null || cardHolder.card == cardDisplayer.card);
+            && (cardHolder.canAcceptCard(cardDisplayer) || cardHolder.hasCard(cardDisplayer.card));
     }
 
     public void placeCard(CardDisplayer card, CardHolder holder)
     {
         if (card.holder)
         {
-            card.holder.card = null;
+            card.holder.removeCard(card);
         }
         holder.acceptDrop(card);
         OnCardPlaced?.Invoke();

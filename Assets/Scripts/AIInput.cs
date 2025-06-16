@@ -31,7 +31,7 @@ public class AIInput : WranglerInput
             CardDisplayer cd = unplayedCardList[randIndex1];
         if (cd && controller.canPickupCard(cd))
         {
-            List<CardHolder> emptyHolderList = holders.FindAll((holder) => holder.card == null);
+            List<CardHolder> emptyHolderList = holders.FindAll((holder) => holder.CardCount == 0);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
