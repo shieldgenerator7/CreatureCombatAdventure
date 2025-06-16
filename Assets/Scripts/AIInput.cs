@@ -26,19 +26,19 @@ public class AIInput : WranglerInput
         //try playing cards
         if (canPlayAnyCard()) {
         //find card
-        List<CardDisplayer> unplayedCardList = controller.CardDisplayerList.FindAll(cd => cd.card.holder == null || controller.handHolder.cardHolder.hasCard(cd.card));
+        List<Card> unplayedCardList = controller.player.cardList.FindAll(card => card.holder == null || controller.player.handHolder.hasCard(card));
             int randIndex1 = Random.Range(0, unplayedCardList.Count);
-            CardDisplayer cd = unplayedCardList[randIndex1];
-        if (cd && controller.canPickupCard(cd))
+            Card card = unplayedCardList[randIndex1];
+        if (card && controller.canPickupCard(card))
         {
             List<CardHolderDisplayer> emptyHolderList = holders.FindAll((holder) => holder.cardHolder.CardCount == 0);
             if (emptyHolderList.Count > 0)
             {
                 int randIndex = Random.Range(0, emptyHolderList.Count);
                 CardHolderDisplayer ch = emptyHolderList[randIndex];
-                if (controller.canPlaceCardAt(cd, ch.cardHolder))
+                if (controller.canPlaceCardAt(card, ch.cardHolder))
                 {
-                    controller.placeCard(cd, ch.cardHolder);
+                    controller.placeCard(card, ch.cardHolder);
                 }
             }
         }
@@ -47,9 +47,9 @@ public class AIInput : WranglerInput
 
     private bool canPlayAnyCard()
     {
-        return controller.CardDisplayerList.Any(c =>
+        return controller.player.cardList.Any(c =>
             //not on the board
-            (c.card.holder == null || controller.handHolder.cardHolder.hasCard(c.card))
+            (c.holder == null || controller.player.handHolder.hasCard(c))
             //can be played
             && controller.canPickupCard(c)
             //can be placed at any position

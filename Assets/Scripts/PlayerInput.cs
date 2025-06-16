@@ -11,10 +11,10 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     PlayerControls.PlayerActions playerActions;
 
 
-    private CardDisplayer heldCardDisplayer = null;
+    private Card heldCard = null;
     private Vector2 holdOffset = Vector2.zero;
 
-    private CardHolderDisplayer hoverHolder = null;
+    private CardHolder hoverHolder = null;
 
 
 
@@ -57,9 +57,10 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                     CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
                     if (cd)
                     {
-                        if (controller.canPickupCard(cd)) { 
-                        heldCardDisplayer = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
-                        holdOffset = (Vector2)heldCardDisplayer.transform.position - mousepos;
+                        Card card = cd.card;
+                        if (controller.canPickupCard(card)) {
+                        heldCard = card;
+                        holdOffset = (Vector2)cd.transform.position - mousepos;
                         break;
                         }
                     }
@@ -68,7 +69,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
-            if (heldCardDisplayer != null)
+            if (heldCard != null)
             {
                 Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
@@ -80,9 +81,9 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.cardHolder;
                         if (ch != null)
                         {
-                            if (controller.canPlaceCardAt(heldCardDisplayer, ch))
+                            if (controller.canPlaceCardAt(heldCard, ch))
                             {
-                                controller.placeCard(heldCardDisplayer, ch);
+                                controller.placeCard(heldCard, ch);
                                 dropped = true;
                                 break;
                             }
@@ -91,14 +92,15 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 }
                 if (!dropped)
                 {
-                    heldCardDisplayer.card.holder?.acceptDrop(heldCardDisplayer.card);
+                    heldCard.holder?.acceptDrop(heldCard);
                 }
                 if (hoverHolder != null)
                 {
-                    hoverHolder.acceptMouseHover(false);
+                    //TODO: put back in
+                    //hoverHolder.acceptMouseHover(false);
                 }
             }
-            heldCardDisplayer = null;
+            heldCard = null;
         }
     }
 
@@ -119,32 +121,35 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        if (heldCardDisplayer != null)
+        if (heldCard != null)
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            heldCardDisplayer.transform.position = mousepos + holdOffset;
+            //TODO: put back in
+            //heldCard.transform.position = mousepos + holdOffset;
 
 
             //hover holder pos
             if (hoverHolder != null)
             {
-                hoverHolder.acceptMouseHover(false);
+                //TODO: put back in
+                //hoverHolder.acceptMouseHover(false);
             }
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
             foreach (RaycastHit2D rch2d in rch2ds)
             {
                 if (rch2d.collider)
                 {
-                    CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
-                    if (ch != null)
-                    {
-                        if (controller.canPlaceCardAt(heldCardDisplayer,ch.cardHolder))
-                        {
-                            hoverHolder = ch;
-                            hoverHolder.acceptMouseHover(true);
-                            break;
-                        }
-                    }
+                    //TODO: put back in
+                    //CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
+                    //if (ch != null)
+                    //{
+                    //    if (controller.canPlaceCardAt(heldCard,ch.cardHolder))
+                    //    {
+                    //        hoverHolder = ch;
+                    //        hoverHolder.acceptMouseHover(true);
+                    //        break;
+                    //    }
+                    //}
                 }
             }
         }

@@ -60,24 +60,24 @@ public class WranglerController : MonoBehaviour
 
     public List<CardDisplayer> CardDisplayerList =>cardDisplayerList;
 
-    public bool canPickupCard(CardDisplayer cardDisplayer)
+    public bool canPickupCard(Card card)
     {
-        return cardDisplayer.card.owner == this.player;
+        return card.owner == this.player;
     }
 
-    public bool canPlaceCardAt(CardDisplayer cardDisplayer, CardHolder cardHolder)
+    public bool canPlaceCardAt(Card card, CardHolder cardHolder)
     {
-        return cardDisplayer.card.owner == this.player && cardHolder.owner == this.player
-            && (cardHolder.canAcceptCard(cardDisplayer.card) || cardHolder.hasCard(cardDisplayer.card));
+        return card.owner == this.player && cardHolder.owner == this.player
+            && (cardHolder.canAcceptCard(card) || cardHolder.hasCard(card));
     }
 
-    public void placeCard(CardDisplayer card, CardHolder holder)
+    public void placeCard(Card card, CardHolder holder)
     {
-        if (card.card.holder)
+        if (card.holder)
         {
-            card.card.holder.removeCard(card.card);
+            card.holder.removeCard(card);
         }
-        holder.acceptDrop(card.card);
+        holder.acceptDrop(card);
         OnCardPlaced?.Invoke();
         OnTurnTaken?.Invoke();
     }
