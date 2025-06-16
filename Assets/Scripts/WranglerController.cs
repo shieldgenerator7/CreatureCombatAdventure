@@ -10,6 +10,7 @@ public class WranglerController : MonoBehaviour
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
     public CardHolderDisplayer handHolder;
+    public List<CardHolderDisplayer> holderList;
 
     private void Awake()
     {

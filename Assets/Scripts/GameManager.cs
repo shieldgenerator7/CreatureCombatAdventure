@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
     public List<WranglerController> controllers;
     public AIInput aiInput;
 
-
-    public List<CardHolder> holders;
-
     public List<CardHolderDisplayer> enemyRanks;
     public List<CardHolderDisplayer> allyRanks;
 
