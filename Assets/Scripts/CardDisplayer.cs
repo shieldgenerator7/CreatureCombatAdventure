@@ -18,6 +18,8 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
+    public string sortingLayer = "Card";
+
     private bool mousedOver = false;
     public bool MousedOver
     {
@@ -54,6 +56,15 @@ public class CardDisplayer : MonoBehaviour
         txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
         txtRPS.text = $"{Utility.GetSymbolString(card.data.rps)}";
         txtPower.text = $"{Utility.GetSymbolString(card.data.power)}";
+
+        //sorting layers
+        srBack.sortingLayerName = sortingLayer;
+        srFrame.sortingLayerName = sortingLayer;
+        smFrame.frontSortingLayerID = SortingLayer.NameToID(sortingLayer);
+        smFrame.backSortingLayerID = SortingLayer.NameToID(sortingLayer);
+        srImage.sortingLayerName = sortingLayer;
+        cvs.sortingLayerName = sortingLayer;
+
 
         //layers
         int baseLayer = cardLayer * 10;

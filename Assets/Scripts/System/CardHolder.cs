@@ -10,6 +10,7 @@ public class CardHolder
     [NonSerialized]
     public Wrangler owner;
     public int limit = 1;
+    public bool isHand = false;
 
     public Card Card => cardList.FirstOrDefault();
     public int CardCount => cardList.Count;

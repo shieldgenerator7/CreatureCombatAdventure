@@ -53,5 +53,8 @@ TagManager:
   - name: Console
     uniqueID: 1011449339
     locked: 0
+  - name: Hand
+    uniqueID: 1049533121
+    locked: 0
   m_RenderingLayers:
   - Default

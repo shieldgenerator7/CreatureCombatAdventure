@@ -58,6 +58,7 @@ public class CardHolderDisplayer : MonoBehaviour
                     cd.cardLayer = baseLayer+50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
+                cd.sortingLayer = (cardHolder.isHand) ? "Hand" : "Card";
                 cd.updateDisplay();
             }
         }
@@ -76,6 +77,7 @@ public class CardHolderDisplayer : MonoBehaviour
                     cd.cardLayer = baseLayer + 50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
+                cd.sortingLayer = (cardHolder.isHand) ? "Hand" : "Card";
                 cd.updateDisplay();
             }
         }
