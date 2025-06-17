@@ -41,8 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Below Card
+    uniqueID: 3239318651
+    locked: 0
   - name: Card
     uniqueID: 4030739337
+    locked: 0
+  - name: Above Card
+    uniqueID: 1689772819
     locked: 0
   m_RenderingLayers:
   - Default
