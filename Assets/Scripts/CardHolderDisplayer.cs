@@ -47,6 +47,7 @@ public class CardHolderDisplayer : MonoBehaviour
     private void layoutCards()
     {
         if (cardHolder.CardCount == 0) { return; }
+        //TODO: consolidate these two very similar if blocks
         if (spreadWidth > 0)
         {
             float startX = -spreadWidth / 2;
@@ -63,6 +64,8 @@ public class CardHolderDisplayer : MonoBehaviour
                 }
                 cd.sortingLayer = SortingLayer;
                 cd.updateDisplay();
+                //return layer to normal so that moused over cards dont prohibit their neighbors from being moused over
+                cd.cardLayer = baseLayer + i + 1;
             }
         }
         else if (spreadDir != Vector2.zero)
@@ -82,6 +85,8 @@ public class CardHolderDisplayer : MonoBehaviour
                 }
                 cd.sortingLayer = SortingLayer;
                 cd.updateDisplay();
+                //return layer to normal so that moused over cards dont prohibit their neighbors from being moused over
+                cd.cardLayer = baseLayer + i + 1;
             }
         }
         //TODO: functionality to lay them out vertically
