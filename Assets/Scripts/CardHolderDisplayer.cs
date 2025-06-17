@@ -1,9 +1,13 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class CardHolderDisplayer : MonoBehaviour
 {
-    public SpriteRenderer highlight;
+    [Header("Components")]
+    public List<SpriteRenderer> highlights;
+    public SpriteMask smHighlight;
+    [Header("Settings")]
     public float spreadWidth = 0;
     public Vector2 spreadDir = Vector2.zero;
     public float maxSpreadBuffer = 2;
@@ -20,7 +24,9 @@ public class CardHolderDisplayer : MonoBehaviour
         this.cardHolder = cardHolder;
         cardHolder.OnCardDropped += listenForDrop;
         cardHolder.OnCardRemoved += listenForRemove;
-        highlight.sortingLayerName = SortingLayer;
+        highlights.ForEach(highlight=>highlight.sortingLayerName = SortingLayer);
+        smHighlight.frontSortingLayerID = UnityEngine.SortingLayer.NameToID(SortingLayer);
+        smHighlight.backSortingLayerID = UnityEngine.SortingLayer.NameToID(SortingLayer);
         acceptMouseHover(false);
     }
 
@@ -101,7 +107,7 @@ public class CardHolderDisplayer : MonoBehaviour
 
     public void acceptMouseHover(bool hover)
     {
-        highlight.enabled = hover;
+        highlights.ForEach(highlight => highlight.enabled = hover);
     }
 
     public void removeCard(CardDisplayer card)
