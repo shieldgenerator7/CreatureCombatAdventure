@@ -21,6 +21,7 @@ public class CardHolderDisplayer : MonoBehaviour
         cardHolder.OnCardDropped += listenForDrop;
         cardHolder.OnCardRemoved += listenForRemove;
         highlight.sortingLayerName = SortingLayer;
+        acceptMouseHover(false);
     }
 
     private void listenForDrop(Card card)
