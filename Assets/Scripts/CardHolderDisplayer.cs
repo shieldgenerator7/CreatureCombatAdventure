@@ -13,12 +13,14 @@ public class CardHolderDisplayer : MonoBehaviour
     private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
 
+    private string SortingLayer => (cardHolder.isHand) ? "Hand" : "Card";
+
     public void init(CardHolder cardHolder)
     {
         this.cardHolder = cardHolder;
         cardHolder.OnCardDropped += listenForDrop;
         cardHolder.OnCardRemoved += listenForRemove;
-        highlight.sortingLayerName = (cardHolder.isHand) ? "Hand" : "Card";
+        highlight.sortingLayerName = SortingLayer;
     }
 
     private void listenForDrop(Card card)
@@ -59,7 +61,7 @@ public class CardHolderDisplayer : MonoBehaviour
                     cd.cardLayer = baseLayer+50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
-                cd.sortingLayer = (cardHolder.isHand) ? "Hand" : "Card";
+                cd.sortingLayer = SortingLayer;
                 cd.updateDisplay();
             }
         }
@@ -78,7 +80,7 @@ public class CardHolderDisplayer : MonoBehaviour
                     cd.cardLayer = baseLayer + 50;
                     cd.transform.position += Vector3.up * mouseOverPopupDistance;
                 }
-                cd.sortingLayer = (cardHolder.isHand) ? "Hand" : "Card";
+                cd.sortingLayer = SortingLayer;
                 cd.updateDisplay();
             }
         }
