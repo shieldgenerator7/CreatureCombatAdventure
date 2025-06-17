@@ -11,6 +11,7 @@ public class CardDisplayer : MonoBehaviour
     public SpriteRenderer srImage;
     public SpriteRenderer srFrame;
     public SpriteMask smFrame;
+    public SpriteRenderer srHighlight;
 
     public Canvas cvs;
     public TMP_Text txtName;
@@ -27,6 +28,7 @@ public class CardDisplayer : MonoBehaviour
         set
         {
             mousedOver = value;
+            acceptHover(mousedOver);
             OnMousedOver?.Invoke(this, value);
         }
     }
@@ -38,6 +40,7 @@ public class CardDisplayer : MonoBehaviour
     void Start()
     {
         updateDisplay();
+        acceptHover(false);
     }
 
     // Update is called once per frame
@@ -64,10 +67,12 @@ public class CardDisplayer : MonoBehaviour
         smFrame.backSortingLayerID = SortingLayer.NameToID(sortingLayer);
         srImage.sortingLayerName = sortingLayer;
         cvs.sortingLayerName = sortingLayer;
+        srHighlight.sortingLayerName = sortingLayer;
 
 
         //layers
         int baseLayer = cardLayer * 10;
+        srHighlight.sortingOrder = baseLayer - 1;
         srBack.sortingOrder = baseLayer;
         srFrame.sortingOrder = baseLayer + 1;
         smFrame.backSortingOrder = baseLayer + 1;
@@ -75,6 +80,11 @@ public class CardDisplayer : MonoBehaviour
         smFrame.frontSortingOrder = baseLayer + 2;
         cvs.sortingOrder = baseLayer + 3;
 
+    }
+
+    public void acceptHover(bool hover)
+    {
+        srHighlight.enabled = hover;
     }
 
     internal static CardDisplayer Find(Card card)
