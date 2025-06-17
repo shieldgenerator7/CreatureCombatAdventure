@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public ArenaData arenaData;
+
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
     public AIInput aiInput;
@@ -29,7 +31,14 @@ public class GameManager : MonoBehaviour
                     c.OnTurnTaken += processNextTurn;
                 });
         updateDisplay();
+
+        createArena();
     }
+
+    private void createArena()
+    {
+        GameObject goArena = Instantiate(arenaData.prefab);
+    }//
 
     // Update is called once per frame
     void Update()

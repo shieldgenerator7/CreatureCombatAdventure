@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0aa0f139afd304c9f1d4596915d2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arenaData: {fileID: 0}
+  arenaData: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}
