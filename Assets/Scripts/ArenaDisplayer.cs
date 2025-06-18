@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ArenaDisplayer : MonoBehaviour
@@ -8,6 +9,9 @@ public class ArenaDisplayer : MonoBehaviour
     public CardHolderDisplayer allyHand;
     public List<CardHolderDisplayer> enemyHolders;
     public CardHolderDisplayer enemyHand;
+
+    public List<TMP_Text> txtAllyList;
+    public List<TMP_Text> txtEnemyList;
 
     public Arena arena;
 
@@ -39,5 +43,15 @@ public class ArenaDisplayer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void updateDisplay()
+    {
+        for (int i = 0; i < arena.lanes.Count; i++)
+        {
+            ArenaLane lane = arena.lanes[i];
+            txtAllyList[i].text = $"{Utility.GetSymbolString(lane.AllyRPS)}  {Utility.GetSymbolString(lane.allyPower)}";
+            txtEnemyList[i].text = $"{Utility.GetSymbolString(lane.EnemyRPS)}  {Utility.GetSymbolString(lane.enemyPower)}";
+        }
     }
 }

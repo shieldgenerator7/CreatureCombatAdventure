@@ -54,6 +54,8 @@ public static class Utility
     {
         switch (rps)
         {
+            case RockPaperScissors.NONE:
+                return "";
             case RockPaperScissors.ROCK:
                 return "[R]";
             case RockPaperScissors.PAPER:
