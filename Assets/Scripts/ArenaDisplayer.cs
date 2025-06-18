@@ -17,29 +17,20 @@ public class ArenaDisplayer : MonoBehaviour
     {
         
         //TODO: follow DRY
-        arena.init();
 
         //holders ally
-        ally.handHolder = arena.allyHand;
-        ally.handHolder.owner = ally;
         allyHand.init(ally.handHolder);
-        ally.cardHolders = arena.allyHolders;
         for (int i = 0; i < arena.allyHolders.Count; i++)
         {
             CardHolder ch = arena.allyHolders[i];
-            ch.owner = ally;
             allyHolders[i].init(ch);
         }
 
         //holders enemy
-        enemy.handHolder = arena.enemyHand;
-        enemy.handHolder.owner = enemy;
         enemyHand.init(enemy.handHolder);
-        enemy.cardHolders = arena.enemyHolders;
         for (int i = 0; i < arena.enemyHolders.Count; i++)
         {
             CardHolder ch = arena.enemyHolders[i];
-            ch.owner = enemy;
             enemyHolders[i].init(ch);
         }
     }

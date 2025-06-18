@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        match.init();
+
         controllers.ForEach((controller) =>
         {
             controller.OnCardPlaced += updateDisplay;
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject goArena = Instantiate(match.arena.data.prefab);
         ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
+        ad.arena = match.arena;
         ad.init(match.wranglers[0], match.wranglers[1]);
         arenaDisplayer = ad;
         //put cards into arena
