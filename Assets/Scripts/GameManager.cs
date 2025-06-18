@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
         ad.init(ally, enemy);
         arenaDisplayer = ad;
         //put cards into arena
-        controllers[0].CardDisplayerList.ForEach(cd=>ad.allyHand.CardHolder.acceptDrop(cd.card));
-        controllers[1].CardDisplayerList.ForEach(cd => ad.enemyHand.CardHolder.acceptDrop(cd.card));
+        controllers[0].CardDisplayerList.ForEach(cd=>ad.arena.allyHand.acceptDrop(cd.card));
+        controllers[1].CardDisplayerList.ForEach(cd => ad.arena.enemyHand.acceptDrop(cd.card));
     }//
 
     // Update is called once per frame
@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            int laneAlly = arenaDisplayer.allyHolders[i].CardHolder.cardList.Sum(card => card.data.power);
-            int laneEnemy = arenaDisplayer.enemyHolders[i].CardHolder.cardList.Sum(card => card.data.power);
-            CreatureCardData ally = arenaDisplayer.allyHolders[i].CardHolder.Card?.data;
-            CreatureCardData enemy = arenaDisplayer.enemyHolders[i].CardHolder.Card?.data;
+            int laneAlly = arenaDisplayer.arena.allyHolders[i].cardList.Sum(card => card.data.power);
+            int laneEnemy = arenaDisplayer.arena.enemyHolders[i].cardList.Sum(card => card.data.power);
+            CreatureCardData ally = arenaDisplayer.arena.allyHolders[i].Card?.data;
+            CreatureCardData enemy = arenaDisplayer.arena.enemyHolders[i].Card?.data;
             if (!enemy)
             {
                 allyPower += laneAlly;
