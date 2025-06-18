@@ -55,10 +55,27 @@ public class ArenaDisplayer : MonoBehaviour
         for (int i = 0; i < arena.lanes.Count; i++)
         {
             ArenaLane lane = arena.lanes[i];
-            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(colorNormal)}>";
-            string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(colorNormal)}>";
+            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.allyPower,lane.AllyPowerRaw))}>";
+            string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.enemyPower, lane.EnemyPowerRaw))}>";
             txtAllyList[i].text = $"{allyColor}{Utility.GetSymbolString(lane.AllyRPS)}  {Utility.GetSymbolString(lane.allyPower)}</color>";
             txtEnemyList[i].text = $"{enemyColor}{Utility.GetSymbolString(lane.EnemyRPS)}  {Utility.GetSymbolString(lane.enemyPower)}</color>";
         }
+    }
+
+    private Color getColor(int power, int rawPower)
+    {
+        if (power == rawPower)
+        {
+            return colorNormal;
+        }
+        if (power < rawPower)
+        {
+            return colorLess;
+        }
+        if (power > rawPower)
+        {
+            return colorGreater;
+        }
+        return Color.white;
     }
 }
