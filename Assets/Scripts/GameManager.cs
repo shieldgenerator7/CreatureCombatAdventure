@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
         ad.init(match.wranglers[0], match.wranglers[1]);
         arenaDisplayer = ad;
         //put cards into arena
-        controllers[0].CardDisplayerList.ForEach(cd=>ad.arena.allyHand.acceptDrop(cd.card));
-        controllers[1].CardDisplayerList.ForEach(cd => ad.arena.enemyHand.acceptDrop(cd.card));
+        controllers[0].Wrangler.cardList.ForEach(card=>ad.arena.allyHand.acceptDrop(card));
+        controllers[1].Wrangler.cardList.ForEach(card => ad.arena.enemyHand.acceptDrop(card));
     }//
 
     // Update is called once per frame

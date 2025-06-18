@@ -42,8 +42,6 @@ public class WranglerController : MonoBehaviour
         });
     }
 
-    public List<CardDisplayer> CardDisplayerList =>cardDisplayerList;
-
     public bool canPickupCard(Card card)
     {
         return card.owner == this.player;
