@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public ArenaData arenaData;
     private ArenaDisplayer arenaDisplayer;
-    private Wrangler ally;
-    private Wrangler enemy;
+    public List<Wrangler> wranglers;
 
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
@@ -37,16 +36,17 @@ public class GameManager : MonoBehaviour
 
     private void createPlayers()
     {
-        ally = controllers[0].player;
-        enemy = controllers[1].player;
-        controllers.ForEach(c => c.createCards());
+        for(int i = 0; i < wranglers.Count; i++)
+        {
+            controllers[i].init(wranglers[i]);
+        }
     }
 
     private void createArena()
     {
         GameObject goArena = Instantiate(arenaData.prefab);
         ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
-        ad.init(ally, enemy);
+        ad.init(wranglers[0], wranglers[1]);
         arenaDisplayer = ad;
         //put cards into arena
         controllers[0].CardDisplayerList.ForEach(cd=>ad.arena.allyHand.acceptDrop(cd.card));

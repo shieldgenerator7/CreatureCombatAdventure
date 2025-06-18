@@ -382,22 +382,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arenaData: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
+  wranglers:
+  - name: Player
+    cardList:
+    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
+    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
+    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+  - name: AI
+    cardList:
+    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
+    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
+    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}
   aiInput: {fileID: 584776701}
-  enemyRanks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  allyRanks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   txtPowerEnemy: {fileID: 918513778}
   txtPowerAlly: {fileID: 1020419568}
 --- !u!1 &584776698
@@ -446,12 +451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 584776702}
-  holders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &584776702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,15 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceeeb3a190e9104ebfee888a4faa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    name: AI
-    cardList:
-    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
-    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
-    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
 --- !u!1 &619394800
 GameObject:
@@ -893,15 +883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceeeb3a190e9104ebfee888a4faa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    name: Player
-    cardList:
-    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-    - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
-    - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
-    - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
   cardDisplayerPrefab: {fileID: 3664197422703741302, guid: b98361835c21e624fb93628a934303be, type: 3}
 --- !u!1 &1858829780
 GameObject:

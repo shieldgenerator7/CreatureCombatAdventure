@@ -5,13 +5,27 @@ using UnityEngine;
 
 public class WranglerController : MonoBehaviour
 {
-    public Wrangler player;
+    private Wrangler player;
+    public Wrangler Wrangler {
+        get => player;
+        private set
+        {
+            player = value;
+        }
+    }
 
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
+    public void init(Wrangler wrangler)
+    {
+        Wrangler = wrangler;
 
-    public void createCards()
+        createCards();
+    }
+
+
+    private void createCards()
     {
         cardDisplayerList.ForEach(card =>
         {
