@@ -1,10 +1,15 @@
-using NUnit.Framework;
 using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public class ArenaDisplayer : MonoBehaviour
 {
+    public Color colorNormal = Color.white;
+    public Color colorLess = Color.red;
+    public Color colorGreater = Color.green;
+
     public List<CardHolderDisplayer> allyHolders;
     public CardHolderDisplayer allyHand;
     public List<CardHolderDisplayer> enemyHolders;
@@ -50,8 +55,10 @@ public class ArenaDisplayer : MonoBehaviour
         for (int i = 0; i < arena.lanes.Count; i++)
         {
             ArenaLane lane = arena.lanes[i];
-            txtAllyList[i].text = $"{Utility.GetSymbolString(lane.AllyRPS)}  {Utility.GetSymbolString(lane.allyPower)}";
-            txtEnemyList[i].text = $"{Utility.GetSymbolString(lane.EnemyRPS)}  {Utility.GetSymbolString(lane.enemyPower)}";
+            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(colorNormal)}>";
+            string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(colorNormal)}>";
+            txtAllyList[i].text = $"{allyColor}{Utility.GetSymbolString(lane.AllyRPS)}  {Utility.GetSymbolString(lane.allyPower)}</color>";
+            txtEnemyList[i].text = $"{enemyColor}{Utility.GetSymbolString(lane.EnemyRPS)}  {Utility.GetSymbolString(lane.enemyPower)}</color>";
         }
     }
 }
