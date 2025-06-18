@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Forest
   powerGoal: 8
+  handSize: 10
   lanes:
   - limit: 1
   - limit: 3
   - limit: 5
   - limit: 3
   - limit: 1
+  rpsSetData: {fileID: 11400000, guid: c45615ba064afd74ebd763d0badcd177, type: 2}
   prefab: {fileID: 850646510581769454, guid: 29b7e6f997541fa4383ddaee97252f8d, type: 3}

@@ -401,6 +401,8 @@ MonoBehaviour:
       - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
     arena:
       data: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
+    enemyPower: 0
+    allyPower: 0
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}

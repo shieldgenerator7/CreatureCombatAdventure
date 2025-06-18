@@ -10,5 +10,6 @@ public class ArenaData:ScriptableObject
     [Tooltip("The max number of cards a player can have in their hand")]
     public int handSize = 10;
     public List<ArenaLane> lanes;
+    public RPSSetData rpsSetData;
     public GameObject prefab;
 }

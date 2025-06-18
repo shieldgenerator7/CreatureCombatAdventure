@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,11 +61,11 @@ public class Match
             {
                 int _ap = ally.power;
                 int _ep = enemy.power;
-                if (beats(ally.rps, enemy.rps))
+                if (arena.data.rpsSetData.beats(ally.rps, enemy.rps))
                 {
                     laneEnemy -= _ap;
                 }
-                if (beats(enemy.rps, ally.rps))
+                if (arena.data.rpsSetData.beats(enemy.rps, ally.rps))
                 {
                     laneAlly -= _ep;
                 }
@@ -76,14 +75,5 @@ public class Match
         }
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
-    }
-
-
-    //TODO: move to more suitable spot (utility?)
-    public bool beats(RockPaperScissors rps1, RockPaperScissors rps2)
-    {
-        return rps1 == RockPaperScissors.ROCK && rps2 == RockPaperScissors.SCISSORS
-            || rps1 == RockPaperScissors.PAPER && rps2 == RockPaperScissors.ROCK
-            || rps1 == RockPaperScissors.SCISSORS && rps2 == RockPaperScissors.PAPER;
     }
 }
