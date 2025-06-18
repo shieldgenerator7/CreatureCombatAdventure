@@ -9,7 +9,7 @@ public class ArenaData:ScriptableObject
     public int powerGoal = 8;
     [Tooltip("The max number of cards a player can have in their hand")]
     public int handSize = 10;
-    public List<ArenaLane> lanes;
+    public List<ArenaLaneData> lanes;
     public RPSSetData rpsSetData;
     public GameObject prefab;
 }

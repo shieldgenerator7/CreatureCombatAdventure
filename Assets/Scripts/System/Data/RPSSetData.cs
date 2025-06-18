@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="RPS",order =0)]
 public class RPSSetData:ScriptableObject
 {
-    public List<RPSLine> lines;
+    public List<RPSLineData> lines;
 
     /// <summary>
     /// Returns true if rps1 beats rps2

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public struct RPSLine
+public struct RPSLineData
 {
     public RockPaperScissors winner;
     public RockPaperScissors loser;
