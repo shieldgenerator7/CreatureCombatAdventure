@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text txtPowerEnemy;
     public TMP_Text txtPowerAlly;
+    public TMP_Text txtPowerGoal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
                 {
                     c.OnTurnTaken += processNextTurn;
                 });
-        //updateDisplay();
+        updateDisplay();
         createPlayers();
         createArena();
     }
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         txtPowerEnemy.text = $"{Utility.GetSymbolString(match.enemyPower)}";
         txtPowerAlly.text = $"{Utility.GetSymbolString(match.allyPower)}";
+        txtPowerGoal.text= $"{Utility.GetSymbolString(match.arena.data.powerGoal)}";
 
     }
 
