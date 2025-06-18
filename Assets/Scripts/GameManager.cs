@@ -70,54 +70,14 @@ public class GameManager : MonoBehaviour
 
     void updateDisplay()
     {
-        int enemyPower = 0;
-        int allyPower = 0;
+        match.calculateScores();
 
-        for (int i = 0; i < 5; i++)
-        {
-            int laneAlly = arenaDisplayer.arena.allyHolders[i].cardList.Sum(card => card.data.power);
-            int laneEnemy = arenaDisplayer.arena.enemyHolders[i].cardList.Sum(card => card.data.power);
-            CreatureCardData ally = arenaDisplayer.arena.allyHolders[i].Card?.data;
-            CreatureCardData enemy = arenaDisplayer.arena.enemyHolders[i].Card?.data;
-            if (!enemy)
-            {
-                allyPower += laneAlly;
-            }
-            if (!ally)
-            {
-                enemyPower += laneEnemy;
-            }
-            if (ally && enemy)
-            {
-                int _ap = ally.power;
-                int _ep = enemy.power;
-                if (beats(ally.rps, enemy.rps))
-                {
-                    laneEnemy -= _ap;
-                }
-                if (beats(enemy.rps, ally.rps))
-                {
-                    laneAlly -= _ep;
-                }
-                allyPower += laneAlly;
-                enemyPower += laneEnemy;
-            }
-        }
-        enemyPower=Mathf.Clamp(enemyPower, 0, enemyPower);
-        allyPower=Mathf.Clamp(allyPower, 0, allyPower);
-
-        txtPowerEnemy.text = $"{Utility.GetSymbolString(enemyPower)}";
-        txtPowerAlly.text = $"{Utility.GetSymbolString(allyPower)}";
+        txtPowerEnemy.text = $"{Utility.GetSymbolString(match.enemyPower)}";
+        txtPowerAlly.text = $"{Utility.GetSymbolString(match.allyPower)}";
 
     }
 
-    //TODO: move to more suitable spot (utility?)
-    public bool beats(RockPaperScissors rps1, RockPaperScissors rps2)
-    {
-        return rps1 == RockPaperScissors.ROCK && rps2 == RockPaperScissors.SCISSORS
-            || rps1 == RockPaperScissors.PAPER && rps2 == RockPaperScissors.ROCK
-            || rps1 == RockPaperScissors.SCISSORS && rps2 == RockPaperScissors.PAPER;
-    }
+    
 
 
 }
