@@ -16,5 +16,5 @@ MonoBehaviour:
   cost: 2
   image: {fileID: 21300000, guid: 1fc18b3cbcba1524fa820d3b7fe19e58, type: 3}
   frame: {fileID: 21300000, guid: 6612606b893ff154bb0eef96c11848a0, type: 3}
-  rps: 2
+  rps: 3
   power: 2

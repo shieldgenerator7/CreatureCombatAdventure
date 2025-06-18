@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum RockPaperScissors
 {
+    NONE,
     ROCK,
     PAPER,
     SCISSORS,

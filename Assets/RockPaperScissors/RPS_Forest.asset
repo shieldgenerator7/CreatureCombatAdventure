@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RPS_Forest
   m_EditorClassIdentifier: 
   lines:
-  - winner: 0
-    loser: 2
   - winner: 1
-    loser: 0
+    loser: 3
   - winner: 2
     loser: 1
+  - winner: 3
+    loser: 2
