@@ -11,6 +11,8 @@ public class Arena
     public CardHolder enemyHand;
     public List<CardHolder> enemyHolders;
 
+    public List<ArenaLane> lanes;
+
     public void init()
     {
         //ally
@@ -22,11 +24,24 @@ public class Arena
         enemyHand.isHand = true;
         enemyHolders = new List<CardHolder>();
         //populate lanes
+        lanes = new List<ArenaLane>();
         for (int i = 0; i < data.lanes.Count; i++)
         {
-            int limit = data.lanes[i].limit;
-            allyHolders.Add(new CardHolder(limit));
-            enemyHolders.Add(new CardHolder(limit));
+            ArenaLaneData ald = data.lanes[i];
+            int limit = ald.limit;
+            CardHolder allyHolder = new CardHolder(limit);
+            allyHolders.Add(allyHolder);
+            CardHolder enemyHolder = new CardHolder(limit);
+            enemyHolders.Add(enemyHolder);
+
+            //lanes
+            ArenaLane lane = new ArenaLane();
+            lane.data = ald;
+            lane.rpsData = data.rpsSetData;
+            lane.allyHolder = allyHolder;
+            lane.enemyHolder = enemyHolder;
+            lanes.Add(lane);
+
         }
     }
 }

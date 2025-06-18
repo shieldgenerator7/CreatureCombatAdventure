@@ -45,33 +45,10 @@ public class Match
 
         for (int i = 0; i < arena.data.lanes.Count; i++)
         {
-            int laneAlly = arena.allyHolders[i].cardList.Sum(card => card.data.power);
-            int laneEnemy = arena.enemyHolders[i].cardList.Sum(card => card.data.power);
-            CreatureCardData ally = arena.allyHolders[i].Card?.data;
-            CreatureCardData enemy = arena.enemyHolders[i].Card?.data;
-            if (!enemy)
-            {
-                allyPower += laneAlly;
-            }
-            if (!ally)
-            {
-                enemyPower += laneEnemy;
-            }
-            if (ally && enemy)
-            {
-                int _ap = ally.power;
-                int _ep = enemy.power;
-                if (arena.data.rpsSetData.beats(ally.rps, enemy.rps))
-                {
-                    laneEnemy -= _ap;
-                }
-                if (arena.data.rpsSetData.beats(enemy.rps, ally.rps))
-                {
-                    laneAlly -= _ep;
-                }
-                allyPower += laneAlly;
-                enemyPower += laneEnemy;
-            }
+            ArenaLane lane = arena.lanes[i];
+            lane.calculatePower();
+            allyPower += lane.allyPower;
+            enemyPower += lane.enemyPower;
         }
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
