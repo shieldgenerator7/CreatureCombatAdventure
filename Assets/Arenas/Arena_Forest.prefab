@@ -8640,6 +8640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena_Forest
       objectReference: {fileID: 0}
+    - target: {fileID: 7300813690463637364, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: arena.data
+      value: 
+      objectReference: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

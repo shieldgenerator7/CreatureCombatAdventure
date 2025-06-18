@@ -2,18 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-[Serializable]
 public class CardHolder
 {
-    [NonSerialized]
     public List<Card> cardList = new List<Card>();
-    [NonSerialized]
     public Wrangler owner;
     public int limit = 1;
     public bool isHand = false;
 
     public Card Card => cardList.FirstOrDefault();
     public int CardCount => cardList.Count;
+
+    public CardHolder(int limit = 1)
+    {
+        this.limit = limit;
+    }
 
     public bool hasCard(Card card)
     {

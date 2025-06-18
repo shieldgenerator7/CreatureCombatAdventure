@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WranglerController : MonoBehaviour
@@ -9,25 +10,8 @@ public class WranglerController : MonoBehaviour
     public GameObject cardDisplayerPrefab;
     private List<CardDisplayer> cardDisplayerList = new List<CardDisplayer>();
 
-    public CardHolderDisplayer handHolder;
-    public List<CardHolderDisplayer> holderList;
 
-    private void Awake()
-    {
-        //holders
-        handHolder.init(player.handHolder);
-        player.handHolder.owner = player;
-        for(int i =0; i < holderList.Count; i++)
-        {
-            holderList[i].init(player.cardHolders[i]);
-            player.cardHolders[i].owner = player;
-        }
-
-        //cards
-        createCards();
-    }
-
-    private void createCards()
+    public void createCards()
     {
         cardDisplayerList.ForEach(card =>
         {
@@ -40,8 +24,6 @@ public class WranglerController : MonoBehaviour
             CardDisplayer cd = go.GetComponent<CardDisplayer>();
             cd.card = card;
             card.owner = this.player;
-            handHolder.CardHolder.acceptDrop(card);
-
             cardDisplayerList.Add(cd);
         });
     }
@@ -71,4 +53,9 @@ public class WranglerController : MonoBehaviour
     }
     public event Action OnCardPlaced;
     public event Action OnTurnTaken;
+
+    public static WranglerController Find(Wrangler wrangler)
+    {
+        return FindObjectsByType<WranglerController>(FindObjectsSortMode.None).FirstOrDefault(wc => wc.player == wrangler);
+    }
 }

@@ -6,13 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public ArenaData arenaData;
+    private ArenaDisplayer arenaDisplayer;
+    private Wrangler ally;
+    private Wrangler enemy;
 
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
     public AIInput aiInput;
-
-    public List<CardHolderDisplayer> enemyRanks;
-    public List<CardHolderDisplayer> allyRanks;
 
     public TMP_Text txtPowerEnemy;
     public TMP_Text txtPowerAlly;
@@ -30,14 +30,27 @@ public class GameManager : MonoBehaviour
                 {
                     c.OnTurnTaken += processNextTurn;
                 });
-        updateDisplay();
-
+        //updateDisplay();
+        createPlayers();
         createArena();
+    }
+
+    private void createPlayers()
+    {
+        ally = controllers[0].player;
+        enemy = controllers[1].player;
+        controllers.ForEach(c => c.createCards());
     }
 
     private void createArena()
     {
         GameObject goArena = Instantiate(arenaData.prefab);
+        ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
+        ad.init(ally, enemy);
+        arenaDisplayer = ad;
+        //put cards into arena
+        controllers[0].CardDisplayerList.ForEach(cd=>ad.allyHand.CardHolder.acceptDrop(cd.card));
+        controllers[1].CardDisplayerList.ForEach(cd => ad.enemyHand.CardHolder.acceptDrop(cd.card));
     }//
 
     // Update is called once per frame
@@ -60,10 +73,10 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            int laneAlly = allyRanks[i].CardHolder.cardList.Sum(card => card.data.power);
-            int laneEnemy = enemyRanks[i].CardHolder.cardList.Sum(card => card.data.power);
-            CreatureCardData ally = allyRanks[i].CardHolder.Card?.data;
-            CreatureCardData enemy = enemyRanks[i].CardHolder.Card?.data;
+            int laneAlly = arenaDisplayer.allyHolders[i].CardHolder.cardList.Sum(card => card.data.power);
+            int laneEnemy = arenaDisplayer.enemyHolders[i].CardHolder.cardList.Sum(card => card.data.power);
+            CreatureCardData ally = arenaDisplayer.allyHolders[i].CardHolder.Card?.data;
+            CreatureCardData enemy = arenaDisplayer.enemyHolders[i].CardHolder.Card?.data;
             if (!enemy)
             {
                 allyPower += laneAlly;

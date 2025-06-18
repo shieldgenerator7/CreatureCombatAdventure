@@ -6,20 +6,6 @@ using UnityEngine;
 public class AIInput : WranglerInput
 {
 
-    public List<CardHolderDisplayer> holders;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void processTurn()
     {
         base.processTurn();

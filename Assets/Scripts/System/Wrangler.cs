@@ -8,7 +8,9 @@ public class Wrangler
 {
     public string name;
     public List<Card> cardList;
+    [NonSerialized]
     public List<CardHolder> cardHolders;
+    [NonSerialized]
     public CardHolder handHolder;
 
 }
