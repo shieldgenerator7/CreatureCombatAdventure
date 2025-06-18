@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public ArenaData arenaData;
+    public Match match;
     private ArenaDisplayer arenaDisplayer;
-    public List<Wrangler> wranglers;
 
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
@@ -36,17 +35,17 @@ public class GameManager : MonoBehaviour
 
     private void createPlayers()
     {
-        for(int i = 0; i < wranglers.Count; i++)
+        for(int i = 0; i < match.wranglers.Count; i++)
         {
-            controllers[i].init(wranglers[i]);
+            controllers[i].init(match.wranglers[i]);
         }
     }
 
     private void createArena()
     {
-        GameObject goArena = Instantiate(arenaData.prefab);
+        GameObject goArena = Instantiate(match.arena.data.prefab);
         ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
-        ad.init(wranglers[0], wranglers[1]);
+        ad.init(match.wranglers[0], match.wranglers[1]);
         arenaDisplayer = ad;
         //put cards into arena
         controllers[0].CardDisplayerList.ForEach(cd=>ad.arena.allyHand.acceptDrop(cd.card));
