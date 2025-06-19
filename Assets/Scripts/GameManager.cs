@@ -16,10 +16,17 @@ public class GameManager : MonoBehaviour
     public TMP_Text txtPowerAlly;
     public TMP_Text txtPowerGoal;
 
+    public TMP_Text txtGameResult;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         match.init();
+        match.OnGameEnd += () =>
+        {
+            txtGameResult.gameObject.SetActive(true);
+        };
+        txtGameResult.gameObject.SetActive(false);
 
         controllers.ForEach((controller) =>
         {
@@ -78,6 +85,8 @@ public class GameManager : MonoBehaviour
         txtPowerGoal.text= $"{Utility.GetSymbolString(match.arena.data.powerGoal)}";
 
         arenaDisplayer.updateDisplay();
+
+        txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
 
     }
 

@@ -11,6 +11,9 @@ public class Match
     public int enemyPower = 0;
     public int allyPower = 0;
 
+    [NonSerialized]
+    public Wrangler winner = null;
+
     public void init()
     {
         arena.init();
@@ -52,5 +55,41 @@ public class Match
         }
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
+
+        if (!winner)
+        {
+            Wrangler ally = wranglers[0];
+            Wrangler enemy = wranglers[1];
+            bool allyGoal = allyPower >= arena.data.powerGoal;
+            bool enemyGoal = enemyPower >= arena.data.powerGoal;
+            if (allyGoal || enemyGoal)
+            {
+                if (allyGoal && enemyGoal)
+                {
+                    if (allyPower > enemyPower)
+                    {
+                        winner = ally;
+                    }
+                    else if (enemyPower > allyPower)
+                    {
+                        winner = enemy;
+                    }
+                    else
+                    {
+                        winner = null;
+                    }
+                }
+                else if (allyGoal)
+                {
+                    winner = ally;
+                }
+                else if (enemyGoal)
+                {
+                    winner = enemy;
+                }
+                OnGameEnd?.Invoke();
+            }
+        }
     }
+    public event Action OnGameEnd;
 }

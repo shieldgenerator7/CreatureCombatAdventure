@@ -13,4 +13,6 @@ public class Wrangler
     [NonSerialized]
     public CardHolder handHolder;
 
+    public static implicit operator bool(Wrangler wrangler) => wrangler != null;
+
 }
