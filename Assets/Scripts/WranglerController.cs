@@ -55,13 +55,18 @@ public class WranglerController : MonoBehaviour
 
     public void placeCard(Card card, CardHolder holder)
     {
+        //a move is a fake move if it moves to the same holder and is either a hand, or the card was already the last in the list
+        bool fakeMove = card.holder == holder && (holder.isHand || card.holder.cardList.Last() == card);
         if (card.holder)
         {
             card.holder.removeCard(card);
         }
         holder.acceptDrop(card);
         OnCardPlaced?.Invoke();
+        if (!fakeMove)
+        {
         OnTurnTaken?.Invoke();
+        }
     }
     public event Action OnCardPlaced;
     public event Action OnTurnTaken;
