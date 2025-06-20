@@ -56,7 +56,7 @@ public class CardDisplayer : MonoBehaviour
         smFrame.sprite = card.data.frame;
 
         txtName.text = card.data.name;
-        txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
+        //txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
         txtRPS.text = $"{Utility.GetSymbolString(card.data.rps)}";
         txtPower.text = $"{Utility.GetSymbolString(card.data.power)}";
 
