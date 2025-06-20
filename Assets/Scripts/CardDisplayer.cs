@@ -53,6 +53,7 @@ public class CardDisplayer : MonoBehaviour
     {
         srImage.sprite = card.data.image;
         srFrame.sprite = card.data.frame;
+        srFrame.color = card.data.frameColor;
         smFrame.sprite = card.data.frame;
 
         txtName.text = card.data.name;

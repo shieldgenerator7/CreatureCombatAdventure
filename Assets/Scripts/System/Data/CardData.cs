@@ -8,4 +8,5 @@ public abstract class CardData : ScriptableObject
 
     public Sprite image;
     public Sprite frame;
+    public Color frameColor=Color.white;
 }
