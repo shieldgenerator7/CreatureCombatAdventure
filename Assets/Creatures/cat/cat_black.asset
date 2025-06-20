@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27abd3a6c3f15f4bb859e25c92393b0, type: 3}
-  m_Name: cat
+  m_Name: cat_black
   m_EditorClassIdentifier: 
   name: Cat
   cost: 1
