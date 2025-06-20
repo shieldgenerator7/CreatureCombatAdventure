@@ -19,6 +19,8 @@ public class CardDisplayer : MonoBehaviour
     public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
+    private ImageDisplayer imageDisplayer;
+
     public string sortingLayer = "Card";
 
     private bool mousedOver = false;
@@ -51,7 +53,10 @@ public class CardDisplayer : MonoBehaviour
 
     public void updateDisplay()
     {
+        if (srImage)
+        {
         srImage.sprite = card.data.image;
+        }
         srFrame.sprite = card.data.frame;
         srFrame.color = card.data.frameColor;
         smFrame.sprite = card.data.frame;
@@ -66,7 +71,10 @@ public class CardDisplayer : MonoBehaviour
         srFrame.sortingLayerName = sortingLayer;
         smFrame.frontSortingLayerID = SortingLayer.NameToID(sortingLayer);
         smFrame.backSortingLayerID = SortingLayer.NameToID(sortingLayer);
+        if (srImage)
+        {
         srImage.sortingLayerName = sortingLayer;
+        }
         cvs.sortingLayerName = sortingLayer;
         srHighlight.sortingLayerName = sortingLayer;
 
@@ -77,9 +85,24 @@ public class CardDisplayer : MonoBehaviour
         srBack.sortingOrder = baseLayer;
         srFrame.sortingOrder = baseLayer + 1;
         smFrame.backSortingOrder = baseLayer + 1;
+        if (srImage)
+        {
         srImage.sortingOrder = baseLayer + 2;
+        }
         smFrame.frontSortingOrder = baseLayer + 2;
-        cvs.sortingOrder = baseLayer + 3;
+        int layeroffset = 0;
+
+        if (card.data.imagePrefab)
+        {
+            if (!imageDisplayer)
+            {
+                GameObject imageObject = Instantiate(card.data.imagePrefab,transform);
+                imageObject.transform.localPosition = srImage.transform.localPosition;
+                imageDisplayer = imageObject.GetComponent<ImageDisplayer>();
+            }
+            layeroffset = imageDisplayer.updateLayer(baseLayer + 2, sortingLayer);
+        }
+        cvs.sortingOrder = baseLayer + 3 + layeroffset;
 
     }
 
