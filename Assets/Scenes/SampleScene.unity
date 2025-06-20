@@ -391,6 +391,9 @@ MonoBehaviour:
       - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
       - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
       - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+      - data: {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+      - data: {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+      - data: {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
     - name: AI
       cardList:
       - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
@@ -399,13 +402,13 @@ MonoBehaviour:
       - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
       - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
       - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
+      - data: {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+      - data: {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+      - data: {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
     arena:
       data: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
     enemyPower: 0
     allyPower: 0
-    winner:
-      name: 
-      cardList: []
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}
