@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,5 +19,16 @@ public class ImageDisplayer : MonoBehaviour
             sr.sortingOrder = baselayer + i;
         }
         return srs.Count;
+    }
+
+    internal void updateColors(List<Color> colors)
+    {
+        for (int i = 0; i < colors.Count; i++)
+        {
+            if (i >= srs.Count) { break; }
+
+            SpriteRenderer sr = srs[i];
+            sr.color = colors[i];
+        }
     }
 }

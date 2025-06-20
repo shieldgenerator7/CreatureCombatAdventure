@@ -56,6 +56,10 @@ public class CardDisplayer : MonoBehaviour
         if (srImage)
         {
         srImage.sprite = card.data.image;
+            if (card.data.colors.Count>0)
+            {
+                srImage.color = card.data.colors.First();
+            }
         }
         srFrame.sprite = card.data.frame;
         srFrame.color = card.data.frameColor;
@@ -96,9 +100,7 @@ public class CardDisplayer : MonoBehaviour
         {
             if (!imageDisplayer)
             {
-                GameObject imageObject = Instantiate(card.data.imagePrefab,transform);
-                imageObject.transform.localPosition = srImage.transform.localPosition;
-                imageDisplayer = imageObject.GetComponent<ImageDisplayer>();
+                setupImageDisplayer();
             }
             layeroffset = imageDisplayer.updateLayer(baseLayer + 2, sortingLayer);
         }
@@ -109,6 +111,15 @@ public class CardDisplayer : MonoBehaviour
     public void acceptHover(bool hover)
     {
         srHighlight.enabled = hover;
+    }
+
+    private void setupImageDisplayer()
+    {
+        GameObject imageObject = Instantiate(card.data.imagePrefab, transform);
+        imageObject.transform.localPosition = srImage.transform.localPosition;
+        imageDisplayer = imageObject.GetComponent<ImageDisplayer>();
+
+        imageDisplayer.updateColors(card.data.colors);
     }
 
     internal static CardDisplayer Find(Card card)
