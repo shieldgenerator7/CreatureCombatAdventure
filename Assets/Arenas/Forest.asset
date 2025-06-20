@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   name: Forest
-  powerGoal: 8
+  powerGoal: 10
   handSize: 10
   lanes:
   - limit: 1
