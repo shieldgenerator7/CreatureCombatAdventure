@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27abd3a6c3f15f4bb859e25c92393b0, type: 3}
   m_Name: cat
   m_EditorClassIdentifier: 
-  name: 
-  cost: 0
+  name: Cat
+  cost: 1
   image: {fileID: 0}
-  frame: {fileID: 0}
-  imagePrefab: {fileID: 0}
-  rps: 0
-  power: 0
+  frame: {fileID: 21300000, guid: dbedf3a3298776c4397139c8f294c3b6, type: 3}
+  frameColor: {r: 0.09976861, g: 0.3584906, b: 0.13651422, a: 1}
+  imagePrefab: {fileID: 1110143722554837645, guid: b03039d78a01b6c44893ddff38b5c63f, type: 3}
+  colors:
+  - {r: 0.18039216, g: 0.18039216, b: 0.18039216, a: 1}
+  - {r: 0.7921569, g: 1, b: 0.16470589, a: 1}
+  rps: 3
+  power: 1
