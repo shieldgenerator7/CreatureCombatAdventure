@@ -13,6 +13,14 @@ public class Wrangler
     [NonSerialized]
     public CardHolder handHolder;
 
+    public Wrangler clone()
+    {
+        Wrangler clone = new Wrangler();
+        clone.name = name;
+        clone.cardList = cardList.ConvertAll(card => new Card(card.data));
+        return clone;
+    }
+
     public static implicit operator bool(Wrangler wrangler) => wrangler != null;
 
 }

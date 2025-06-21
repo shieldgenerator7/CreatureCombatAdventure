@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     public void StartMatch()
     {
+        playerWrangler = playerWrangler.clone();
+
         match = new Match();
 
         match.wranglers.Add(playerWrangler);
