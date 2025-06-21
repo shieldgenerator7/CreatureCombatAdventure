@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
         txtPowerEnemy.text = $"{Utility.GetSymbolString(match.enemyPower)}";
         txtPowerAlly.text = $"{Utility.GetSymbolString(match.allyPower)}";
-        txtPowerGoal.text= $"{Utility.GetSymbolString(match.arena.data.powerGoal)}";
+        txtPowerGoal.text= $"{Utility.GetSymbolString(match.powerGoal)}";
 
         arenaDisplayer.updateDisplay();
 

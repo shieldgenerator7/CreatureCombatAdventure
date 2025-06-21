@@ -8,6 +8,7 @@ public class Match
 {
     public EncounterData encounterData;
     public List<Wrangler> wranglers = new List<Wrangler>();
+    public int powerGoal = 0;
     [NonSerialized]
     public Arena arena;
     [NonSerialized]
@@ -58,6 +59,9 @@ public class Match
             CardHolder ch = arena.enemyHolders[i];
             ch.owner = enemy;
         }
+
+        //power goal
+        powerGoal = (encounterData.powerGoal > 0) ? encounterData.powerGoal : arena.data.powerGoal;
     }
 
     public void calculateScores()
@@ -79,7 +83,6 @@ public class Match
         {
             Wrangler ally = wranglers[0];
             Wrangler enemy = wranglers[1];
-            int powerGoal = (encounterData.powerGoal > 0)?encounterData.powerGoal : arena.data.powerGoal;
             bool allyGoal = allyPower >= powerGoal;
             bool enemyGoal = enemyPower >= powerGoal;
             if (allyGoal || enemyGoal)
