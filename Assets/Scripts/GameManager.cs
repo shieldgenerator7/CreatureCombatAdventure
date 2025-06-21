@@ -24,6 +24,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         StartMatch();
+
+        controllers.ForEach((controller) =>
+        {
+            controller.OnCardPlaced += updateDisplay;
+        });
+        controllers
+            .FindAll(c => aiInput.controller != c)
+            .ForEach(c =>
+            {
+                c.OnTurnTaken += processNextTurn;
+            });
     }
 
     public void StartMatch()
@@ -40,16 +51,6 @@ public class GameManager : MonoBehaviour
         };
         txtGameResult.gameObject.SetActive(false);
 
-        controllers.ForEach((controller) =>
-        {
-            controller.OnCardPlaced += updateDisplay;
-        });
-        controllers
-            .FindAll(c => aiInput.controller != c)
-            .ForEach(c =>
-                {
-                    c.OnTurnTaken += processNextTurn;
-                });
         createPlayers();
         createArena();
         updateDisplay();
