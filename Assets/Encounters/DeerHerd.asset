@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DeerHerd
   m_EditorClassIdentifier: 
   name: Deer Herd
-  powerGoal: 5
+  powerGoal: 10
   arena: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
   enemyCreatures:
   - {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
