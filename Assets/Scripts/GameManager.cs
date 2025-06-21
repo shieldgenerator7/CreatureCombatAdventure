@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void createArena()
     {
-        GameObject goArena = Instantiate(match.arena.data.prefab);
+        GameObject goArena = Instantiate(match.arena.data.prefab, Bin.Transform);
         ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
         ad.arena = match.arena;
         ad.init(match.wranglers[0], match.wranglers[1]);

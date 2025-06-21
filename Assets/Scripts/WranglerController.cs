@@ -34,7 +34,7 @@ public class WranglerController : MonoBehaviour
         cardDisplayerList.Clear();
         player.cardList.ForEach(card =>
         {
-            GameObject go = Instantiate(cardDisplayerPrefab);
+            GameObject go = Instantiate(cardDisplayerPrefab, Bin.Transform);
             CardDisplayer cd = go.GetComponent<CardDisplayer>();
             cd.card = card;
             card.owner = this.player;
