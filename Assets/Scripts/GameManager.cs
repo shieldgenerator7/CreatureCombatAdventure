@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
         match.OnGameEnd += () =>
         {
             txtGameResult.gameObject.SetActive(true);
+            if (match.winner == playerWrangler)
+            {
+                int rand = UnityEngine.Random.Range(0, match.wranglers[1].cardList.Count);
+                CreatureCardData cardData = match.wranglers[1].cardList[rand].data;
+                playerWrangler.cardList.Add(new Card(cardData));
+            }
         };
         txtGameResult.gameObject.SetActive(false);
 
