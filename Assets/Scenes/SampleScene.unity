@@ -381,7 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0aa0f139afd304c9f1d4596915d2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encounterData: {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
+  encounterDataList:
+  - {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
+  - {fileID: 11400000, guid: 890ff19520d23754e8376d000a192c84, type: 2}
+  encounterIndex: 0
   playerWrangler:
     name: Player
     cardList:

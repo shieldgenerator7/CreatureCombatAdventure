@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e00899b9d11f794e9c3fcf821e5f2c2, type: 3}
+  m_Name: Test2
+  m_EditorClassIdentifier: 
+  name: A Big Bunch of Cats
+  powerGoal: 5
+  arena: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
+  enemyCreatures:
+  - {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+  - {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+  - {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
+  - {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+  - {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+  - {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}

@@ -7,7 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private Match match;
-    public EncounterData encounterData;
+    public List<EncounterData> encounterDataList;
+    public int encounterIndex = 0;
     private ArenaDisplayer arenaDisplayer;
     public Wrangler playerWrangler;
 
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
         match = new Match();
 
         match.wranglers.Add(playerWrangler);
-        match.encounterData = encounterData;
+        match.encounterData = encounterDataList[encounterIndex];
 
         match.init();
         match.OnGameEnd += () =>
@@ -112,5 +113,10 @@ public class GameManager : MonoBehaviour
     {
         Bin.Instance.clearBin();
         StartMatch();
+    }
+    internal void NextMatch()
+    {
+        encounterIndex = Mathf.Clamp(encounterIndex+1, 0, encounterDataList.Count-1);
+        Reset();
     }
 }
