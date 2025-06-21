@@ -196,15 +196,23 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
     public void OnReset(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started) { 
         FindAnyObjectByType<GameManager>().Reset();
+        }
     }
     public void OnNextMatch(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
         FindAnyObjectByType<GameManager>().NextMatch();
+        }
     }
     public void OnPrevMatch(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
         FindAnyObjectByType<GameManager>().PrevMatch();
+        }
     }
 
     private CardDisplayer getMousedOverCard()
