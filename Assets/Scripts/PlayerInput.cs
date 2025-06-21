@@ -198,6 +198,10 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     {
         FindAnyObjectByType<GameManager>().Reset();
     }
+    public void OnNextMatch(InputAction.CallbackContext context)
+    {
+        FindAnyObjectByType<GameManager>().NextMatch();
+    }
 
     private CardDisplayer getMousedOverCard()
     {
