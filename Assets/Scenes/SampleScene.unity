@@ -381,20 +381,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0aa0f139afd304c9f1d4596915d2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  match:
-    encounterData: {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
-    wranglers:
-    - name: Player
-      cardList:
-      - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-      - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-      - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-      - data: {fileID: 11400000, guid: 39cfb007bc65b954f970cf639d7da8e6, type: 2}
-      - data: {fileID: 11400000, guid: a161c115c20715546b2b348a13b4e287, type: 2}
-      - data: {fileID: 11400000, guid: 5b00f97c031895f48b336260a96c4aa2, type: 2}
-      - data: {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
-      - data: {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
-      - data: {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
+  encounterData: {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
+  playerWrangler:
+    name: Player
+    cardList:
+    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
+    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
+    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}

@@ -194,6 +194,11 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
     }
 
+    public void OnReset(InputAction.CallbackContext context)
+    {
+        FindAnyObjectByType<GameManager>().Reset();
+    }
+
     private CardDisplayer getMousedOverCard()
     {
         Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

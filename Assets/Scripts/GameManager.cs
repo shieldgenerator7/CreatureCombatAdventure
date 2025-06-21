@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -5,8 +6,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Match match;
+    private Match match;
+    public EncounterData encounterData;
     private ArenaDisplayer arenaDisplayer;
+    public Wrangler playerWrangler;
 
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
@@ -18,9 +21,18 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text txtGameResult;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
+        StartMatch();
+    }
+
+    public void StartMatch()
+    {
+        match = new Match();
+
+        match.wranglers.Add(playerWrangler);
+        match.encounterData = encounterData;
+
         match.init();
         match.OnGameEnd += () =>
         {
@@ -93,4 +105,9 @@ public class GameManager : MonoBehaviour
     
 
 
+    internal void Reset()
+    {
+        Bin.Instance.clearBin();
+        StartMatch();
+    }
 }

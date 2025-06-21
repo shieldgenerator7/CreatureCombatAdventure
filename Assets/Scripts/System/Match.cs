@@ -7,7 +7,7 @@ using UnityEngine;
 public class Match
 {
     public EncounterData encounterData;
-    public List<Wrangler> wranglers;
+    public List<Wrangler> wranglers = new List<Wrangler>();
     [NonSerialized]
     public Arena arena;
     [NonSerialized]
