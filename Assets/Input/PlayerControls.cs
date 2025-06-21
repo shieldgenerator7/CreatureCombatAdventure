@@ -198,6 +198,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrevMatch"",
+                    ""type"": ""Button"",
+                    ""id"": ""a53db633-082e-4290-9f14-aa027ad441e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -627,6 +636,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""NextMatch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37088d50-2228-4f56-ab09-b0825e25cb11"",
+                    ""path"": ""<Keyboard>/pageUp"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevMatch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1226,6 +1246,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Exit = m_Player.FindAction("Exit", throwIfNotFound: true);
         m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
         m_Player_NextMatch = m_Player.FindAction("NextMatch", throwIfNotFound: true);
+        m_Player_PrevMatch = m_Player.FindAction("PrevMatch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1331,6 +1352,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Exit;
     private readonly InputAction m_Player_Reset;
     private readonly InputAction m_Player_NextMatch;
+    private readonly InputAction m_Player_PrevMatch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1390,6 +1412,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/NextMatch".
         /// </summary>
         public InputAction @NextMatch => m_Wrapper.m_Player_NextMatch;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/PrevMatch".
+        /// </summary>
+        public InputAction @PrevMatch => m_Wrapper.m_Player_PrevMatch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1452,6 +1478,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NextMatch.started += instance.OnNextMatch;
             @NextMatch.performed += instance.OnNextMatch;
             @NextMatch.canceled += instance.OnNextMatch;
+            @PrevMatch.started += instance.OnPrevMatch;
+            @PrevMatch.performed += instance.OnPrevMatch;
+            @PrevMatch.canceled += instance.OnPrevMatch;
         }
 
         /// <summary>
@@ -1499,6 +1528,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NextMatch.started -= instance.OnNextMatch;
             @NextMatch.performed -= instance.OnNextMatch;
             @NextMatch.canceled -= instance.OnNextMatch;
+            @PrevMatch.started -= instance.OnPrevMatch;
+            @PrevMatch.performed -= instance.OnPrevMatch;
+            @PrevMatch.canceled -= instance.OnPrevMatch;
         }
 
         /// <summary>
@@ -1883,6 +1915,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNextMatch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PrevMatch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPrevMatch(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

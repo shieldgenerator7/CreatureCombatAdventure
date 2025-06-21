@@ -119,4 +119,9 @@ public class GameManager : MonoBehaviour
         encounterIndex = Mathf.Clamp(encounterIndex+1, 0, encounterDataList.Count-1);
         Reset();
     }
+    internal void PrevMatch()
+    {
+        encounterIndex = Mathf.Clamp(encounterIndex - 1, 0, encounterDataList.Count - 1);
+        Reset();
+    }
 }
