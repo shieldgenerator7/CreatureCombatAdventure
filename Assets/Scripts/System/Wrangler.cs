@@ -7,9 +7,9 @@ using UnityEngine;
 public class Wrangler
 {
     public string name;
-    public List<Card> cardList;
+    public List<Card> cardList = new List<Card>();
     [NonSerialized]
-    public List<CardHolder> cardHolders;
+    public List<CardHolder> cardHolders = new List<CardHolder>();
     [NonSerialized]
     public CardHolder handHolder;
 

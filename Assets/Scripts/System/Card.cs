@@ -12,5 +12,12 @@ public class Card
     [NonSerialized]
     public CardHolder holder;
 
+    public Card() { }
+
+    public Card(CreatureCardData data)
+    {
+        this.data = data;
+    }
+
     public static implicit operator bool(Card card) => card != null;
 }

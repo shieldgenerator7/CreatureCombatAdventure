@@ -6,9 +6,13 @@ using UnityEngine;
 [Serializable]
 public class Match
 {
+    public EncounterData encounterData;
     public List<Wrangler> wranglers;
+    [NonSerialized]
     public Arena arena;
+    [NonSerialized]
     public int enemyPower = 0;
+    [NonSerialized]
     public int allyPower = 0;
 
     [NonSerialized]
@@ -16,7 +20,22 @@ public class Match
 
     public void init()
     {
+        arena = new Arena();
+        arena.data = encounterData.arena;
         arena.init();
+
+        //players (ally)
+        //do nothing (assume setup in scene)
+
+        //players (enemy)
+        Wrangler enemy;
+        if (wranglers.Count < 2)
+        {
+            enemy = new Wrangler();
+            enemy.name = encounterData.name;
+            enemy.cardList.AddRange(encounterData.enemyCreatures.ConvertAll(data=>new Card(data)));
+            wranglers.Add(enemy);
+        }
 
         //holders ally
         Wrangler ally = wranglers[0];
@@ -30,7 +49,7 @@ public class Match
         }
 
         //holders enemy
-        Wrangler enemy = wranglers[1];
+        enemy = wranglers[1];
         enemy.handHolder = arena.enemyHand;
         enemy.handHolder.owner = enemy;
         enemy.cardHolders = arena.enemyHolders;
@@ -60,8 +79,9 @@ public class Match
         {
             Wrangler ally = wranglers[0];
             Wrangler enemy = wranglers[1];
-            bool allyGoal = allyPower >= arena.data.powerGoal;
-            bool enemyGoal = enemyPower >= arena.data.powerGoal;
+            int powerGoal = (encounterData.powerGoal > 0)?encounterData.powerGoal : arena.data.powerGoal;
+            bool allyGoal = allyPower >= powerGoal;
+            bool enemyGoal = enemyPower >= powerGoal;
             if (allyGoal || enemyGoal)
             {
                 if (allyGoal && enemyGoal)
