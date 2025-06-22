@@ -14,10 +14,15 @@ public struct Move
 
     public CardHolder holderCurrent;
 
-    public bool isMovePlay;
-    public bool isMoveMove;
-    public bool isMoveReorder;
-    public bool isMoveActivate;
+    public enum Type
+    {
+        PASS,
+        PLAY,
+        MOVE,
+        REORDER,
+        ACTIVATE,
+    }
+    public Type type;
 
     public bool isMovingIntoEmpty;
     public bool isMoveFillsCapacity;
@@ -39,14 +44,28 @@ public struct Move
 
         holderCurrent = card.holder;
 
-        isMovePlay = card.holder.isHand;
-        isMoveMove = !card.holder.isHand && card.holder != holder;
-        isMoveReorder = !card.holder.isHand && card.holder == holder && card.holder.cardList.Last() != card;
+        type = Type.PASS;
+        if (card.holder.isHand)
+        {
+            type = Type.PLAY;
+        }
+        else if (card.holder != holder)
+        {
+            type = Type.MOVE;
+        }
+        else if (card.holder.cardList.Last() != card)
+        {
+            type = Type.REORDER;
+        }
         //TODO: implement this
-        isMoveActivate = false;
+        //else if (true)
+        //{
+        //    type = Type.ACTIVATE;
+        //}
 
-        isMovingIntoEmpty = (isMovePlay || isMoveMove) && holder.CardCount == 0;
-        isMoveFillsCapacity = (isMovePlay || isMoveMove) && holder.CardCount == holder.limit - 1;
+        bool movingToNewHolder = (type == Type.PLAY || type == Type.MOVE);
+        isMovingIntoEmpty = movingToNewHolder && holder.CardCount == 0;
+        isMoveFillsCapacity = movingToNewHolder && holder.CardCount == holder.limit - 1;
 
     }
 }

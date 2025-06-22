@@ -4,17 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="AIBrains/Random")]
 public class AIRandom : AIBrain
 {
-    public bool prioritizePlaying = true;
+    [Tooltip("Which move it should prioritize. Set to PASS to not prioritize anything")]
+    public Move.Type priority;
 
     public override Move pickMove(List<Move> moves)
     {
-        if (prioritizePlaying)
+        if (priority != Move.Type.PASS)
         {
-            List<Move> playMoves = moves.FindAll(move => move.isMovePlay);
-            if (playMoves.Count > 0)
+            List<Move> priorityMoves = moves.FindAll(move => move.type == this.priority);
+            if (priorityMoves.Count > 0)
             {
-                int playindex = Random.Range(0, playMoves.Count);
-                return playMoves[playindex];
+                int priorityIndex = Random.Range(0, priorityMoves.Count);
+                return priorityMoves[priorityIndex];
             }
         }
         int index = Random.Range(0, moves.Count);
