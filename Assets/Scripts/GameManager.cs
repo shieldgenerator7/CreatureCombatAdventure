@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
         };
         txtGameResult.gameObject.SetActive(false);
 
+        aiInput.aiBrain = match.encounterData.aiBrain;
+
         createPlayers();
         createArena();
         updateDisplay();

@@ -15,6 +15,7 @@ MonoBehaviour:
   name: A Bunch of Cats
   powerGoal: 3
   arena: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
+  aiBrain: {fileID: 11400000, guid: 7ecbeb7917d77d240b7239a708e88781, type: 2}
   enemyCreatures:
   - {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
   - {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
