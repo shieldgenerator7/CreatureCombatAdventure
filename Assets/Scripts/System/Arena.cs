@@ -18,9 +18,11 @@ public class Arena
         //ally
         allyHand= new CardHolder(data.handSize);
         allyHand.isHand = true;
+        allyHand.arena = this;
         allyHolders = new List<CardHolder>();
         //enemy
         enemyHand = new CardHolder(data.handSize);
+        enemyHand.arena = this;
         enemyHand.isHand = true;
         enemyHolders = new List<CardHolder>();
         //populate lanes
@@ -30,9 +32,13 @@ public class Arena
             ArenaLaneData ald = data.lanes[i];
             int limit = ald.limit;
             CardHolder allyHolder = new CardHolder(limit);
+            allyHolder.arena = this;
             allyHolders.Add(allyHolder);
             CardHolder enemyHolder = new CardHolder(limit);
+            enemyHolder.arena = this;
             enemyHolders.Add(enemyHolder);
+            allyHolder.opposingHolder = enemyHolder;
+            enemyHolder.opposingHolder = allyHolder;
 
             //lanes
             ArenaLane lane = new ArenaLane();

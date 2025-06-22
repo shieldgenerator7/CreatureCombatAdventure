@@ -8,6 +8,10 @@ public class CardHolder
     public Wrangler owner;
     public int limit = 1;
     public bool isHand = false;
+    [NonSerialized]
+    public CardHolder opposingHolder;
+    [NonSerialized]
+    public Arena arena;
 
     public Card Card => cardList.FirstOrDefault();
     public int CardCount => cardList.Count;
@@ -47,6 +51,8 @@ public class CardHolder
         OnCardRemoved?.Invoke(card);
     }
     public event Action<Card> OnCardRemoved;
+
+    public int Power=>cardList.Sum(card=>card.data.power);
 
 
     public static implicit operator bool(CardHolder cardHolder) => cardHolder != null;

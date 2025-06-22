@@ -5,38 +5,28 @@ using UnityEngine;
 
 public class AIInput : WranglerInput
 {
+    public AIBrain aiBrain;
 
     public override void processTurn()
     {
         base.processTurn();
         //try playing cards
         if (canPlayAnyCard()) {
-        //find card
-        List<Card> unplayedCardList = controller.Wrangler.cardList.FindAll(card => card.holder == null || controller.Wrangler.handHolder.hasCard(card));
-            if (unplayedCardList.Count == 0)
-            {
-                unplayedCardList = controller.Wrangler.cardList;
-            }
-            int randIndex1 = Random.Range(0, unplayedCardList.Count);
-            Card card = unplayedCardList[randIndex1];
-        if (card && controller.canPickupCard(card))
-        {
-            List<CardHolder> emptyHolderList = controller.Wrangler.cardHolders.FindAll((holder) => holder.CardCount == 0);
-                if (emptyHolderList.Count == 0)
-                {
-                    emptyHolderList = controller.Wrangler.cardHolders.FindAll(holder=>holder.CardCount<holder.limit);
-                }
-            if (emptyHolderList.Count > 0)
-            {
-                int randIndex = Random.Range(0, emptyHolderList.Count);
-                CardHolder ch = emptyHolderList[randIndex];
-                if (controller.canPlaceCardAt(card, ch))
-                {
-                    controller.placeCard(card, ch);
-                }
-            }
-        }
-        }
+            //get moves
+            List<Move> moves = new List<Move>();
+            controller.Wrangler.cardList.ForEach(card =>
+            {//
+                controller.Wrangler.cardHolders.ForEach(holder =>
+                {//
+                    if (holder.CardCount >= holder.limit && holder != card.holder) { return; }
+                    if (!controller.canPlaceCardAt(card, holder)) { return; }
+                    moves.Add(new Move(card, holder));
+                });
+            });
+            //ask ai to pick a move to do
+            Move move = aiBrain.pickMove(moves);
+            controller.placeCard(move.card, move.holder);
+        }//
     }
 
     private bool canPlayAnyCard()
