@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f8be5bb5d7c7e4aa62b2d63c82a1f2, type: 3}
   m_Name: AI_Random
   m_EditorClassIdentifier: 
+  prioritizePlaying: 1
