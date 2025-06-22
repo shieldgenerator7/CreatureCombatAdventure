@@ -29,6 +29,21 @@ public struct Move
 
     public Move(Card card, CardHolder holder)
     {
+        if (!card || !holder)
+        {
+            type = Type.PASS;
+            this.card = null;
+            this.holder = null;
+            opposingCard = null;
+            opposingHolder = null;
+            beatsOpposingRPS = false;
+            beatsOpposingPower = false;
+            holderCurrent = null;
+            isMovingIntoEmpty = false;
+            isMoveFillsCapacity = false;
+            return;
+        }
+
         //Assumption: never trying to move a card back into the hand
         this.card = card;
         this.holder = holder;
