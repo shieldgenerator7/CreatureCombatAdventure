@@ -9,8 +9,14 @@ public struct Move
     public Card opposingCard;
     public CardHolder opposingHolder;
 
+    /// <summary>
+    /// True if this move causes this wrangler to win RPS in this lane, when it wouldn't before
+    /// </summary>
     public bool beatsOpposingRPS;
-    public bool beatsOpposingPower;
+    /// <summary>
+    /// True if this moves causes this wrangler to win (raw) Power in this lane, when it wouldn't before
+    /// </summary>
+    public bool beatsOpposingPowerRaw;
 
     public CardHolder holderCurrent;
 
@@ -27,6 +33,8 @@ public struct Move
     public bool isMovingIntoEmpty;
     public bool isMoveFillsCapacity;
 
+    public bool Valid => type != Type.PASS;
+
     public Move(Card card, CardHolder holder)
     {
         if (!card || !holder)
@@ -37,7 +45,7 @@ public struct Move
             opposingCard = null;
             opposingHolder = null;
             beatsOpposingRPS = false;
-            beatsOpposingPower = false;
+            beatsOpposingPowerRaw = false;
             holderCurrent = null;
             isMovingIntoEmpty = false;
             isMoveFillsCapacity = false;
@@ -45,17 +53,20 @@ public struct Move
         }
 
         //Assumption: never trying to move a card back into the hand
+        //Asumption: moving a card puts it at the back of the list for that lane
         this.card = card;
         this.holder = holder;
 
         opposingHolder = holder.opposingHolder;
-        opposingCard = opposingHolder.cardList.FirstOrDefault();
+        opposingCard = opposingHolder.Card;
 
-        beatsOpposingRPS = holder.arena.data.rpsSetData.beats(
+        beatsOpposingRPS = holder.CardCount == 0 && holder.arena.data.rpsSetData.beats(
             card.data.rps, 
             opposingCard?.data.rps ?? RockPaperScissors.NONE
             );
-        beatsOpposingPower = holder.Power + card.data.power > opposingHolder.Power;
+        int holderPower = holder.Power;
+        int holderPowerOpposing = opposingHolder.Power;
+        beatsOpposingPowerRaw = holderPower + card.data.power > holderPowerOpposing && holderPower <= holderPowerOpposing;
 
         holderCurrent = card.holder;
 

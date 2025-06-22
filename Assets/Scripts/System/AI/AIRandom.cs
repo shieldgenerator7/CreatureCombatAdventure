@@ -11,14 +11,12 @@ public class AIRandom : AIBrain
     {
         if (priority != Move.Type.PASS)
         {
-            List<Move> priorityMoves = moves.FindAll(move => move.type == this.priority);
-            if (priorityMoves.Count > 0)
+            Move priorityMove = pickMoveFilter(moves,move=>move.type == priority);
+            if (priorityMove.Valid)
             {
-                int priorityIndex = Random.Range(0, priorityMoves.Count);
-                return priorityMoves[priorityIndex];
+                return priorityMove;
             }
         }
-        int index = Random.Range(0, moves.Count);
-        return moves[index];
+        return pickMoveRandom(moves);
     }
 }
