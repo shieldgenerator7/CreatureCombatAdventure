@@ -19,6 +19,12 @@ public struct CardState
     /// </summary>
     public bool beatsOpposingPowerRaw;
 
+    public bool losesRPS;
+    public bool losesPower;
+
+    public bool winningPowerLane;
+    public bool losingPowerLane;
+
     public bool isFirst;
     public bool isLast;
 
@@ -36,6 +42,10 @@ public struct CardState
             beatsOpposingPowerRaw = false;
             isFirst = false;
             isLast = false;
+            losesRPS = false;
+            losesPower = false;
+            winningPowerLane = false;
+            losingPowerLane = false;
             return;
         }
 
@@ -50,6 +60,10 @@ public struct CardState
             isLast = false;
             beatsOpposingRPS = false;
             beatsOpposingPowerRaw = false;
+            losesRPS = false;
+            losesPower = false;
+            winningPowerLane = false;
+            losingPowerLane = false;
             return;
         }
         opposingHolder = holder.opposingHolder;
@@ -65,5 +79,15 @@ public struct CardState
         int holderPower = holder.PowerRaw;
         int holderPowerOpposing = opposingHolder.PowerRaw;
         beatsOpposingPowerRaw = holderPower > holderPowerOpposing && holderPower - card.data.power <= holderPowerOpposing;
+
+
+        losesRPS = isFirst && holder.arena.data.rpsSetData.beats(
+            opposingCard?.data.rps ?? RockPaperScissors.NONE,
+            card.data.rps
+            );
+        //TODO: rework losesPower calculation to be smarter (probably need to account for abilities)
+        losesPower = holderPower < holderPowerOpposing && holderPower - card.data.power >= holderPowerOpposing;
+        winningPowerLane = holderPower > holderPowerOpposing;
+        losingPowerLane = holderPower < holderPowerOpposing;
     }
 }
