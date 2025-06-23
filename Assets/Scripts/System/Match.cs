@@ -106,7 +106,7 @@ public class Match
         for (int i = 0; i < arena.data.lanes.Count; i++)
         {
             ArenaLane lane = arena.lanes[i];
-            anyChanged = anyChanged || lane.calculatePower();
+            anyChanged = lane.calculatePower() || anyChanged;
             allyPower += lane.allyPower;
             enemyPower += lane.enemyPower;
         }
