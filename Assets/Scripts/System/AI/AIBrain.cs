@@ -34,7 +34,7 @@ public abstract class AIBrain:ScriptableObject
     }
     protected List<MoveWeight> applyPriorityToMoveWeights(List<MoveWeight> moveWeights)
     {
-        moveWeights.ForEach(weight =>
+        return moveWeights.ConvertAll(weight =>
         {
             switch (weight.move.type)
             {//
@@ -56,8 +56,8 @@ public abstract class AIBrain:ScriptableObject
                 default:
                     throw new System.Exception($"Unknown Move.Type: {weight.move.type}");
             }//
+            return weight;
         });
-        return moveWeights;
     }
 
     protected Move pickMoveFilter(List<Move> moves, Predicate<Move> filterFunc)
