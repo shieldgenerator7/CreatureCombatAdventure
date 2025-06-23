@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: AI_BeaterRPS
   m_EditorClassIdentifier: 
   weightMovePass: -50
-  weightMovePlay: 50
+  weightMovePlay: 100
   weightMoveMove: 25
   weightMoveReorder: 10
   weightMoveActivate: 0
   weightFutureNone: 0
   weightFutureLose: -50
-  weightFutureDraw: 0
+  weightFutureDraw: 25
   weightFutureWin: 50
   weightCurrentNone: 10
   weightCurrentLose: 25
