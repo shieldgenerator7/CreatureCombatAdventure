@@ -16,44 +16,32 @@ public class ArenaLane
     public RockPaperScissors AllyRPS => allyHolder.Card?.data.rps ?? RockPaperScissors.NONE;
     public RockPaperScissors EnemyRPS => enemyHolder.Card?.data.rps ?? RockPaperScissors.NONE;
 
-    public int AllyPowerRaw => allyHolder.cardList.Sum(card => card.data.power);
-    public int EnemyPowerRaw => enemyHolder.cardList.Sum(card => card.data.power);
+    public int AllyPowerRaw => allyHolder.PowerRaw;
+    public int EnemyPowerRaw => enemyHolder.PowerRaw;
 
     public bool calculatePower()
     {
         int prevEnemyPower = enemyPower;
         int prevAllyPower = allyPower;
-        allyPower = 0;
-        enemyPower = 0;
 
-        int laneAlly = AllyPowerRaw;
-        int laneEnemy = EnemyPowerRaw;
+        allyPower = AllyPowerRaw;
+        enemyPower = EnemyPowerRaw;
         CreatureCardData ally = allyHolder.Card?.data;
         CreatureCardData enemy = enemyHolder.Card?.data;
-        if (!enemy)
-        {
-            allyPower += laneAlly;
-        }
-        if (!ally)
-        {
-            enemyPower += laneEnemy;
-        }
         if (ally && enemy)
         {
             if (rpsData.beats(ally.rps, enemy.rps))
             {
-                laneEnemy -= ally.power;
+                enemyPower -= ally.power;
+                enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
             }
             if (rpsData.beats(enemy.rps, ally.rps))
             {
-                laneAlly -= enemy.power;
+                allyPower -= enemy.power;
+                allyPower = Mathf.Clamp(allyPower, 0, allyPower);
             }
-            allyPower += laneAlly;
-            enemyPower += laneEnemy;
         }
 
-        enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
-        allyPower = Mathf.Clamp(allyPower, 0, allyPower);
 
         return enemyPower != prevEnemyPower || allyPower != prevAllyPower;
     }
