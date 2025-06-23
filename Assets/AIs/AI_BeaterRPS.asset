@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: AI_BeaterRPS
   m_EditorClassIdentifier: 
   priority: 1
+  weightFutureNone: 0
+  weightFutureLose: -50
+  weightFutureDraw: 0
+  weightFutureWin: 50
+  weightCurrentNone: 10
+  weightCurrentLose: 25
+  weightCurrentDraw: 10
+  weightCurrentWin: -50

@@ -4,6 +4,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AIBrains/Beater RPS")]
 public class AIBeaterRPS : AIBrain
 {
+    public int weightFutureNone = 0;
+    public int weightFutureLose = -50;
+    public int weightFutureDraw = 0;
+    public int weightFutureWin = 50;
+
+    public int weightCurrentNone = 10;
+    public int weightCurrentLose = 25;
+    public int weightCurrentDraw = 10;
+    public int weightCurrentWin = -50;
+
+
     public override Move pickMove(List<Move> moves)
     {
         List<MoveWeight> weights = moves.ConvertAll(move =>
@@ -13,17 +24,17 @@ public class AIBeaterRPS : AIBrain
             //future state
             switch (move.winRPS)
             {
-                //Priority 1: Move that beats RPS
                 case WinState.WIN:
-                    weight.weight += 50;
+                    weight.weight += weightFutureWin;
                     break;
-                //don't weight these
                 case WinState.NONE:
-                case WinState.DRAW:
+                    weight.weight += weightFutureNone;
                     break;
-                //dont go somewhere where you lose
+                case WinState.DRAW:
+                    weight.weight += weightFutureDraw;
+                    break;
                 case WinState.LOSE:
-                    weight.weight -= 50;
+                    weight.weight += weightFutureLose;                    
                     break;
                 default:
                     throw new System.Exception($"Unknown WinState: {move.winRPS}");
@@ -32,19 +43,17 @@ public class AIBeaterRPS : AIBrain
             //current state
             switch (move.cardState.winRPS)
             {
-                //Priority 2: Move a card that is currently losing RPS
                 case WinState.LOSE:
-                    weight.weight += 25;
+                    weight.weight += weightCurrentLose;
                     break;
-
-                //Priority 3: Move a card that isn't currently beating RPS
                 case WinState.NONE:
-                case WinState.DRAW:
-                    weight.weight += 10;
+                    weight.weight += weightCurrentNone;
                     break;
-                //dont move if youre already winning
+                case WinState.DRAW:
+                    weight.weight += weightCurrentDraw;
+                    break;
                 case WinState.WIN:
-                    weight.weight -= 50;
+                    weight.weight += weightCurrentWin;
                     break;
                 default:
                     throw new System.Exception($"Unknown WinState: {move.cardState.winRPS}");
