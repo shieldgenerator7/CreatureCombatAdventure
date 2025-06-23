@@ -26,7 +26,7 @@ public abstract class AIBrain:ScriptableObject
                 return priorityMove;
             }
         }
-        return pickMoveRandomPriority(moves);
+        return pickMoveRandom(moves);
     }
 
     protected Move pickMoveFilter(List<Move> moves, Predicate<Move> filterFunc)

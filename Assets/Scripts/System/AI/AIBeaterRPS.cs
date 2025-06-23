@@ -9,6 +9,6 @@ public class AIBeaterRPS : AIBrain
         Move filteredMove = pickMoveFilter(moves, move => move.beatsOpposingRPS);
         return (filteredMove.Valid)
             ? filteredMove
-            : pickMoveRandom(moves);
+            : pickMoveRandomPriority(moves);
     }
 }
