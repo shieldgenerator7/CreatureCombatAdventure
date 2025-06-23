@@ -22,11 +22,21 @@ public struct CardState
     public bool isFirst;
     public bool isLast;
 
+    public bool Valid => card != null;
+
     public CardState(Card card)
     {
         if (!card)
         {
-            throw new NullReferenceException($"card cannot be null! {card}");
+            this.card = null;
+            this.holder = null;
+            opposingCard = null;
+            opposingHolder = null;
+            beatsOpposingRPS = false;
+            beatsOpposingPowerRaw = false;
+            isFirst = false;
+            isLast = false;
+            return;
         }
 
         this.card = card;

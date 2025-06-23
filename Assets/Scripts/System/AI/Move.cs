@@ -46,7 +46,7 @@ public struct Move
             opposingHolder = null;
             beatsOpposingRPS = false;
             beatsOpposingPowerRaw = false;
-            cardState = new CardState(card);
+            cardState = new CardState(null);
             isMovingIntoEmpty = false;
             isMoveFillsCapacity = false;
             return;
