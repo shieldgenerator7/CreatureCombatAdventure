@@ -17,6 +17,8 @@ public class Match
     public int allyPower = 0;
 
     [NonSerialized]
+    private Wrangler currentWrangler = null;
+    [NonSerialized]
     public Wrangler winner = null;
 
     public void init()
@@ -26,7 +28,10 @@ public class Match
         arena.init();
 
         //players (ally)
-        //do nothing (assume setup in scene)
+        //(assume setup in scene)
+        Wrangler ally = wranglers[0];
+        ally.init(arena.allyHolders);
+        ally.OnTurnEnded += processNextTurn;
 
         //players (enemy)
         Wrangler enemy;
@@ -35,11 +40,12 @@ public class Match
             enemy = new Wrangler();
             enemy.name = encounterData.name;
             enemy.cardList.AddRange(encounterData.enemyCreatures.ConvertAll(data=>new Card(data)));
+            enemy.init(arena.enemyHolders);
+            enemy.OnTurnEnded += processNextTurn;
             wranglers.Add(enemy);
         }
 
         //holders ally
-        Wrangler ally = wranglers[0];
         ally.handHolder = arena.allyHand;
         ally.handHolder.owner = ally;
         ally.cardHolders = arena.allyHolders;
@@ -62,6 +68,23 @@ public class Match
 
         //power goal
         powerGoal = (encounterData.powerGoal > 0) ? encounterData.powerGoal : arena.data.powerGoal;
+
+        //start
+        currentWrangler = ally;
+        currentWrangler.startTurn();
+    }
+
+    public void processNextTurn()
+    {
+        Wrangler prevWrangler = currentWrangler;
+        int index = wranglers.IndexOf(prevWrangler);
+        index++;
+        if (index >= wranglers.Count)
+        {
+            index = 0;
+        }
+        currentWrangler = wranglers[index];
+        currentWrangler.startTurn();
     }
 
     public void calculateScores()

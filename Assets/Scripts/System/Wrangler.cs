@@ -14,6 +14,24 @@ public class Wrangler
     [NonSerialized]
     public CardHolder handHolder;
 
+    public void init(List<CardHolder> cardHolders)
+    {
+        this.cardHolders = cardHolders;
+    }
+
+    public void startTurn()
+    {
+        OnTurnStarted?.Invoke();
+    }
+    public event Action OnTurnStarted;
+
+    public void endTurn()
+    {
+        OnTurnEnded?.Invoke();
+    }
+    public event Action OnTurnEnded;
+
+
 
     public bool canPickupCard(Card card)
     {

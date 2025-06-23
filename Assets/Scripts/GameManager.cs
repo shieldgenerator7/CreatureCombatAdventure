@@ -30,12 +30,6 @@ public class GameManager : MonoBehaviour
         {
             controller.Wrangler.OnCardPlaced += updateDisplay;
         });
-        controllers
-            .FindAll(c => aiInput.controller != c)
-            .ForEach(c =>
-            {
-                c.OnTurnTaken += processNextTurn;
-            });
     }
 
     public void StartMatch()
@@ -73,6 +67,8 @@ public class GameManager : MonoBehaviour
         {
             controllers[i].init(match.wranglers[i]);
         }
+
+        aiInput.controller.Wrangler.OnTurnStarted += aiInput.processTurn;
     }
 
     private void createArena()
@@ -91,11 +87,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void processNextTurn()
-    {
-        aiInput.processTurn();
     }
 
 
