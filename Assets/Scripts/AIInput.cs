@@ -25,6 +25,7 @@ public class AIInput : WranglerInput
             });
         if (moves.Count == 0)
         {
+            controller.Wrangler.skipTurn();
             return;
         }
             //ask ai to pick a move to do

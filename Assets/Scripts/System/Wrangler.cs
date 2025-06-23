@@ -61,6 +61,11 @@ public class Wrangler
     }
     public event Action OnCardPlaced;
 
+    public void skipTurn()
+    {
+        endTurn();
+    }
+
 
 
 
