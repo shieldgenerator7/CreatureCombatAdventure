@@ -76,7 +76,9 @@ public class Match
 
     public void processNextTurn()
     {
+        //switch current wrangler
         Wrangler prevWrangler = currentWrangler;
+
         int index = wranglers.IndexOf(prevWrangler);
         index++;
         if (index >= wranglers.Count)
@@ -84,27 +86,39 @@ public class Match
             index = 0;
         }
         currentWrangler = wranglers[index];
+        //calculate scores
+        calculateScores();
+        //check if next player has won
+        calculatePlayerWin(currentWrangler);
+        //start next player's turn
         currentWrangler.startTurn();
     }
 
     public void calculateScores()
     {
+        int prevEnemyPower = enemyPower;
+        int prevAllyPower = allyPower;
         enemyPower = 0;
         allyPower = 0;
+
+        bool anyChanged = false;
 
         for (int i = 0; i < arena.data.lanes.Count; i++)
         {
             ArenaLane lane = arena.lanes[i];
-            lane.calculatePower();
+            anyChanged = anyChanged || lane.calculatePower();
             allyPower += lane.allyPower;
             enemyPower += lane.enemyPower;
         }
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
 
-        calculatePlayerWin(wranglers[0]);
-        calculatePlayerWin(wranglers[1]);
+        if (anyChanged || enemyPower != prevEnemyPower || allyPower != prevAllyPower)
+        {
+            OnScoresChanged?.Invoke();
+        }
     }
+    public event Action OnScoresChanged;
     public void calculatePlayerWin(Wrangler wrangler)
     {
         if (!winner)

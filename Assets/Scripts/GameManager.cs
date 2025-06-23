@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         match.encounterData = encounterDataList[encounterIndex];
 
         match.init();
+
+        match.OnScoresChanged += updateDisplay;
         match.OnGameEnd += () =>
         {
             txtGameResult.gameObject.SetActive(true);
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
                 CreatureCardData cardData = match.wranglers[1].cardList[rand].data;
                 playerWrangler.cardList.Add(new Card(cardData));
             }
+            updateDisplay();
         };
         txtGameResult.gameObject.SetActive(false);
 
@@ -93,8 +96,6 @@ public class GameManager : MonoBehaviour
 
     void updateDisplay()
     {
-        match.calculateScores();
-
         txtPowerEnemy.text = $"{Utility.GetSymbolString(match.enemyPower)}";
         txtPowerAlly.text = $"{Utility.GetSymbolString(match.allyPower)}";
         txtPowerGoal.text= $"{Utility.GetSymbolString(match.powerGoal)}";
@@ -102,7 +103,6 @@ public class GameManager : MonoBehaviour
         arenaDisplayer.updateDisplay();
 
         txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
-
     }
 
     

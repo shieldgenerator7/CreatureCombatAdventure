@@ -18,8 +18,10 @@ public class ArenaLane
     public int AllyPowerRaw => allyHolder.cardList.Sum(card => card.data.power);
     public int EnemyPowerRaw => enemyHolder.cardList.Sum(card => card.data.power);
 
-    public void calculatePower()
+    public bool calculatePower()
     {
+        int prevEnemyPower = enemyPower;
+        int prevAllyPower = allyPower;
         allyPower = 0;
         enemyPower = 0;
 
@@ -51,5 +53,7 @@ public class ArenaLane
 
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
+
+        return enemyPower != prevEnemyPower || allyPower != prevAllyPower;
     }
 }
