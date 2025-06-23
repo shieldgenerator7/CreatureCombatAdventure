@@ -6,6 +6,7 @@ using UnityEngine;
 //[CreateAssetMenu(menuName = "AIBrains/")]
 public abstract class AIBrain:ScriptableObject
 {
+    [Header("Move Weights")]
     public int weightMovePass = -50;
     public int weightMovePlay = 50;
     public int weightMoveMove = 25;

@@ -5,11 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AIBrains/Beater RPS")]
 public class AIBeaterRPS : AIBrain
 {
+    [Header("Future Weights")]
     public int weightFutureNone = 0;
     public int weightFutureLose = -50;
     public int weightFutureDraw = 0;
     public int weightFutureWin = 50;
 
+    [Header("Current Weights")]
     public int weightCurrentNone = 10;
     public int weightCurrentLose = 25;
     public int weightCurrentDraw = 10;
