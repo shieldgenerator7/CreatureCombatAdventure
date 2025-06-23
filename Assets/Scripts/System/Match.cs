@@ -118,4 +118,9 @@ public class Match
         }
     }
     public event Action OnGameEnd;
+
+    public void close()
+    {
+        wranglers.ForEach(w => w.OnTurnEnded -= processNextTurn);
+    }
 }

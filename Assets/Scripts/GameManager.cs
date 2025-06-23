@@ -110,16 +110,19 @@ public class GameManager : MonoBehaviour
 
     internal void Reset()
     {
+        match.close();
         Bin.Instance.clearBin();
         StartMatch();
     }
     internal void NextMatch()
     {
+        match.close();
         encounterIndex = Mathf.Clamp(encounterIndex+1, 0, encounterDataList.Count-1);
         Reset();
     }
     internal void PrevMatch()
     {
+        match.close();
         encounterIndex = Mathf.Clamp(encounterIndex - 1, 0, encounterDataList.Count - 1);
         Reset();
     }
