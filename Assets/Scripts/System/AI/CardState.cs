@@ -15,11 +15,9 @@ public struct CardState
     /// </summary>
     public WinState winRPS;
     /// <summary>
-    /// True if this wrangler is winning power (raw) in this lane, and removing this card would cause that not to be true
+    /// Is this card causing this wrangler to win/lose power (raw) in this lane, when it wouldn't otherwise?
     /// </summary>
-    public bool beatingOpposingPowerRaw;
-
-    public bool losingPower;
+    public WinState winPowerRaw;
 
     public bool winningPowerLane;
     public bool losingPowerLane;
@@ -38,10 +36,9 @@ public struct CardState
             opposingCard = null;
             opposingHolder = null;
             winRPS = WinState.NONE;
-            beatingOpposingPowerRaw = false;
+            winPowerRaw = WinState.NONE;
             isFirst = false;
             isLast = false;
-            losingPower = false;
             winningPowerLane = false;
             losingPowerLane = false;
             return;
@@ -57,8 +54,7 @@ public struct CardState
             isFirst = false;
             isLast = false;
             winRPS = WinState.NONE;
-            beatingOpposingPowerRaw = false;
-            losingPower = false;
+            winPowerRaw = WinState.NONE;
             winningPowerLane = false;
             losingPowerLane = false;
             return;
@@ -96,13 +92,65 @@ public struct CardState
             winRPS = WinState.NONE;
         }
 
+        int cardPower = card.data.power;
         int holderPower = holder.PowerRaw;
         int holderPowerOpposing = opposingHolder.PowerRaw;
-        beatingOpposingPowerRaw = holderPower > holderPowerOpposing && holderPower - card.data.power <= holderPowerOpposing;
-
-
+        //If it's currently a draw,
+        if (holderPower == holderPowerOpposing)
+        {
         //TODO: rework losesPower calculation to be smarter (probably need to account for abilities)
-        losingPower = holderPower < holderPowerOpposing && holderPower - card.data.power >= holderPowerOpposing;
+            if (holderPower - cardPower > holderPowerOpposing)
+            {
+                winPowerRaw = WinState.DRAW;
+            }
+            else if (holderPower - cardPower == holderPowerOpposing)
+            {
+                winPowerRaw = WinState.NONE;
+            }
+            else
+            {
+                winPowerRaw = WinState.DRAW;
+            }
+        }
+        //If it's currently losing,
+        else if (holderPower < holderPowerOpposing)
+        {
+        //TODO: rework losesPower calculation to be smarter (probably need to account for abilities)
+            if (holderPower - cardPower > holderPowerOpposing)
+            {
+                winPowerRaw = WinState.LOSE;
+            }
+            else if (holderPower - cardPower == holderPowerOpposing)
+            {
+                winPowerRaw = WinState.LOSE;
+            }
+            else
+            {
+                winPowerRaw = WinState.NONE;
+            }
+        }
+        //If it's currently winning,
+        else if (holderPower > holderPowerOpposing)
+        {
+            if (holderPower - cardPower > holderPowerOpposing)
+            {
+                winPowerRaw = WinState.NONE;
+            }
+            else if (holderPower - cardPower == holderPowerOpposing)
+            {
+                winPowerRaw = WinState.WIN;
+            }
+            else
+            {
+                winPowerRaw = WinState.WIN;
+            }
+        }
+        //shouldn't be possible to reach this state
+        else
+        {
+            throw new System.Exception($"This shouldn't be possible. {holderPower} + {cardPower} == {holderPowerOpposing}?");
+        }
+
         winningPowerLane = holderPower > holderPowerOpposing;
         losingPowerLane = holderPower < holderPowerOpposing;
     }
