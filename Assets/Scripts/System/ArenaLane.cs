@@ -5,6 +5,7 @@ public class ArenaLane
 {
     public ArenaLaneData data;
     public RPSSetData rpsData;
+    public int laneId;
 
     public CardHolder allyHolder;
     public CardHolder enemyHolder;

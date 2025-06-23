@@ -42,6 +42,7 @@ public class Arena
 
             //lanes
             ArenaLane lane = new ArenaLane();
+            lane.laneId = i;
             lane.data = ald;
             lane.rpsData = data.rpsSetData;
             lane.allyHolder = allyHolder;
