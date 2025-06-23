@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         StartMatch();
-
-        controllers.ForEach((controller) =>
-        {
-            controller.Wrangler.OnCardPlaced += updateDisplay;
-        });
     }
 
     public void StartMatch()
