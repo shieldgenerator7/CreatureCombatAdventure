@@ -52,7 +52,7 @@ public class CardHolder
     }
     public event Action<Card> OnCardRemoved;
 
-    public int Power=>cardList.Sum(card=>card.data.power);
+    public int PowerRaw=>cardList.Sum(card=>card.data.power);
 
 
     public static implicit operator bool(CardHolder cardHolder) => cardHolder != null;

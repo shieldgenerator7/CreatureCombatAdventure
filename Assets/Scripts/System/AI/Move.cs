@@ -64,8 +64,8 @@ public struct Move
             card.data.rps, 
             opposingCard?.data.rps ?? RockPaperScissors.NONE
             );
-        int holderPower = holder.Power;
-        int holderPowerOpposing = opposingHolder.Power;
+        int holderPower = holder.PowerRaw;
+        int holderPowerOpposing = opposingHolder.PowerRaw;
         beatsOpposingPowerRaw = holderPower + card.data.power > holderPowerOpposing && holderPower <= holderPowerOpposing;
 
         holderCurrent = card.holder;
