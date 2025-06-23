@@ -79,37 +79,17 @@ public class Match
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
 
+        calculatePlayerWin(wranglers[0]);
+        calculatePlayerWin(wranglers[1]);
+    }
+    public void calculatePlayerWin(Wrangler wrangler)
+    {
         if (!winner)
         {
-            Wrangler ally = wranglers[0];
-            Wrangler enemy = wranglers[1];
-            bool allyGoal = allyPower >= powerGoal;
-            bool enemyGoal = enemyPower >= powerGoal;
-            if (allyGoal || enemyGoal)
+            bool goal = ((wrangler == wranglers[0])?allyPower:enemyPower) >= powerGoal;
+            if (goal)
             {
-                if (allyGoal && enemyGoal)
-                {
-                    if (allyPower > enemyPower)
-                    {
-                        winner = ally;
-                    }
-                    else if (enemyPower > allyPower)
-                    {
-                        winner = enemy;
-                    }
-                    else
-                    {
-                        winner = null;
-                    }
-                }
-                else if (allyGoal)
-                {
-                    winner = ally;
-                }
-                else if (enemyGoal)
-                {
-                    winner = enemy;
-                }
+                winner = wrangler;
                 OnGameEnd?.Invoke();
             }
         }
