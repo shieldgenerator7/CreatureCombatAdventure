@@ -74,9 +74,9 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
                         if (ch != null)
                         {
-                            if (controller.canPlaceCardAt(heldCard.card, ch))
+                            if (controller.Wrangler.canPlaceCardAt(heldCard.card, ch))
                             {
-                                controller.placeCard(heldCard.card, ch);
+                                controller.Wrangler.placeCard(heldCard.card, ch);
                                 dropped = true;
                                 break;
                             }
@@ -132,7 +132,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                     CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
                     if (ch != null)
                     {
-                        if (controller.canPlaceCardAt(heldCard.card, ch.CardHolder))
+                        if (controller.Wrangler.canPlaceCardAt(heldCard.card, ch.CardHolder))
                         {
                             hoverHolder = ch;
                             hoverHolder.acceptMouseHover(true);
@@ -228,7 +228,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 if (cd)
                 {
                     Card card = cd.card;
-                    if (controller.canPickupCard(card))
+                    if (controller.Wrangler.canPickupCard(card))
                     {
                         cards.Add(cd);
                     }

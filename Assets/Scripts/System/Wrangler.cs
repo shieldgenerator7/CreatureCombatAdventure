@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -12,6 +13,39 @@ public class Wrangler
     public List<CardHolder> cardHolders = new List<CardHolder>();
     [NonSerialized]
     public CardHolder handHolder;
+
+
+    public bool canPickupCard(Card card)
+    {
+        return card.owner == this;
+    }
+
+    public bool canPlaceCardAt(Card card, CardHolder cardHolder)
+    {
+        return card.owner == this && cardHolder.owner == this
+            && (cardHolder.canAcceptCard(card) || cardHolder.hasCard(card));
+    }
+
+    public void placeCard(Card card, CardHolder holder)
+    {
+        //a move is a fake move if it moves to the same holder and is either a hand, or the card was already the last in the list
+        bool fakeMove = card.holder == holder && (holder.isHand || card.holder.cardList.Last() == card);
+        if (card.holder)
+        {
+            card.holder.removeCard(card);
+        }
+        holder.acceptDrop(card);
+        OnCardPlaced?.Invoke();
+        if (!fakeMove)
+        {
+            endTurn();
+        }
+    }
+    public event Action OnCardPlaced;
+
+
+
+
 
     public Wrangler clone()
     {

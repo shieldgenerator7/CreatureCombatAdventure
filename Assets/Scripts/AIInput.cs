@@ -21,13 +21,13 @@ public class AIInput : WranglerInput
                 controller.Wrangler.cardHolders.ForEach(holder =>
                 {//
                     if (holder.CardCount >= holder.limit && holder != card.holder) { return; }
-                    if (!controller.canPlaceCardAt(card, holder)) { return; }
+                    if (!controller.Wrangler.canPlaceCardAt(card, holder)) { return; }
                     moves.Add(new Move(card, holder));
                 });
             });
             //ask ai to pick a move to do
             Move move = aiBrain.pickMove(moves);
-            controller.placeCard(move.card, move.holder);
+            controller.Wrangler.placeCard(move.card, move.holder);
         }//
     }
 
@@ -35,9 +35,9 @@ public class AIInput : WranglerInput
     {
         return controller.Wrangler.cardList.Any(c =>
             //can be played
-            controller.canPickupCard(c)
+            controller.Wrangler.canPickupCard(c)
             //can be placed at any position
-            && controller.Wrangler.cardHolders.Any(h => controller.canPlaceCardAt(c, h))
+            && controller.Wrangler.cardHolders.Any(h => controller.Wrangler.canPlaceCardAt(c, h))
             );
     }
 }

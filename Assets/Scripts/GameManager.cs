@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         controllers.ForEach((controller) =>
         {
-            controller.OnCardPlaced += updateDisplay;
+            controller.Wrangler.OnCardPlaced += updateDisplay;
         });
         controllers
             .FindAll(c => aiInput.controller != c)
