@@ -11,15 +11,14 @@ public struct CardState
     public CardHolder opposingHolder;
 
     /// <summary>
-    /// True if this card is causing this wrangler to win RPS in this lane
+    /// Is this card causing this wrangler to win/lose RPS in this lane?
     /// </summary>
-    public bool beatingOpposingRPS;
+    public WinState winRPS;
     /// <summary>
     /// True if this wrangler is winning power (raw) in this lane, and removing this card would cause that not to be true
     /// </summary>
     public bool beatingOpposingPowerRaw;
 
-    public bool losingRPS;
     public bool losingPower;
 
     public bool winningPowerLane;
@@ -38,11 +37,10 @@ public struct CardState
             this.holder = null;
             opposingCard = null;
             opposingHolder = null;
-            beatingOpposingRPS = false;
+            winRPS = WinState.NONE;
             beatingOpposingPowerRaw = false;
             isFirst = false;
             isLast = false;
-            losingRPS = false;
             losingPower = false;
             winningPowerLane = false;
             losingPowerLane = false;
@@ -58,9 +56,8 @@ public struct CardState
             opposingCard = null;
             isFirst = false;
             isLast = false;
-            beatingOpposingRPS = false;
+            winRPS = WinState.NONE;
             beatingOpposingPowerRaw = false;
-            losingRPS = false;
             losingPower = false;
             winningPowerLane = false;
             losingPowerLane = false;
@@ -72,19 +69,38 @@ public struct CardState
         isFirst = !holder.isHand && holder.Card == card;
         isLast = !holder.isHand && holder.cardList.Last() == card;
 
-        beatingOpposingRPS = isFirst && holder.arena.data.rpsSetData.beats(
+        if (!isFirst)
+        {
+            winRPS = WinState.NONE;
+        }
+        else if (holder.arena.data.rpsSetData.beats(
             card.data.rps,
             opposingCard?.data.rps ?? RockPaperScissors.NONE
-            );
+            ))
+        {
+            winRPS = WinState.WIN;
+        }
+        else if (holder.arena.data.rpsSetData.beats(
+            opposingCard?.data.rps ?? RockPaperScissors.NONE,
+            card.data.rps
+            ))
+        {
+            winRPS = WinState.LOSE;
+        }
+        else if (opposingCard != null)
+        {
+            winRPS = WinState.DRAW;
+        }
+        else
+        {
+            winRPS = WinState.NONE;
+        }
+
         int holderPower = holder.PowerRaw;
         int holderPowerOpposing = opposingHolder.PowerRaw;
         beatingOpposingPowerRaw = holderPower > holderPowerOpposing && holderPower - card.data.power <= holderPowerOpposing;
 
 
-        losingRPS = isFirst && holder.arena.data.rpsSetData.beats(
-            opposingCard?.data.rps ?? RockPaperScissors.NONE,
-            card.data.rps
-            );
         //TODO: rework losesPower calculation to be smarter (probably need to account for abilities)
         losingPower = holderPower < holderPowerOpposing && holderPower - card.data.power >= holderPowerOpposing;
         winningPowerLane = holderPower > holderPowerOpposing;
