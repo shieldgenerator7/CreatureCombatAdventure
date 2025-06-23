@@ -30,7 +30,9 @@ public class AIInput : WranglerInput
                     }
                     if (holder.CardCount >= holder.limit && holder != card.holder) { return; }
                     if (!controller.Wrangler.canPlaceCardAt(card, holder)) { return; }
-                    moves.Add(new Move(card, holder));
+                    Move move = new Move(card,holder);
+                    if (move.type== Move.Type.PASS) { return; }
+                    moves.Add(move);
                 });
             });
         if (moves.Count == 0)

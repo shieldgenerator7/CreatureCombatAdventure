@@ -145,7 +145,6 @@ public struct Move
 
         cardState = new CardState(card);
 
-        type = Type.PASS;
         if (card.holder.isHand)
         {
             type = Type.PLAY;
@@ -163,6 +162,9 @@ public struct Move
         //{
         //    type = Type.ACTIVATE;
         //}
+        else{
+            type = Type.PASS;
+        }
 
         bool movingToNewHolder = (type == Type.PLAY || type == Type.MOVE);
         isMovingIntoEmpty = movingToNewHolder && holder.CardCount == 0;
