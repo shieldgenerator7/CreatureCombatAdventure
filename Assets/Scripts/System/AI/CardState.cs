@@ -42,6 +42,16 @@ public struct CardState
         this.card = card;
         holder = card.holder;
 
+        if (holder.isHand)
+        {
+            opposingHolder = null;
+            opposingCard = null;
+            isFirst = false;
+            isLast = false;
+            beatsOpposingRPS = false;
+            beatsOpposingPowerRaw = false;
+            return;
+        }
         opposingHolder = holder.opposingHolder;
         opposingCard = opposingHolder.Card;
 
