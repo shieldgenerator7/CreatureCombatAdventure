@@ -58,6 +58,10 @@ public class AIBeaterRPS : AIBrain
                 default:
                     throw new System.Exception($"Unknown WinState: {move.cardState.winRPS}");
             }
+            if (move.type == Move.Type.PASS)
+            {
+                throw new Exception($"Invalid move! {move} {move.type}");
+            }
             //
             return weight;
         });
