@@ -18,7 +18,7 @@ public struct Move
     /// </summary>
     public bool beatsOpposingPowerRaw;
 
-    public CardHolder holderCurrent;
+    public CardState cardState;
 
     public enum Type
     {
@@ -46,7 +46,7 @@ public struct Move
             opposingHolder = null;
             beatsOpposingRPS = false;
             beatsOpposingPowerRaw = false;
-            holderCurrent = null;
+            cardState = new CardState(card);
             isMovingIntoEmpty = false;
             isMoveFillsCapacity = false;
             return;
@@ -68,7 +68,7 @@ public struct Move
         int holderPowerOpposing = opposingHolder.PowerRaw;
         beatsOpposingPowerRaw = holderPower + card.data.power > holderPowerOpposing && holderPower <= holderPowerOpposing;
 
-        holderCurrent = card.holder;
+        cardState = new CardState(card);
 
         type = Type.PASS;
         if (card.holder.isHand)
