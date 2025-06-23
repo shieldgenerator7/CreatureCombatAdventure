@@ -10,9 +10,9 @@ public struct Move
     public CardHolder opposingHolder;
 
     /// <summary>
-    /// True if this move causes this wrangler to win RPS in this lane, when it wouldn't before
+    /// Does this move cause this wrangler to win/lose RPS in this lane, when it wouldn't before?
     /// </summary>
-    public bool beatsOpposingRPS;
+    public WinState winRPS;
     /// <summary>
     /// True if this moves causes this wrangler to win (raw) Power in this lane, when it wouldn't before
     /// </summary>
@@ -44,7 +44,7 @@ public struct Move
             this.holder = null;
             opposingCard = null;
             opposingHolder = null;
-            beatsOpposingRPS = false;
+            winRPS = WinState.NONE;
             beatsOpposingPowerRaw = false;
             cardState = new CardState(null);
             isMovingIntoEmpty = false;
@@ -60,10 +60,33 @@ public struct Move
         opposingHolder = holder.opposingHolder;
         opposingCard = opposingHolder.Card;
 
-        beatsOpposingRPS = holder.CardCount == 0 && holder.arena.data.rpsSetData.beats(
-            card.data.rps, 
+        if (holder.CardCount > 0)
+        {
+            winRPS = WinState.NONE;
+        }
+        else if (holder.arena.data.rpsSetData.beats(
+            card.data.rps,
             opposingCard?.data.rps ?? RockPaperScissors.NONE
-            );
+            ))
+        {
+            winRPS = WinState.WIN;
+        }
+        else if (holder.arena.data.rpsSetData.beats(
+            opposingCard?.data.rps ?? RockPaperScissors.NONE,
+            card.data.rps
+            ))
+        {
+            winRPS = WinState.LOSE;
+        }
+        else if (opposingCard != null)
+        {
+            winRPS = WinState.DRAW;
+        }
+        else
+        {
+            winRPS = WinState.NONE;
+        }
+        int cardPower = card.data.power;
         int holderPower = holder.PowerRaw;
         int holderPowerOpposing = opposingHolder.PowerRaw;
         beatsOpposingPowerRaw = holderPower + card.data.power > holderPowerOpposing && holderPower <= holderPowerOpposing;

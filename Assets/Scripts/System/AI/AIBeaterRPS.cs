@@ -8,7 +8,7 @@ public class AIBeaterRPS : AIBrain
     {
         Move filteredMove;
         //Try 1: Move that beats RPS
-        filteredMove = pickMoveFilter(moves, move => move.beatsOpposingRPS);
+        filteredMove = pickMoveFilter(moves, move => move.winRPS == WinState.WIN);
         if (filteredMove.Valid) { return filteredMove; }
         //Try 2: Move a card that is currently losing RPS
         filteredMove = pickMoveFilter(moves, move => move.cardState.losingRPS);
