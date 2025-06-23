@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e54015a745b4544b9d9ca3de0541b8, type: 3}
   m_Name: AI_BeaterRPS
   m_EditorClassIdentifier: 
-  priority: 1
+  weightMovePass: -50
+  weightMovePlay: 50
+  weightMoveMove: 25
+  weightMoveReorder: 10
+  weightMoveActivate: 0
   weightFutureNone: 0
   weightFutureLose: -50
   weightFutureDraw: 0

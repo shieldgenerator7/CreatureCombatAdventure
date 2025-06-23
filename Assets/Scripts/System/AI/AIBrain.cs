@@ -6,8 +6,12 @@ using UnityEngine;
 //[CreateAssetMenu(menuName = "AIBrains/")]
 public abstract class AIBrain:ScriptableObject
 {
-    [Tooltip("Which move it should prioritize. Set to PASS to not prioritize anything")]
-    public Move.Type priority;
+    public int weightMovePass = -50;
+    public int weightMovePlay = 50;
+    public int weightMoveMove = 25;
+    public int weightMoveReorder = 10;
+    //TODO: implement this
+    public int weightMoveActivate = 0;
 
     public abstract Move pickMove(List<Move> moves);
 
@@ -19,15 +23,40 @@ public abstract class AIBrain:ScriptableObject
 
     protected Move pickMoveRandomPriority(List<Move> moves)
     {
-        if (priority != Move.Type.PASS)
+        List<MoveWeight> weights = moves.ConvertAll(move =>
         {
-            Move priorityMove = pickMoveFilter(moves, move => move.type == priority);
-            if (priorityMove.Valid)
-            {
-                return priorityMove;
-            }
-        }
-        return pickMoveRandom(moves);
+            MoveWeight weight = new MoveWeight(move);
+            return weight;
+        });
+        weights = applyPriorityToMoveWeights(weights);
+        return pickMoveWeights(weights);
+    }
+    protected List<MoveWeight> applyPriorityToMoveWeights(List<MoveWeight> moveWeights)
+    {
+        moveWeights.ForEach(weight =>
+        {
+            switch (weight.move.type)
+            {//
+                case Move.Type.PASS:
+                    weight.weight += weightMovePass;
+                    break;
+                case Move.Type.PLAY:
+                    weight.weight += weightMovePlay;
+                    break;
+                case Move.Type.MOVE:
+                    weight.weight += weightMoveMove;
+                    break;
+                case Move.Type.REORDER:
+                    weight.weight += weightMoveReorder;
+                    break;
+                case Move.Type.ACTIVATE:
+                    weight.weight += weightMoveActivate;
+                    break;
+                default:
+                    throw new System.Exception($"Unknown Move.Type: {weight.move.type}");
+            }//
+        });
+        return moveWeights;
     }
 
     protected Move pickMoveFilter(List<Move> moves, Predicate<Move> filterFunc)
@@ -47,6 +76,6 @@ public abstract class AIBrain:ScriptableObject
         List<Move> moves = moveWeights
             .Where(weight => weight.weight == max).ToList()
             .ConvertAll(mv => mv.move);
-        return pickMoveRandomPriority(moves);
+        return pickMoveRandom(moves);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,6 +66,9 @@ public class AIBeaterRPS : AIBrain
             //
             return weight;
         });
+        //apply priority from move type
+        weights = applyPriorityToMoveWeights(weights);
+        //pick one
         return pickMoveWeights(weights);
     }
 }
