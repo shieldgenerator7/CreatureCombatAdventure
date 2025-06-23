@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //[CreateAssetMenu(menuName = "AIBrains/")]
@@ -38,5 +39,14 @@ public abstract class AIBrain:ScriptableObject
             return filteredMoves[index];
         }
         return new Move(null, null);
+    }
+
+    protected Move pickMoveWeights(List<MoveWeight> moveWeights)
+    {
+        int max = moveWeights.Max(weight => weight.weight);
+        List<Move> moves = moveWeights
+            .Where(weight => weight.weight == max).ToList()
+            .ConvertAll(mv => mv.move);
+        return pickMoveRandomPriority(moves);
     }
 }
