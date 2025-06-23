@@ -32,6 +32,10 @@ public class AIInput : WranglerInput
         }
             //ask ai to pick a move to do
             Move move = aiBrain.pickMove(moves);
+        if (!move.Valid)
+        {
+            throw new Exception($"Invalid move! {move}");
+        }
             controller.Wrangler.placeCard(move.card, move.holder);
     }
 }
