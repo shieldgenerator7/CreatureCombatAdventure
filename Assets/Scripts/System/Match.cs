@@ -113,10 +113,10 @@ public class Match
         enemyPower = Mathf.Clamp(enemyPower, 0, enemyPower);
         allyPower = Mathf.Clamp(allyPower, 0, allyPower);
 
-        if (anyChanged || enemyPower != prevEnemyPower || allyPower != prevAllyPower)
-        {
+        //if (anyChanged || enemyPower != prevEnemyPower || allyPower != prevAllyPower)
+        //{
             OnScoresChanged?.Invoke();
-        }
+        //}
     }
     public event Action OnScoresChanged;
     public void calculatePlayerWin(Wrangler wrangler)
