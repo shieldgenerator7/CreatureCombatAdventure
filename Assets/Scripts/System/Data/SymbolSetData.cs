@@ -47,6 +47,10 @@ public class SymbolSetData:ScriptableObject
                 }
                 string strdec = "";
                 int digits = Mathf.CeilToInt(Mathf.Log10(number));
+                if (digits == 0)
+                {
+                    digits = 1;
+                }
                 for (int i = digits; i > 0; i--)
                 {
                     float ten = Mathf.Pow(10, i-1);
