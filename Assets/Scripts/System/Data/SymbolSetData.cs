@@ -22,64 +22,56 @@ public class SymbolSetData:ScriptableObject
     public string symbolRPSScissors;
 
     /// <summary>
-    /// Converts number to symbol string. Examples:
-    /// 0 = O
-    /// 1 = I
-    /// 2 = Z
-    /// 3 = ZI
-    /// 4 = A
-    /// 5 = AI
-    /// 6 = AZ
-    /// 7 = AZI
-    /// 8 = B
-    /// 9 = BI
-    /// 10 = BZ
+    /// Converts number to symbol string.
     /// </summary>
     /// <param name="number"></param>
     /// <returns></returns>
     /// <exception cref="UnityException"></exception>
-    public static string GetSymbolString(int number)
+    public string GetSymbolString(int number)
     {
         if (number < 0)
         {
             throw new UnityException($"Can't process a negative number! {number}");
         }
 
-        //O I Z A B G E H K S
-        string[] symbolList = { "I", "Z", "A", "B", "G", "E", "H", "K", "S" };
+        switch (powerSymbolSystem) {
+            case PowerSymbolSystem.BINARY_STACKED:
         if (number == 0)
         {
-            return "O";
+            return powerSymbols[0];
         }
         string str = "";
         while (number > 0)
         {
-            for (int i = symbolList.Length - 1; i >= 0; i--)
+            for (int i = powerSymbols.Count - 1; i >= 1; i--)
             {
                 int power = (int)Mathf.Pow(2, i);
                 if (number >= power)
                 {
-                    str += symbolList[i];
+                    str += powerSymbols[i];
                     number -= power;
                     break;
                 }
             }
         }
         return str;
+            default:
+                throw new NotImplementedException();
+        }
     }
 
-    public static string GetSymbolString(RockPaperScissors rps)
+    public string GetSymbolString(RockPaperScissors rps)
     {
         switch (rps)
         {
             case RockPaperScissors.NONE:
-                return "";
+                return symbolRPSNone;
             case RockPaperScissors.ROCK:
-                return "[R]";
+                return symbolRPSRock;
             case RockPaperScissors.PAPER:
-                return "|P|";
+                return symbolRPSPaper;
             case RockPaperScissors.SCISSORS:
-                return "\\S/";
+                return symbolRPSScissors;
             default:
                 throw new System.Exception($"Unknown rps symbol: {rps}");
         }
