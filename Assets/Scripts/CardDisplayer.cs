@@ -67,8 +67,8 @@ public class CardDisplayer : MonoBehaviour
 
         txtName.text = card.data.name;
         //txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
-        txtRPS.text = $"{Utility.GetSymbolString(card.data.rps)}";
-        txtPower.text = $"{Utility.GetSymbolString(card.data.power)}";
+        txtRPS.text = $"{GameManager.SymbolSetData.GetSymbolString(card.data.rps)}";
+        txtPower.text = $"{GameManager.SymbolSetData.GetSymbolString(card.data.power)}";
 
         //sorting layers
         srBack.sortingLayerName = sortingLayer;

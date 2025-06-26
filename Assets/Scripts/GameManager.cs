@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int encounterIndex = 0;
     private ArenaDisplayer arenaDisplayer;
     public Wrangler playerWrangler;
+    public SymbolSetData symbolSetData;
+    public static SymbolSetData SymbolSetData => FindAnyObjectByType<GameManager>().symbolSetData;
 
     //TODO: extract system class "Game" from this class
     public List<WranglerController> controllers;
@@ -91,9 +93,9 @@ public class GameManager : MonoBehaviour
 
     void updateDisplay()
     {
-        txtPowerEnemy.text = $"{Utility.GetSymbolString(match.enemyPower)}";
-        txtPowerAlly.text = $"{Utility.GetSymbolString(match.allyPower)}";
-        txtPowerGoal.text= $"{Utility.GetSymbolString(match.powerGoal)}";
+        txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
+        txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
+        txtPowerGoal.text= $"{symbolSetData.GetSymbolString(match.powerGoal)}";
 
         arenaDisplayer.updateDisplay();
 
