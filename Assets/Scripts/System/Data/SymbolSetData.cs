@@ -37,6 +37,10 @@ public class SymbolSetData:ScriptableObject
 
         switch (powerSymbolSystem) {
             case PowerSymbolSystem.DECIMAL:
+                if (powerSymbols.Count != 10)
+                {
+                    throw new UnityException("For DECIMAL, there needs to be 10 symbols! 1 for \"0\", and then 9 for the other digits, in sequential order.");
+                }
                 if (number == 0)
                 {
                     return powerSymbols[0];
@@ -51,6 +55,10 @@ public class SymbolSetData:ScriptableObject
                 }
                 return strdec;
             case PowerSymbolSystem.BINARY_STACKED:
+                if (number > Mathf.Pow(2, (powerSymbols.Count-1) - 1))
+                {
+                    throw new UnityException($"BINARY_STACKED Symbol set doesnt have enough symbols to accomodate value! {number}");
+                }
         if (number == 0)
         {
             return powerSymbols[0];
