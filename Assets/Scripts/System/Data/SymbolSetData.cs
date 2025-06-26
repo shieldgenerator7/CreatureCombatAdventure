@@ -46,7 +46,7 @@ public class SymbolSetData:ScriptableObject
         {
             for (int i = powerSymbols.Count - 1; i >= 1; i--)
             {
-                int power = (int)Mathf.Pow(2, i);
+                int power = (int)Mathf.Pow(2, i-1);
                 if (number >= power)
                 {
                     str += powerSymbols[i];
