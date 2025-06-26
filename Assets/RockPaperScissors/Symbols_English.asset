@@ -25,6 +25,6 @@ MonoBehaviour:
   - 9
   powerSymbolSystem: 0
   symbolRPSNone: 
-  symbolRPSRock: ROCK
-  symbolRPSPaper: PAPER
-  symbolRPSScissors: SCISR
+  symbolRPSRock: RCK
+  symbolRPSPaper: PPR
+  symbolRPSScissors: SCS
