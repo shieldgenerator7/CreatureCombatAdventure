@@ -36,6 +36,20 @@ public class SymbolSetData:ScriptableObject
         }
 
         switch (powerSymbolSystem) {
+            case PowerSymbolSystem.DECIMAL:
+                if (number == 0)
+                {
+                    return powerSymbols[0];
+                }
+                string strdec = "";
+                int digits = Mathf.CeilToInt(Mathf.Log10(number));
+                for (int i = digits; i > 0; i--)
+                {
+                    float ten = Mathf.Pow(10, i-1);
+                    int digit = (int)(Mathf.Floor(number / ten) % 10);
+                    strdec += powerSymbols[digit];
+                }
+                return strdec;
             case PowerSymbolSystem.BINARY_STACKED:
         if (number == 0)
         {

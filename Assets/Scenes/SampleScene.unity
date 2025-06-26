@@ -397,7 +397,7 @@ MonoBehaviour:
     - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
     - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
     - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
-  symbolSetData: {fileID: 11400000, guid: f200ac8ed180580429c79228f6b6e8d6, type: 2}
+  symbolSetData: {fileID: 11400000, guid: 9575f3af25fc0d541be091ffa08ad99d, type: 2}
   controllers:
   - {fileID: 1056722128}
   - {fileID: 584776702}

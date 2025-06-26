@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb577ef7d5ec0824e90199ed8a66f075, type: 3}
+  m_Name: Symbols_English
+  m_EditorClassIdentifier: 
+  powerSymbols:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  powerSymbolSystem: 0
+  symbolRPSNone: 
+  symbolRPSRock: ROCK
+  symbolRPSPaper: PAPER
+  symbolRPSScissors: SCISR
