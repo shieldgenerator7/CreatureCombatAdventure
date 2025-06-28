@@ -64,24 +64,24 @@ public class SymbolSetData : ScriptableObject
                 {
                     throw new UnityException($"BINARY_STACKED Symbol set doesnt have enough symbols to accomodate value! {number}");
                 }
-        if (number == 0)
-        {
-            return powerSymbols[0];
-        }
-        string str = "";
-        while (number > 0)
-        {
+                if (number == 0)
+                {
+                    return powerSymbols[0];
+                }
+                string str = "";
+                while (number > 0)
+                {
                     for (int i = powerSymbols.Count - 1; i >= 1; i--)
                     {
                         int power = (int)Mathf.Pow(2, i - 1);
                         if (number >= power)
                         {
-                    str += powerSymbols[i];
-                    number -= power;
-                    break;
+                            str += powerSymbols[i];
+                            number -= power;
+                            break;
                         }
                     }
-        }
+                }
                 return str;
             default:
                 throw new NotImplementedException();
