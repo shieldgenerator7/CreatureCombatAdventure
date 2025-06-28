@@ -6,6 +6,11 @@ public class MoveUIAnimation : UIAnimation
     public float threshold = 0.2f;
     private Transform target;
 
+    public override void startAnimation()
+    {
+        enabled = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,7 +38,7 @@ public class MoveUIAnimation : UIAnimation
             move = go.AddComponent<MoveUIAnimation>();
         }
         move.target = target;
-        move.enabled = true;
+        UIAnimationQueue.Instance.queueAnimation(move);
         return move;
     }
 }

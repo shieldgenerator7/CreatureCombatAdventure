@@ -26,6 +26,12 @@ public class NumberUIAnimation : UIAnimation
         
     }
 
+    public override void startAnimation()
+    {
+        txtNumber.text = symbolSetData.GetSymbolString(number);
+        enabled = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -53,10 +59,11 @@ public class NumberUIAnimation : UIAnimation
         nuia.endNumber = endNumber;
         nuia.symbolSetData = ssd;
         nuia.number = startNumber;
-        nuia.enabled = true;
         nuia.delay = nuia.changeDuration / Mathf.Abs(endNumber - startNumber);
         nuia.lastChangeTime = Time.time;
         nuia.txtNumber.text = nuia.symbolSetData.GetSymbolString(nuia.number);
+
+        UIAnimationQueue.Instance.queueAnimation(nuia);
         return nuia;
     }
 }
