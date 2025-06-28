@@ -115,10 +115,10 @@ public class Match
 
         //if (anyChanged || enemyPower != prevEnemyPower || allyPower != prevAllyPower)
         //{
-        OnScoresChanged?.Invoke();
+        OnScoresChanged?.Invoke(prevAllyPower,allyPower,prevEnemyPower,enemyPower);
         //}
     }
-    public event Action OnScoresChanged;
+    public event Action<int,int,int,int> OnScoresChanged;
     public void calculatePlayerWin(Wrangler wrangler)
     {
         if (!winner)

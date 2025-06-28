@@ -90,6 +90,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+    void updateDisplay(int pap, int ap, int pep, int ep)
+    {
+        NumberUIAnimation.adjustTo(txtPowerEnemy, pep, ep, symbolSetData);
+        NumberUIAnimation.adjustTo(txtPowerAlly, pap, ap, symbolSetData);
+
+        arenaDisplayer.updateDisplay();
+    }
 
     void updateDisplay()
     {
