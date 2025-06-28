@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MoveUIAnimation : UIAnimation
 {
-    public float moveSpeed = 2f;
-    public float threshold = 0.1f;
+    public float moveSpeed = 3f;
+    public float threshold = 0.2f;
     private Transform target;
 
     // Update is called once per frame
