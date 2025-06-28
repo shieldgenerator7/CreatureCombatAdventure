@@ -13,6 +13,7 @@ public class CardHolderDisplayer : MonoBehaviour
     public float maxSpreadBuffer = 2;
     public float mouseOverPopupDistance = 2;
     public int baseLayer = 0;
+    public bool instantDrop = false;
 
     private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
@@ -44,12 +45,23 @@ public class CardHolderDisplayer : MonoBehaviour
 
     private void acceptDrop(CardDisplayer cardDisplayer)
     {
+        if (instantDrop)
+        {
+            cardDisplayer.transform.position = transform.position;
+            cardDisplayer.transform.localScale = transform.localScale;
+            cardDisplayer.transform.rotation = transform.rotation;
+            cardDisplayer.OnMousedOver += listenForMouseOver;
+            layoutCards();
+        }
+        else
+        {
         MoveUIAnimation move = MoveUIAnimation.moveTo(cardDisplayer.gameObject, transform);
         move.OnFinished += () =>
         {
             cardDisplayer.OnMousedOver += listenForMouseOver;
             layoutCards();
         };
+        }
     }
 
     private void layoutCards()
