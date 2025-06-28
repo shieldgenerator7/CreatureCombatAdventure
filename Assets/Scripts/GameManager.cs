@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
     {
         match.close();
         Bin.Instance.clearBin();
+        UIAnimationQueue.Instance.Reset();
         StartMatch();
     }
     internal void NextMatch()

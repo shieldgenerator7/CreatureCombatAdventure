@@ -35,4 +35,13 @@ public class UIAnimationQueue : MonoBehaviour
         uiAnim.startAnimation();
     }
 
+    public void Reset()
+    {
+        animationQueue.Clear();
+        if (uiAnim != null)
+        {
+            uiAnim.enabled = false;
+            uiAnim = null;
+        }
+    }
 }
