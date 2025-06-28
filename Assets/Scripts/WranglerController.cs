@@ -6,7 +6,8 @@ using UnityEngine;
 public class WranglerController : MonoBehaviour
 {
     private Wrangler player;
-    public Wrangler Wrangler {
+    public Wrangler Wrangler
+    {
         get => player;
         private set
         {

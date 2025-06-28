@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Arena",order =0)]
-public class ArenaData:ScriptableObject
+[CreateAssetMenu(menuName = "Arena", order = 0)]
+public class ArenaData : ScriptableObject
 {
     public new string name;
     [Tooltip("When a player reaches this power goal, they win the match")]

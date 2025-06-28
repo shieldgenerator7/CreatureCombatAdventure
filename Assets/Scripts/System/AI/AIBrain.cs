@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 //[CreateAssetMenu(menuName = "AIBrains/")]
-public abstract class AIBrain:ScriptableObject
+public abstract class AIBrain : ScriptableObject
 {
     [Header("Move Weights")]
     public int weightMovePass = -50;
@@ -65,7 +65,7 @@ public abstract class AIBrain:ScriptableObject
         List<Move> filteredMoves = moves.FindAll(filterFunc);
         if (filteredMoves.Count > 0)
         {
-            int index= UnityEngine.Random.Range(0, filteredMoves.Count);
+            int index = UnityEngine.Random.Range(0, filteredMoves.Count);
             return filteredMoves[index];
         }
         return new Move(null, null);

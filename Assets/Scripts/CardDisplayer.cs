@@ -55,8 +55,8 @@ public class CardDisplayer : MonoBehaviour
     {
         if (srImage)
         {
-        srImage.sprite = card.data.image;
-            if (card.data.colors.Count>0)
+            srImage.sprite = card.data.image;
+            if (card.data.colors.Count > 0)
             {
                 srImage.color = card.data.colors.First();
             }
@@ -77,7 +77,7 @@ public class CardDisplayer : MonoBehaviour
         smFrame.backSortingLayerID = SortingLayer.NameToID(sortingLayer);
         if (srImage)
         {
-        srImage.sortingLayerName = sortingLayer;
+            srImage.sortingLayerName = sortingLayer;
         }
         cvs.sortingLayerName = sortingLayer;
         srHighlight.sortingLayerName = sortingLayer;
@@ -91,7 +91,7 @@ public class CardDisplayer : MonoBehaviour
         smFrame.backSortingOrder = baseLayer + 1;
         if (srImage)
         {
-        srImage.sortingOrder = baseLayer + 2;
+            srImage.sortingOrder = baseLayer + 2;
         }
         smFrame.frontSortingOrder = baseLayer + 2;
         int layeroffset = 0;

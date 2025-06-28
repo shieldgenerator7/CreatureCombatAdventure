@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="RPS",order =0)]
-public class RPSSetData:ScriptableObject
+[CreateAssetMenu(menuName = "RPS", order = 0)]
+public class RPSSetData : ScriptableObject
 {
     public List<RPSLineData> lines;
 

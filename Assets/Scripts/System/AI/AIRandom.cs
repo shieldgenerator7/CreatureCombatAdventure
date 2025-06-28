@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="AIBrains/Random")]
+[CreateAssetMenu(menuName = "AIBrains/Random")]
 public class AIRandom : AIBrain
 {
 

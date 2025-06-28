@@ -29,16 +29,16 @@ public static class Utility
 
         //O I Z A B G E H K S
         string[] symbolList = { "I", "Z", "A", "B", "G", "E", "H", "K", "S" };
-        if (number ==0)
+        if (number == 0)
         {
             return "O";
         }
         string str = "";
         while (number > 0)
         {
-            for(int i =symbolList.Length-1; i>= 0; i--)
+            for (int i = symbolList.Length - 1; i >= 0; i--)
             {
-                int power = (int)Mathf.Pow(2,i);
+                int power = (int)Mathf.Pow(2, i);
                 if (number >= power)
                 {
                     str += symbolList[i];

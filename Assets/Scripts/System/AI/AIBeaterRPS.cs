@@ -37,7 +37,7 @@ public class AIBeaterRPS : AIBrain
                     weight.weight += weightFutureDraw;
                     break;
                 case WinState.LOSE:
-                    weight.weight += weightFutureLose;                    
+                    weight.weight += weightFutureLose;
                     break;
                 default:
                     throw new System.Exception($"Unknown WinState: {move.winRPS}");

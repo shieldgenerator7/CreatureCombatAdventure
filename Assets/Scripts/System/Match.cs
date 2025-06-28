@@ -39,7 +39,7 @@ public class Match
         {
             enemy = new Wrangler();
             enemy.name = encounterData.name;
-            enemy.cardList.AddRange(encounterData.enemyCreatures.ConvertAll(data=>new Card(data)));
+            enemy.cardList.AddRange(encounterData.enemyCreatures.ConvertAll(data => new Card(data)));
             enemy.init(arena.enemyHolders);
             enemy.OnTurnEnded += processNextTurn;
             wranglers.Add(enemy);
@@ -115,7 +115,7 @@ public class Match
 
         //if (anyChanged || enemyPower != prevEnemyPower || allyPower != prevAllyPower)
         //{
-            OnScoresChanged?.Invoke();
+        OnScoresChanged?.Invoke();
         //}
     }
     public event Action OnScoresChanged;
@@ -123,7 +123,7 @@ public class Match
     {
         if (!winner)
         {
-            bool goal = ((wrangler == wranglers[0])?allyPower:enemyPower) >= powerGoal;
+            bool goal = ((wrangler == wranglers[0]) ? allyPower : enemyPower) >= powerGoal;
             if (goal)
             {
                 winner = wrangler;

@@ -16,7 +16,7 @@ public class Arena
     public void init()
     {
         //ally
-        allyHand= new CardHolder(data.handSize);
+        allyHand = new CardHolder(data.handSize);
         allyHand.isHand = true;
         allyHand.arena = this;
         allyHolders = new List<CardHolder>();

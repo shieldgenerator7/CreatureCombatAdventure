@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void createPlayers()
     {
-        for(int i = 0; i < match.wranglers.Count; i++)
+        for (int i = 0; i < match.wranglers.Count; i++)
         {
             controllers[i].init(match.wranglers[i]);
         }
@@ -79,14 +79,14 @@ public class GameManager : MonoBehaviour
         ad.init(match.wranglers[0], match.wranglers[1]);
         arenaDisplayer = ad;
         //put cards into arena
-        controllers[0].Wrangler.cardList.ForEach(card=>ad.arena.allyHand.acceptDrop(card));
+        controllers[0].Wrangler.cardList.ForEach(card => ad.arena.allyHand.acceptDrop(card));
         controllers[1].Wrangler.cardList.ForEach(card => ad.arena.enemyHand.acceptDrop(card));
     }//
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -95,14 +95,14 @@ public class GameManager : MonoBehaviour
     {
         txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
         txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
-        txtPowerGoal.text= $"{symbolSetData.GetSymbolString(match.powerGoal)}";
+        txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
 
         arenaDisplayer.updateDisplay();
 
         txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
     }
 
-    
+
 
 
     internal void Reset()
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     internal void NextMatch()
     {
         match.close();
-        encounterIndex = Mathf.Clamp(encounterIndex+1, 0, encounterDataList.Count-1);
+        encounterIndex = Mathf.Clamp(encounterIndex + 1, 0, encounterDataList.Count - 1);
         Reset();
     }
     internal void PrevMatch()

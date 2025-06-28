@@ -32,5 +32,5 @@ public class Bin : MonoBehaviour
             return instance;
         }
     }
-    public static Transform Transform=>Instance.transform;
+    public static Transform Transform => Instance.transform;
 }

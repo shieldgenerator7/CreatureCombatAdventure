@@ -24,7 +24,7 @@ public class CardHolderDisplayer : MonoBehaviour
         this.cardHolder = cardHolder;
         cardHolder.OnCardDropped += listenForDrop;
         cardHolder.OnCardRemoved += listenForRemove;
-        highlights.ForEach(highlight=>highlight.sortingLayerName = SortingLayer);
+        highlights.ForEach(highlight => highlight.sortingLayerName = SortingLayer);
         smHighlight.frontSortingLayerID = UnityEngine.SortingLayer.NameToID(SortingLayer);
         smHighlight.backSortingLayerID = UnityEngine.SortingLayer.NameToID(SortingLayer);
         acceptMouseHover(false);
@@ -68,8 +68,8 @@ public class CardHolderDisplayer : MonoBehaviour
                 {
                     if (cardHolder.isHand)
                     {
-                    cd.cardLayer = baseLayer+50;
-                    cd.transform.position += Vector3.up * mouseOverPopupDistance;
+                        cd.cardLayer = baseLayer + 50;
+                        cd.transform.position += Vector3.up * mouseOverPopupDistance;
                         cd.acceptHover(false);
                     }
                     else
@@ -91,14 +91,14 @@ public class CardHolderDisplayer : MonoBehaviour
             for (int i = 0; i < cardHolder.CardCount; i++)
             {
                 CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
-                cd.transform.position = (Vector2)transform.position + (normDir*(spreadBuffer*i));
+                cd.transform.position = (Vector2)transform.position + (normDir * (spreadBuffer * i));
                 cd.cardLayer = baseLayer + i + 1;
                 if (cd.MousedOver)
                 {
                     if (cardHolder.isHand)
                     {
-                    cd.cardLayer = baseLayer + 50;
-                    cd.transform.position += Vector3.up * mouseOverPopupDistance;
+                        cd.cardLayer = baseLayer + 50;
+                        cd.transform.position += Vector3.up * mouseOverPopupDistance;
                         cd.acceptHover(false);
                     }
                     else
@@ -117,7 +117,7 @@ public class CardHolderDisplayer : MonoBehaviour
 
     private void listenForMouseOver(CardDisplayer cd, bool mousedOver)
     {
-            layoutCards();
+        layoutCards();
     }
 
 

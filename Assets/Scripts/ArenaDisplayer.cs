@@ -24,7 +24,7 @@ public class ArenaDisplayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void init(Wrangler ally, Wrangler enemy)
     {
-        
+
         //TODO: follow DRY
 
         //holders ally
@@ -47,7 +47,7 @@ public class ArenaDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void updateDisplay()
@@ -55,7 +55,7 @@ public class ArenaDisplayer : MonoBehaviour
         for (int i = 0; i < arena.lanes.Count; i++)
         {
             ArenaLane lane = arena.lanes[i];
-            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.allyPower,lane.AllyPowerRaw))}>";
+            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.allyPower, lane.AllyPowerRaw))}>";
             string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.enemyPower, lane.EnemyPowerRaw))}>";
             txtAllyList[i].text = $"{allyColor}{GameManager.SymbolSetData.GetSymbolString(lane.AllyRPS)}  {GameManager.SymbolSetData.GetSymbolString(lane.allyPower)}</color>";
             txtEnemyList[i].text = $"{enemyColor}{GameManager.SymbolSetData.GetSymbolString(lane.EnemyRPS)}  {GameManager.SymbolSetData.GetSymbolString(lane.enemyPower)}</color>";

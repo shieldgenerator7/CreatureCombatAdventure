@@ -162,7 +162,8 @@ public struct Move
         //{
         //    type = Type.ACTIVATE;
         //}
-        else{
+        else
+        {
             type = Type.PASS;
         }
 

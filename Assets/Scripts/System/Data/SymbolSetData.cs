@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="SymbolSetData")]
-public class SymbolSetData:ScriptableObject
+[CreateAssetMenu(menuName = "SymbolSetData")]
+public class SymbolSetData : ScriptableObject
 {
     [Header("Power")]
     public List<string> powerSymbols;
@@ -35,7 +35,8 @@ public class SymbolSetData:ScriptableObject
             throw new UnityException($"Can't process a negative number! {number}");
         }
 
-        switch (powerSymbolSystem) {
+        switch (powerSymbolSystem)
+        {
             case PowerSymbolSystem.DECIMAL:
                 if (powerSymbols.Count != 10)
                 {
@@ -53,13 +54,13 @@ public class SymbolSetData:ScriptableObject
                 }
                 for (int i = digits; i > 0; i--)
                 {
-                    float ten = Mathf.Pow(10, i-1);
+                    float ten = Mathf.Pow(10, i - 1);
                     int digit = (int)(Mathf.Floor(number / ten) % 10);
                     strdec += powerSymbols[digit];
                 }
                 return strdec;
             case PowerSymbolSystem.BINARY_STACKED:
-                if (number > Mathf.Pow(2, (powerSymbols.Count-1) - 1))
+                if (number > Mathf.Pow(2, (powerSymbols.Count - 1) - 1))
                 {
                     throw new UnityException($"BINARY_STACKED Symbol set doesnt have enough symbols to accomodate value! {number}");
                 }
@@ -70,18 +71,18 @@ public class SymbolSetData:ScriptableObject
         string str = "";
         while (number > 0)
         {
-            for (int i = powerSymbols.Count - 1; i >= 1; i--)
-            {
-                int power = (int)Mathf.Pow(2, i-1);
-                if (number >= power)
-                {
+                    for (int i = powerSymbols.Count - 1; i >= 1; i--)
+                    {
+                        int power = (int)Mathf.Pow(2, i - 1);
+                        if (number >= power)
+                        {
                     str += powerSymbols[i];
                     number -= power;
                     break;
-                }
-            }
+                        }
+                    }
         }
-        return str;
+                return str;
             default:
                 throw new NotImplementedException();
         }

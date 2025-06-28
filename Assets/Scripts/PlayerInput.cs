@@ -53,8 +53,9 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
-                CardDisplayer cd = getMousedOverCard();
-            if (cd != null) {
+            CardDisplayer cd = getMousedOverCard();
+            if (cd != null)
+            {
                 heldCard = cd;
                 cd.cardLayer = pickupLayer;
                 cd.updateDisplay();
@@ -146,7 +147,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         {
             CardDisplayer cd = getMousedOverCard();
             if (cd)
-            { 
+            {
                 if (cd != mousedOverCard && mousedOverCard)
                 {
                     mousedOverCard.MousedOver = false;
@@ -196,22 +197,23 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
     public void OnReset(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started) { 
-        FindAnyObjectByType<GameManager>().Reset();
+        if (context.phase == InputActionPhase.Started)
+        {
+            FindAnyObjectByType<GameManager>().Reset();
         }
     }
     public void OnNextMatch(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
-        FindAnyObjectByType<GameManager>().NextMatch();
+            FindAnyObjectByType<GameManager>().NextMatch();
         }
     }
     public void OnPrevMatch(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
-        FindAnyObjectByType<GameManager>().PrevMatch();
+            FindAnyObjectByType<GameManager>().PrevMatch();
         }
     }
 
