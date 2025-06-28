@@ -44,11 +44,12 @@ public class CardHolderDisplayer : MonoBehaviour
 
     private void acceptDrop(CardDisplayer cardDisplayer)
     {
-        cardDisplayer.transform.position = transform.position;
-        cardDisplayer.transform.localScale = transform.localScale;
-        cardDisplayer.transform.rotation = transform.rotation;
-        cardDisplayer.OnMousedOver += listenForMouseOver;
-        layoutCards();
+        MoveUIAnimation move = MoveUIAnimation.moveTo(cardDisplayer.gameObject, transform);
+        move.OnFinished += () =>
+        {
+            cardDisplayer.OnMousedOver += listenForMouseOver;
+            layoutCards();
+        };
     }
 
     private void layoutCards()
