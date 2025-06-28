@@ -39,6 +39,13 @@ public class NumberUIAnimation : UIAnimation
         {
             lastChangeTime += delay;
             number += (int)Mathf.Sign(endNumber - startNumber);
+            //anti-error for negative
+            if (number < 0)
+            {
+                number = 0;
+                endNumber = 0;
+            }
+            //
             txtNumber.text = symbolSetData.GetSymbolString(number);
             if (number == endNumber)
             {
