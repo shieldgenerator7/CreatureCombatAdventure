@@ -12,8 +12,6 @@ public class AIInput : WranglerInput
     public override void processTurn()
     {
         base.processTurn();
-        //early exit: game is already won
-        if (FindAnyObjectByType<GameManager>().GameOver) { controller.Wrangler.skipTurn(); return; }
         //get moves
         List<Move> moves = new List<Move>();
         controller.Wrangler.cardList.ForEach(card =>
