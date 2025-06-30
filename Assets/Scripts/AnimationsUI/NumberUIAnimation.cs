@@ -18,6 +18,8 @@ public class NumberUIAnimation : UIAnimation
 
     TMP_Text txtNumber;
 
+    public override float Speed => 0.5f;
+
 
     public int Number
     {

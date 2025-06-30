@@ -7,6 +7,8 @@ public class MoveUIAnimation : UIAnimation
     private float startRotZ;
     private Transform target;
 
+    public override float Speed => 1;
+
     protected override void startAnimation()
     {
         transform.position = startPos;

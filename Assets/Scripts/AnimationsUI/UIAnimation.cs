@@ -9,6 +9,7 @@ public abstract class UIAnimation : MonoBehaviour
     public float duration = 1;
 
     private float startTime = 0;
+    public virtual float Speed => 1;
 
     private void Start()
     {
