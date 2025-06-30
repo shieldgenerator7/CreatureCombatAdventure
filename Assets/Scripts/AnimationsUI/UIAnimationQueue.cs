@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class UIAnimationQueue : MonoBehaviour
 {
+    [SerializeField]
     private List<UIAnimation> animationQueue = new List<UIAnimation>();
+    [SerializeField]
     private UIAnimation uiAnim;
 
     public static UIAnimationQueue Instance { get; private set; }
