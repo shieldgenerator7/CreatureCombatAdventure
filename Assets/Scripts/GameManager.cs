@@ -110,6 +110,15 @@ public class GameManager : MonoBehaviour
         txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
     }
 
+    void updateDisplayAbsolute()
+    {
+        txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
+        txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
+        txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
+
+        txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
+    }
+
 
 
 
@@ -119,6 +128,7 @@ public class GameManager : MonoBehaviour
         Bin.Instance.clearBin();
         UIAnimationQueue.Instance.Reset();
         StartMatch();
+        updateDisplayAbsolute();
     }
     internal void NextMatch()
     {
