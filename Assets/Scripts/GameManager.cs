@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         match.OnScoresChanged += updateDisplay;
         match.OnGameEnd += () =>
         {
-            txtGameResult.gameObject.SetActive(true);
+            ShowUIAnimation.showObject(txtGameResult.gameObject, true);
             if (match.winner == playerWrangler)
             {
                 int rand = UnityEngine.Random.Range(0, match.wranglers[1].cardList.Count);
