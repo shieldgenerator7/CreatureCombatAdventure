@@ -12,7 +12,6 @@ public abstract class UIAnimation : MonoBehaviour
 
     private void Start()
     {
-        enabled = false;
     }
 
 
@@ -30,6 +29,7 @@ public abstract class UIAnimation : MonoBehaviour
         enabled = false;
         endAnimation();
         finished();
+        Destroy(this);
     }
     protected abstract void endAnimation();
 
@@ -42,7 +42,7 @@ public abstract class UIAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (this.enabled)
+        if (this.enabled && startTime > 0)
         {
             float percent = (Time.time - startTime) / duration;
             animate(percent);

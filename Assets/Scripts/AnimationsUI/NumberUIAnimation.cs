@@ -59,7 +59,7 @@ public class NumberUIAnimation : UIAnimation
 
     public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd, Func<int,string> formatFunc=null)
     {
-        NumberUIAnimation nuia = text.GetComponent<NumberUIAnimation>();
+        NumberUIAnimation nuia = null;// text.GetComponent<NumberUIAnimation>();
         if (!nuia)
         {
             nuia= text.AddComponent<NumberUIAnimation>();

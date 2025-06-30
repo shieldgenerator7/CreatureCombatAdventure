@@ -38,7 +38,7 @@ public class MoveUIAnimation : UIAnimation
 
     public static MoveUIAnimation moveTo(GameObject go, Transform target)
     {
-        MoveUIAnimation move = go.GetComponent<MoveUIAnimation>();
+        MoveUIAnimation move = null;// go.GetComponent<MoveUIAnimation>();
         if (!move)
         {
             move = go.AddComponent<MoveUIAnimation>();
