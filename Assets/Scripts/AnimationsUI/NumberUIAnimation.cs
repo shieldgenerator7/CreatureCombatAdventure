@@ -9,7 +9,7 @@ public class NumberUIAnimation : UIAnimation
     private int endNumber = 0;
 
     private float changeDuration = 1;
-    private float delay;
+    private float diff;
     private float lastChangeTime= 0;
 
     private int number = 0;
@@ -35,22 +35,14 @@ public class NumberUIAnimation : UIAnimation
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > lastChangeTime + delay)
+        float percent = (Time.time - lastChangeTime) / changeDuration;
+        number = Mathf.RoundToInt(percent * diff + startNumber);
+        txtNumber.text = symbolSetData.GetSymbolString(number);
+        if (Time.time >= lastChangeTime + changeDuration)
         {
-            lastChangeTime += delay;
-            number += (int)Mathf.Sign(endNumber - startNumber);
-            //anti-error for negative
-            if (number < 0)
-            {
-                number = 0;
-                endNumber = 0;
-            }
-            //
+            number = endNumber;
             txtNumber.text = symbolSetData.GetSymbolString(number);
-            if (number == endNumber)
-            {
                 finished();
-            }
         }
     }
 
@@ -66,7 +58,7 @@ public class NumberUIAnimation : UIAnimation
         nuia.endNumber = endNumber;
         nuia.symbolSetData = ssd;
         nuia.number = startNumber;
-        nuia.delay = nuia.changeDuration / Mathf.Abs(endNumber - startNumber);
+        nuia.diff = Mathf.Abs(endNumber - startNumber);
         nuia.lastChangeTime = Time.time;
         nuia.txtNumber.text = nuia.symbolSetData.GetSymbolString(nuia.number);
 
