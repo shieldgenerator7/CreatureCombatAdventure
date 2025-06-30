@@ -25,13 +25,13 @@ public class NumberUIAnimation : UIAnimation
         set
         {
             number = value;
-            if (formatFunc!=null)
+            if (formatFunc != null)
             {
                 txtNumber.text = formatFunc(number);
             }
             else
             {
-            txtNumber.text = symbolSetData.GetSymbolString(number);
+                txtNumber.text = symbolSetData.GetSymbolString(number);
             }
         }
     }
@@ -39,7 +39,7 @@ public class NumberUIAnimation : UIAnimation
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     protected override void startAnimation()
@@ -54,15 +54,15 @@ public class NumberUIAnimation : UIAnimation
     }
     protected override void endAnimation()
     {
-            Number = endNumber;
+        Number = endNumber;
     }
 
-    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd, Func<int,string> formatFunc=null)
+    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd, Func<int, string> formatFunc = null)
     {
         NumberUIAnimation nuia = null;// text.GetComponent<NumberUIAnimation>();
         if (!nuia)
         {
-            nuia= text.AddComponent<NumberUIAnimation>();
+            nuia = text.AddComponent<NumberUIAnimation>();
         }
 
         nuia.txtNumber = text;

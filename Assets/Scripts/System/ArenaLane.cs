@@ -44,7 +44,7 @@ public class ArenaLane
         }
 
 
-        OnPowerChanged?.Invoke(prevAllyPower,allyPower,prevEnemyPower,enemyPower);
+        OnPowerChanged?.Invoke(prevAllyPower, allyPower, prevEnemyPower, enemyPower);
         return enemyPower != prevEnemyPower || allyPower != prevAllyPower;
     }
     public event Action<int, int, int, int> OnPowerChanged;

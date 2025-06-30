@@ -50,11 +50,12 @@ public class ArenaDisplayer : MonoBehaviour
         {
             int index = i;
             ArenaLane lane = arena.lanes[i];
-            lane.OnPowerChanged += (pap, ap, pep, ep)=>{
+            lane.OnPowerChanged += (pap, ap, pep, ep) =>
+            {
                 if (pap != ap)
                 {
                     NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
-                        (number)=> $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, lane.AllyPowerRaw))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, lane.AllyPowerRaw))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
                         );
                 }
                 if (pep != ep)

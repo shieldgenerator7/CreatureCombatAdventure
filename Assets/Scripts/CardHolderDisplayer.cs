@@ -55,12 +55,12 @@ public class CardHolderDisplayer : MonoBehaviour
         }
         else
         {
-        MoveUIAnimation move = MoveUIAnimation.moveTo(cardDisplayer.gameObject, transform);
-        move.OnFinished += () =>
-        {
-            cardDisplayer.OnMousedOver += listenForMouseOver;
-            layoutCards();
-        };
+            MoveUIAnimation move = MoveUIAnimation.moveTo(cardDisplayer.gameObject, transform);
+            move.OnFinished += () =>
+            {
+                cardDisplayer.OnMousedOver += listenForMouseOver;
+                layoutCards();
+            };
         }
     }
 
