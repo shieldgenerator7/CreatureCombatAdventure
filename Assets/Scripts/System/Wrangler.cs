@@ -37,6 +37,7 @@ public class Wrangler
     public void addCard(CreatureCardData cardData)
     {
         Card card = new Card(cardData);
+        cardList.Add(card);
         handHolder.acceptDrop(card);
         OnCardAdded?.Invoke(card);
     }
