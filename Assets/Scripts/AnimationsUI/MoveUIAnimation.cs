@@ -2,33 +2,36 @@ using UnityEngine;
 
 public class MoveUIAnimation : UIAnimation
 {
-    public float moveSpeed = 3f;
-    public float threshold = 0.2f;
+    private Transform start;
     private Transform target;
 
     protected override void startAnimation()
     {
+        transform.position = start.position;
+        transform.localScale = start.localScale;
+        Vector3 rot2 = transform.eulerAngles;
+        rot2.z = start.eulerAngles.z;
+        transform.eulerAngles = rot2;
     }
 
-    protected override void endAnimation(){}
+    protected override void endAnimation()
+    {
+        transform.position = target.position;
+        transform.localScale = target.localScale;
+        Vector3 rot2 = transform.eulerAngles;
+        rot2.z = target.eulerAngles.z;
+        transform.eulerAngles = rot2;
+    }
 
     // Update is called once per frame
     protected override void animate(float percent)
     {
-        transform.position = Vector2.Lerp(transform.position, target.position, moveSpeed*Time.deltaTime);
-        transform.localScale = Vector2.Lerp(transform.localScale, target.localScale, moveSpeed * Time.deltaTime);
-        Vector3 rot = transform.eulerAngles;
-        rot.z = Mathf.Lerp(rot.z, target.eulerAngles.z, moveSpeed * Time.deltaTime);
-        transform.eulerAngles = rot;
-        if (Vector2.Distance(transform.position, target.position) <= threshold)
-        {
-            transform.position = target.position;
-            transform.localScale = target.localScale;
-            Vector3 rot2 = transform.eulerAngles;
-            rot2.z = target.eulerAngles.z;
-            transform.eulerAngles = rot2;
-            finished();
-        }
+        percent = percent * percent;
+        transform.position = Vector2.Lerp(start.position, target.position, percent);
+        transform.localScale = Vector2.Lerp(start.localScale, target.localScale, percent);
+        Vector3 rot = start.eulerAngles;
+        rot.z = Mathf.Lerp(rot.z, target.eulerAngles.z, percent);
+        start.eulerAngles = rot;
     }
 
     public static MoveUIAnimation moveTo(GameObject go, Transform target)
@@ -38,6 +41,7 @@ public class MoveUIAnimation : UIAnimation
         {
             move = go.AddComponent<MoveUIAnimation>();
         }
+        move.start = go.transform;
         move.target = target;
         UIAnimationQueue.Instance.queueAnimation(move);
         return move;
