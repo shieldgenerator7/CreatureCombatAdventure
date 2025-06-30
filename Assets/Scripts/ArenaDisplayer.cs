@@ -45,6 +45,7 @@ public class ArenaDisplayer : MonoBehaviour
         }
 
         //lane displayers
+        SymbolSetData ssd = GameManager.SymbolSetData;
         for (int i = 0; i < arena.lanes.Count; i++)
         {
             int index = i;
@@ -52,11 +53,15 @@ public class ArenaDisplayer : MonoBehaviour
             lane.OnPowerChanged += (pap, ap, pep, ep)=>{
                 if (pap != ap)
                 {
-                    NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, GameManager.SymbolSetData);
+                    NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
+                        (number)=> $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, lane.AllyPowerRaw))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
+                        );
                 }
                 if (pep != ep)
                 {
-                    NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, GameManager.SymbolSetData);
+                    NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, ssd,
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, lane.EnemyPowerRaw))}>{ssd.GetSymbolString(lane.EnemyRPS)} {ssd.GetSymbolString(number)}"
+                        );
                 }
             };
         }

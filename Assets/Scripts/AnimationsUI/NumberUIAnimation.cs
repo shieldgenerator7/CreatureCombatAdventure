@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class NumberUIAnimation : UIAnimation
     private int number = 0;
 
     private SymbolSetData symbolSetData;
+    private Func<int, string> formatFunc;
 
     TMP_Text txtNumber;
 
@@ -23,7 +25,14 @@ public class NumberUIAnimation : UIAnimation
         set
         {
             number = value;
+            if (formatFunc!=null)
+            {
+                txtNumber.text = formatFunc(number);
+            }
+            else
+            {
             txtNumber.text = symbolSetData.GetSymbolString(number);
+            }
         }
     }
 
@@ -48,7 +57,7 @@ public class NumberUIAnimation : UIAnimation
             Number = endNumber;
     }
 
-    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd)
+    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd, Func<int,string> formatFunc=null)
     {
         NumberUIAnimation nuia = text.GetComponent<NumberUIAnimation>();
         if (!nuia)
@@ -59,6 +68,7 @@ public class NumberUIAnimation : UIAnimation
         nuia.startNumber = startNumber;
         nuia.endNumber = endNumber;
         nuia.symbolSetData = ssd;
+        nuia.formatFunc = formatFunc;
         nuia.diff = Mathf.Abs(endNumber - startNumber);
 
         UIAnimationQueue.Instance.queueAnimation(nuia);
