@@ -17,6 +17,15 @@ public class NumberUIAnimation : UIAnimation
     TMP_Text txtNumber;
 
 
+    public int Number
+    {
+        get => number;
+        set
+        {
+            number = value;
+            txtNumber.text = symbolSetData.GetSymbolString(number);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,19 +35,17 @@ public class NumberUIAnimation : UIAnimation
 
     protected override void startAnimation()
     {
-        txtNumber.text = symbolSetData.GetSymbolString(number);
+        Number = startNumber;
     }
 
     // Update is called once per frame
     protected override void animate(float percent)
     {
-        number = Mathf.RoundToInt(percent * diff + startNumber);
-        txtNumber.text = symbolSetData.GetSymbolString(number);
+        Number = Mathf.RoundToInt(percent * diff + startNumber);
     }
     protected override void endAnimation()
     {
-            number = endNumber;
-            txtNumber.text = symbolSetData.GetSymbolString(number);
+            Number = endNumber;
     }
 
     public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd)
@@ -52,9 +59,7 @@ public class NumberUIAnimation : UIAnimation
         nuia.startNumber = startNumber;
         nuia.endNumber = endNumber;
         nuia.symbolSetData = ssd;
-        nuia.number = startNumber;
         nuia.diff = Mathf.Abs(endNumber - startNumber);
-        nuia.txtNumber.text = nuia.symbolSetData.GetSymbolString(nuia.number);
 
         UIAnimationQueue.Instance.queueAnimation(nuia);
         return nuia;
