@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
@@ -42,6 +43,24 @@ public class ArenaDisplayer : MonoBehaviour
             CardHolder ch = arena.enemyHolders[i];
             enemyHolders[i].init(ch);
         }
+
+        //lane displayers
+        for (int i = 0; i < arena.lanes.Count; i++)
+        {
+            int index = i;
+            ArenaLane lane = arena.lanes[i];
+            lane.OnPowerChanged += (pap, ap, pep, ep)=>{
+                if (pap != ap)
+                {
+                    NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, GameManager.SymbolSetData);
+                }
+                if (pep != ep)
+                {
+                    NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, GameManager.SymbolSetData);
+                }
+            };
+        }
+
     }
 
     // Update is called once per frame
@@ -57,8 +76,15 @@ public class ArenaDisplayer : MonoBehaviour
             ArenaLane lane = arena.lanes[i];
             string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.allyPower, lane.AllyPowerRaw))}>";
             string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.enemyPower, lane.EnemyPowerRaw))}>";
-            txtAllyList[i].text = $"{allyColor}{GameManager.SymbolSetData.GetSymbolString(lane.AllyRPS)}  {GameManager.SymbolSetData.GetSymbolString(lane.allyPower)}</color>";
-            txtEnemyList[i].text = $"{enemyColor}{GameManager.SymbolSetData.GetSymbolString(lane.EnemyRPS)}  {GameManager.SymbolSetData.GetSymbolString(lane.enemyPower)}</color>";
+            //TODO: fix this spaghetti code. setting the color weirdly after this feels wrong
+            if (!txtAllyList[i].text.StartsWith("<color"))
+            {
+                txtAllyList[i].text = $"{allyColor}{txtAllyList[i].text}";
+            }
+            if (!txtEnemyList[i].text.StartsWith("<color"))
+            {
+                txtEnemyList[i].text = $"{enemyColor}{txtEnemyList[i].text}";
+            }
         }
     }
 
