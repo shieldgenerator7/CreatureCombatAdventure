@@ -34,12 +34,24 @@ public class CardHolderDisplayer : MonoBehaviour
     private void listenForDrop(Card card)
     {
         CardDisplayer cd = CardDisplayer.Find(card);
+        //possible that the card was added before the display created it
+        if (!cd)
+        {
+            return;
+        }
+        //
         acceptDrop(cd);
     }
 
     private void listenForRemove(Card card)
     {
         CardDisplayer cd = CardDisplayer.Find(card);
+        //possible that the card was added before the display created it
+        if (!cd)
+        {
+            return;
+        }
+        //
         removeCard(cd);
     }
 

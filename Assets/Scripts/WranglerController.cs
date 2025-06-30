@@ -23,6 +23,21 @@ public class WranglerController : MonoBehaviour
         Wrangler = wrangler;
 
         createCards();
+
+        wrangler.OnCardAdded += (card) =>
+        {
+            CardDisplayer cd = createCard(card);
+            //proc delegate again
+            //wrangler.handHolder.acceptDrop(card);
+            //deactivate card
+            cd.gameObject.SetActive(false);
+            //move card to middle of screen
+            cd.cardLayer = 10;
+            cd.sortingLayer = "Hand";
+            cd.transform.localScale = Vector3.one * 0.3f;
+            //queue anim to show it
+            ShowUIAnimation.showObject(cd.gameObject, true);
+        };
     }
 
 
@@ -35,12 +50,17 @@ public class WranglerController : MonoBehaviour
         cardDisplayerList.Clear();
         player.cardList.ForEach(card =>
         {
+            createCard(card);
+        });
+    }
+    private CardDisplayer createCard(Card card)
+    {
             GameObject go = Instantiate(cardDisplayerPrefab, Bin.Transform);
             CardDisplayer cd = go.GetComponent<CardDisplayer>();
             cd.card = card;
             card.owner = this.player;
             cardDisplayerList.Add(cd);
-        });
+        return cd;
     }
 
     public static WranglerController Find(Wrangler wrangler)

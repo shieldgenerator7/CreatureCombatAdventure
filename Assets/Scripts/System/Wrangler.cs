@@ -33,6 +33,15 @@ public class Wrangler
 
 
 
+
+    public void addCard(CreatureCardData cardData)
+    {
+        Card card = new Card(cardData);
+        handHolder.acceptDrop(card);
+        OnCardAdded?.Invoke(card);
+    }
+    public event Action<Card> OnCardAdded;
+
     public bool canPickupCard(Card card)
     {
         return card.owner == this;
