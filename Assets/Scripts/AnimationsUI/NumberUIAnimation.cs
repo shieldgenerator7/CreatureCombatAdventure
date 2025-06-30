@@ -70,7 +70,7 @@ public class NumberUIAnimation : UIAnimation
         nuia.endNumber = endNumber;
         nuia.symbolSetData = ssd;
         nuia.formatFunc = formatFunc;
-        nuia.diff = Mathf.Abs(endNumber - startNumber);
+        nuia.diff = endNumber - startNumber;
 
         UIAnimationQueue.Instance.queueAnimation(nuia);
         return nuia;
