@@ -48,9 +48,9 @@ public class SymbolSetData : ScriptableObject
                 }
                 string strdec = "";
                 int digits = Mathf.CeilToInt(Mathf.Log10(number));
-                if (digits == 0)
+                if ((int)Mathf.Pow(10,digits) == number)
                 {
-                    digits = 1;
+                    digits++;
                 }
                 for (int i = digits; i > 0; i--)
                 {
