@@ -48,6 +48,7 @@ public class MoveUIAnimation : UIAnimation
         move.startScale = go.transform.localScale;
         move.startRotZ = go.transform.eulerAngles.z;
         move.target = target;
+
         UIAnimationQueue.Instance.queueAnimation(move);
         return move;
     }

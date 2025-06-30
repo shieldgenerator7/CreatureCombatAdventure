@@ -64,6 +64,7 @@ public class NumberUIAnimation : UIAnimation
         {
             nuia= text.AddComponent<NumberUIAnimation>();
         }
+
         nuia.txtNumber = text;
         nuia.startNumber = startNumber;
         nuia.endNumber = endNumber;
