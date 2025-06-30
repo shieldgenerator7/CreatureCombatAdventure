@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class MoveUIAnimation : UIAnimation
 {
-    private Transform start;
+    private Vector3 startPos;
+    private Vector3 startScale;
+    private float startRotZ;
     private Transform target;
 
     protected override void startAnimation()
     {
-        transform.position = start.position;
-        transform.localScale = start.localScale;
+        transform.position = startPos;
+        transform.localScale = startScale;
         Vector3 rot2 = transform.eulerAngles;
-        rot2.z = start.eulerAngles.z;
+        rot2.z = startRotZ;
         transform.eulerAngles = rot2;
     }
 
@@ -27,11 +29,11 @@ public class MoveUIAnimation : UIAnimation
     protected override void animate(float percent)
     {
         percent = percent * percent;
-        transform.position = Vector2.Lerp(start.position, target.position, percent);
-        transform.localScale = Vector2.Lerp(start.localScale, target.localScale, percent);
-        Vector3 rot = start.eulerAngles;
-        rot.z = Mathf.Lerp(rot.z, target.eulerAngles.z, percent);
-        start.eulerAngles = rot;
+        transform.position = Vector2.Lerp(startPos, target.position, percent);
+        transform.localScale = Vector2.Lerp(startScale, target.localScale, percent);
+        Vector3 rot = transform.eulerAngles;
+        rot.z = Mathf.Lerp(startRotZ, target.eulerAngles.z, percent);
+        transform.eulerAngles = rot;
     }
 
     public static MoveUIAnimation moveTo(GameObject go, Transform target)
@@ -41,7 +43,10 @@ public class MoveUIAnimation : UIAnimation
         {
             move = go.AddComponent<MoveUIAnimation>();
         }
-        move.start = go.transform;
+
+        move.startPos = go.transform.position;
+        move.startScale = go.transform.localScale;
+        move.startRotZ = go.transform.eulerAngles.z;
         move.target = target;
         UIAnimationQueue.Instance.queueAnimation(move);
         return move;
