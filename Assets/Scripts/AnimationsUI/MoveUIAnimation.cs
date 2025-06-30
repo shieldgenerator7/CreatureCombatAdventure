@@ -6,13 +6,14 @@ public class MoveUIAnimation : UIAnimation
     public float threshold = 0.2f;
     private Transform target;
 
-    public override void startAnimation()
+    protected override void startAnimation()
     {
-        enabled = true;
     }
 
+    protected override void endAnimation(){}
+
     // Update is called once per frame
-    void Update()
+    protected override void animate(float percent)
     {
         transform.position = Vector2.Lerp(transform.position, target.position, moveSpeed*Time.deltaTime);
         transform.localScale = Vector2.Lerp(transform.localScale, target.localScale, moveSpeed * Time.deltaTime);

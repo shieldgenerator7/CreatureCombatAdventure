@@ -8,9 +8,7 @@ public class NumberUIAnimation : UIAnimation
     private int startNumber = 0;
     private int endNumber = 0;
 
-    private float changeDuration = 1;
     private float diff;
-    private float lastChangeTime= 0;
 
     private int number = 0;
 
@@ -26,24 +24,21 @@ public class NumberUIAnimation : UIAnimation
         
     }
 
-    public override void startAnimation()
+    protected override void startAnimation()
     {
         txtNumber.text = symbolSetData.GetSymbolString(number);
-        enabled = true;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void animate(float percent)
     {
-        float percent = (Time.time - lastChangeTime) / changeDuration;
         number = Mathf.RoundToInt(percent * diff + startNumber);
         txtNumber.text = symbolSetData.GetSymbolString(number);
-        if (Time.time >= lastChangeTime + changeDuration)
-        {
+    }
+    protected override void endAnimation()
+    {
             number = endNumber;
             txtNumber.text = symbolSetData.GetSymbolString(number);
-                finished();
-        }
     }
 
     public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd)
@@ -59,7 +54,6 @@ public class NumberUIAnimation : UIAnimation
         nuia.symbolSetData = ssd;
         nuia.number = startNumber;
         nuia.diff = Mathf.Abs(endNumber - startNumber);
-        nuia.lastChangeTime = Time.time;
         nuia.txtNumber.text = nuia.symbolSetData.GetSymbolString(nuia.number);
 
         UIAnimationQueue.Instance.queueAnimation(nuia);

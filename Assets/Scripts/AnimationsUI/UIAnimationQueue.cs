@@ -32,7 +32,7 @@ public class UIAnimationQueue : MonoBehaviour
             uiAnim = null;
             processNextAnimation();
         };
-        uiAnim.startAnimation();
+        uiAnim.StartAnimation();
     }
 
     public void Reset()
