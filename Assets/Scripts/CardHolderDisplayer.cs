@@ -87,6 +87,7 @@ public class CardHolderDisplayer : MonoBehaviour
             for (int i = 0; i < cardHolder.CardCount; i++)
             {
                 CardDisplayer cd = CardDisplayer.Find(cardHolder.cardList[i]);
+                if (!cd) { continue; }
                 cd.transform.position = (Vector2)transform.position + new Vector2(startX + spreadBuffer * i, 0);
                 cd.cardLayer = baseLayer + i + 1;
                 if (cd.MousedOver)
