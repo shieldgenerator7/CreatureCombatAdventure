@@ -50,48 +50,23 @@ public class ArenaDisplayer : MonoBehaviour
         {
             int index = i;
             ArenaLane lane = arena.lanes[i];
-            lane.OnPowerChanged += (pap, ap, pep, ep) =>
+            lane.OnPowerChanged += (pap, ap, apr, pep, ep, epr) =>
             {
                 if (pap != ap)
                 {
                     NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, lane.AllyPowerRaw))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, apr))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
                         );
                 }
                 if (pep != ep)
                 {
                     NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, lane.EnemyPowerRaw))}>{ssd.GetSymbolString(lane.EnemyRPS)} {ssd.GetSymbolString(number)}"
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, epr))}>{ssd.GetSymbolString(lane.EnemyRPS)} {ssd.GetSymbolString(number)}"
                         );
                 }
             };
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void updateDisplay()
-    {
-        for (int i = 0; i < arena.lanes.Count; i++)
-        {
-            ArenaLane lane = arena.lanes[i];
-            string allyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.allyPower, lane.AllyPowerRaw))}>";
-            string enemyColor = $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(lane.enemyPower, lane.EnemyPowerRaw))}>";
-            //TODO: fix this spaghetti code. setting the color weirdly after this feels wrong
-            if (!txtAllyList[i].text.StartsWith("<color"))
-            {
-                txtAllyList[i].text = $"{allyColor}{txtAllyList[i].text}";
-            }
-            if (!txtEnemyList[i].text.StartsWith("<color"))
-            {
-                txtEnemyList[i].text = $"{enemyColor}{txtEnemyList[i].text}";
-            }
-        }
     }
 
     private Color getColor(int power, int rawPower)

@@ -92,19 +92,20 @@ public class GameManager : MonoBehaviour
 
     void updateDisplay(int pap, int ap, int pep, int ep)
     {
+        if (pep != ep)
+        {
         NumberUIAnimation.adjustTo(txtPowerEnemy, pep, ep, symbolSetData);
+        }
+        if (pap != ap)
+        {
         NumberUIAnimation.adjustTo(txtPowerAlly, pap, ap, symbolSetData);
+        }
 
-        arenaDisplayer.updateDisplay();
     }
 
     void updateDisplay()
     {
-        txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
-        txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
         txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
-
-        arenaDisplayer.updateDisplay();
 
         txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
     }
