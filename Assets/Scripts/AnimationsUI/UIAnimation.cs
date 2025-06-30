@@ -10,12 +10,17 @@ public abstract class UIAnimation : MonoBehaviour
 
     private float startTime = 0;
 
+    private void Start()
+    {
+        enabled = false;
+    }
+
 
     public void StartAnimation()
     {
         startTime = Time.time;
-        enabled = true;
         startAnimation();
+        enabled = true;
     }
 
     protected abstract void animate(float percent);
