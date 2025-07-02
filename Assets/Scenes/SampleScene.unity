@@ -386,6 +386,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d2c41db9e9ffa55438523441eff61b63, type: 2}
   - {fileID: 11400000, guid: b9c3538c01bae684da186df865dc6a1a, type: 2}
   - {fileID: 11400000, guid: 4646665d88bbb3c4d9917da9b79a19b1, type: 2}
+  - {fileID: 11400000, guid: 18e90e729af9a8a4b8dbc37bc1fd5011, type: 2}
   - {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
   - {fileID: 11400000, guid: 890ff19520d23754e8376d000a192c84, type: 2}
   - {fileID: 11400000, guid: 87db0bb805a34b94f8dd8823068988d7, type: 2}
@@ -419,6 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02d0f75f4d4b8e4393732c33823692d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationQueue: []
+  uiAnim: {fileID: 0}
 --- !u!1 &584776698
 GameObject:
   m_ObjectHideFlags: 0
