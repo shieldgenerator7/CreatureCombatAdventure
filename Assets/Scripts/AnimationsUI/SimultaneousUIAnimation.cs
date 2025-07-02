@@ -10,7 +10,9 @@ public class SimultaneousUIAnimation : UIAnimation
 
     protected override void startAnimation()
     {
-        _animations.ForEach(anim=>anim.StartAnimation());
+        _animations
+            .Where(anim => anim != null).ToList()
+            .ForEach(anim=>anim.StartAnimation());
     }
 
     protected override void animate(float percent)
