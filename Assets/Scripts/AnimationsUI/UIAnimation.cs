@@ -53,4 +53,13 @@ public abstract class UIAnimation : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Here so SimultaneousUIAnimation can work. Not meant to be called anywhere else.
+    /// </summary>
+    /// <param name="percent"></param>
+    internal void animateProxy(float percent)
+    {
+        animate(percent);
+    }
 }

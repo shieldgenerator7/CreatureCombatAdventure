@@ -19,7 +19,10 @@ public class ArenaDisplayer : MonoBehaviour
     public List<TMP_Text> txtAllyList;
     public List<TMP_Text> txtEnemyList;
 
+    public Match match;
     public Arena arena;
+
+    private List<UIAnimation> scoreAnimations = new List<UIAnimation>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,18 +57,33 @@ public class ArenaDisplayer : MonoBehaviour
             {
                 if (pap != ap)
                 {
+                    NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
                         (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, apr))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
                         );
+                    scoreAnimations.Add(nuia);
                 }
                 if (pep != ep)
                 {
+                    NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, ssd,
                         (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, epr))}>{ssd.GetSymbolString(lane.EnemyRPS)} {ssd.GetSymbolString(number)}"
                         );
+                    scoreAnimations.Add(nuia);
                 }
             };
         }
+
+        //listen for match score update
+        match.OnScoresChanged += (pap, ap, pep, ep) =>
+        {
+            //remove the anims from the anim queue
+            scoreAnimations.ForEach(anim => UIAnimationQueue.Instance.removeAnimation(anim));
+            //Make lane score changes all animate together
+            SimultaneousUIAnimation.AnimateTogether(scoreAnimations);
+            //
+            scoreAnimations.Clear();
+        };
 
     }
 

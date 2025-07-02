@@ -36,6 +36,17 @@ public class UIAnimationQueue : MonoBehaviour
         uiAnim.StartAnimation();
     }
 
+    public void removeAnimation(UIAnimation animation)
+    {
+        animation.enabled = false;
+        animationQueue.Remove(animation);
+        if (uiAnim == animation)
+        {
+            uiAnim = null;
+            processNextAnimation();
+        }
+    }
+
     public void Reset()
     {
         animationQueue.Clear();

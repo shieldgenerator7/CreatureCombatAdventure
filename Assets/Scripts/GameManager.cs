@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject goArena = Instantiate(match.arena.data.prefab, Bin.Transform);
         ArenaDisplayer ad = goArena.GetComponent<ArenaDisplayer>();
+        ad.match = match;
         ad.arena = match.arena;
         ad.init(match.wranglers[0], match.wranglers[1]);
         arenaDisplayer = ad;
