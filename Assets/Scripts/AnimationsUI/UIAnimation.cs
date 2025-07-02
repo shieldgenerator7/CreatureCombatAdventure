@@ -11,10 +11,6 @@ public abstract class UIAnimation : MonoBehaviour
     private float startTime = 0;
     public virtual float Speed => 1;
 
-    private void Start()
-    {
-    }
-
 
     public void StartAnimation()
     {

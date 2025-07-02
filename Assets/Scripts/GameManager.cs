@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
         {
             SimultaneousUIAnimation.AnimateTogether(anims);
         }
-
     }
 
     void updateDisplay()
