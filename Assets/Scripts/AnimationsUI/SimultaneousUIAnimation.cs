@@ -20,7 +20,9 @@ public class SimultaneousUIAnimation : UIAnimation
 
     protected override void endAnimation()
     {
-        _animations.ForEach(anim => anim.EndAnimation());
+        _animations
+            .Where(anim => anim != null).ToList()
+            .ForEach(anim => anim.EndAnimation());
     }
 
     public static SimultaneousUIAnimation AnimateTogether(params UIAnimation[] animations)
