@@ -199,6 +199,7 @@ MonoBehaviour:
   maxSpreadBuffer: 2
   mouseOverPopupDistance: 0.25
   baseLayer: 0
+  instantDrop: 0
 --- !u!61 &8700110212287645149
 BoxCollider2D:
   m_ObjectHideFlags: 0
