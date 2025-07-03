@@ -55,11 +55,11 @@ public class WranglerController : MonoBehaviour
     }
     private CardDisplayer createCard(Card card)
     {
-            GameObject go = Instantiate(cardDisplayerPrefab, Bin.Transform);
-            CardDisplayer cd = go.GetComponent<CardDisplayer>();
-            cd.card = card;
-            card.owner = this.player;
-            cardDisplayerList.Add(cd);
+        GameObject go = Instantiate(cardDisplayerPrefab, Bin.Transform);
+        CardDisplayer cd = go.GetComponent<CardDisplayer>();
+        cd.card = card;
+        card.owner = this.player;
+        cardDisplayerList.Add(cd);
         return cd;
     }
 

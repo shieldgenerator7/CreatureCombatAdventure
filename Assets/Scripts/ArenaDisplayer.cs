@@ -58,6 +58,7 @@ public class ArenaDisplayer : MonoBehaviour
                 if (pap != ap)
                 {
                     Color color = getColor(ap, apr);
+
                     NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, color, ssd);
                     scoreAnimations.Add(nuia);
@@ -69,6 +70,7 @@ public class ArenaDisplayer : MonoBehaviour
                 if (pep != ep)
                 {
                     Color color = getColor(ep, epr);
+
                     NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, color, ssd);
                     scoreAnimations.Add(nuia);

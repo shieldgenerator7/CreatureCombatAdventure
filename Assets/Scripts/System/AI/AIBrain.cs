@@ -37,7 +37,7 @@ public abstract class AIBrain : ScriptableObject
         return moveWeights.ConvertAll(weight =>
         {
             switch (weight.move.type)
-            {//
+            {
                 case Move.Type.PASS:
                     weight.weight += weightMovePass;
                     break;
@@ -55,7 +55,7 @@ public abstract class AIBrain : ScriptableObject
                     break;
                 default:
                     throw new System.Exception($"Unknown Move.Type: {weight.move.type}");
-            }//
+            }
             return weight;
         });
     }

@@ -18,7 +18,8 @@ public class ImageDisplayer : MonoBehaviour
         //sorting layers
         srs.ForEach(sr => sr.sortingLayerName = sortingLayerName);
         int sortingLayerID = SortingLayer.NameToID(sortingLayerName);
-        sms.ForEach(sm => {
+        sms.ForEach(sm =>
+        {
             if (sm)
             {
                 sm.frontSortingLayerID = sortingLayerID;

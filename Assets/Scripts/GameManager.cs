@@ -82,14 +82,14 @@ public class GameManager : MonoBehaviour
         //put cards into arena
         controllers[0].Wrangler.cardList.ForEach(card => ad.arena.allyHand.acceptDrop(card));
         controllers[1].Wrangler.cardList.ForEach(card => ad.arena.enemyHand.acceptDrop(card));
-    }//
+    }
 
     void updateDisplay(int pap, int ap, int pep, int ep)
     {
         List<UIAnimation> anims = new List<UIAnimation>();
         if (pep != ep)
         {
-            NumberUIAnimation nuia = 
+            NumberUIAnimation nuia =
         NumberUIAnimation.adjustTo(txtPowerEnemy, pep, ep, Color.white, symbolSetData);
             anims.Add(nuia);
         }

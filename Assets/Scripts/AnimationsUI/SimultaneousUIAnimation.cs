@@ -6,13 +6,13 @@ public class SimultaneousUIAnimation : UIAnimation
 {
     private List<UIAnimation> _animations = new List<UIAnimation>();
 
-    public override float Speed => _animations.Average(anim=>anim.Speed);
+    public override float Speed => _animations.Average(anim => anim.Speed);
 
     protected override void startAnimation()
     {
         _animations
             .Where(anim => anim != null).ToList()
-            .ForEach(anim=>anim.StartAnimation());
+            .ForEach(anim => anim.StartAnimation());
     }
 
     protected override void animate(float percent)
