@@ -13,6 +13,7 @@ public class CardDisplayer : MonoBehaviour
     public SpriteRenderer srRPS;
     public SpriteMask smFrame;
     public SpriteRenderer srHighlight;
+    public ImageDisplayer cardDecoration;
 
     public Canvas cvs;
     public TMP_Text txtName;
@@ -106,7 +107,8 @@ public class CardDisplayer : MonoBehaviour
             }
             layeroffset = imageDisplayer.updateLayer(baseLayer + 2, sortingLayer);
         }
-        cvs.sortingOrder = baseLayer + 3 + layeroffset;
+        layeroffset += cardDecoration?.updateLayer(baseLayer + 3 + layeroffset, sortingLayer) ?? 0;
+        cvs.sortingOrder = baseLayer + 4 + layeroffset;
 
     }
 
