@@ -55,7 +55,8 @@ public class ArenaDisplayer : MonoBehaviour
             ArenaLane lane = arena.lanes[i];
             lane.OnPowerChanged += (pap, ap, apr, pep, ep, epr) =>
             {
-                if (pap != ap)
+                //TODO: handle changing of RPS better
+                if (true || pap != ap)
                 {
                     Color color = getColor(ap, apr);
 
@@ -67,7 +68,8 @@ public class ArenaDisplayer : MonoBehaviour
                     SpriteUIAnimation.ChangeSprite(srRPSAllyList[index], ssd.GetSymbolSprite(lane.AllyRPS), color);
                     scoreAnimations.Add(suia);
                 }
-                if (pep != ep)
+                //TODO: handle changing of RPS better
+                if (true || pep != ep)
                 {
                     Color color = getColor(ep, epr);
 
