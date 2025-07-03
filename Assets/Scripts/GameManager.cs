@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
 
         match.init();
 
+        aiInput.aiBrain = match.encounterData.aiBrain;
+        createPlayers();
+        createArena();
+
         match.OnScoresChanged += updateDisplay;
         match.OnGameEnd += () =>
         {
@@ -54,10 +58,7 @@ public class GameManager : MonoBehaviour
         };
         txtGameResult.gameObject.SetActive(false);
 
-        aiInput.aiBrain = match.encounterData.aiBrain;
 
-        createPlayers();
-        createArena();
         updateDisplay();
     }
 

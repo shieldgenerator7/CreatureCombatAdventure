@@ -9,6 +9,8 @@ public class SpriteUIAnimation : UIAnimation
 
     protected override void startAnimation()
     {
+        sr.sprite = sprite;
+        sr.color = color;
     }
     protected override void animate(float percent)
     {
