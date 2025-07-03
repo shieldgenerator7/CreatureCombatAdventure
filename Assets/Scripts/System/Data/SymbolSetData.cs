@@ -21,6 +21,10 @@ public class SymbolSetData : ScriptableObject
     public string symbolRPSRock;
     public string symbolRPSPaper;
     public string symbolRPSScissors;
+    public Sprite symbolIconRPSNone;
+    public Sprite symbolIconRPSRock;
+    public Sprite symbolIconRPSPaper;
+    public Sprite symbolIconRPSScissors;
 
     /// <summary>
     /// Converts number to symbol string.
@@ -100,6 +104,23 @@ public class SymbolSetData : ScriptableObject
                 return symbolRPSPaper;
             case RockPaperScissors.SCISSORS:
                 return symbolRPSScissors;
+            default:
+                throw new System.Exception($"Unknown rps symbol: {rps}");
+        }
+    }
+
+    public Sprite GetSymbolSprite(RockPaperScissors rps)
+    {
+        switch (rps)
+        {
+            case RockPaperScissors.NONE:
+                return symbolIconRPSNone;
+            case RockPaperScissors.ROCK:
+                return symbolIconRPSRock;
+            case RockPaperScissors.PAPER:
+                return symbolIconRPSPaper;
+            case RockPaperScissors.SCISSORS:
+                return symbolIconRPSScissors;
             default:
                 throw new System.Exception($"Unknown rps symbol: {rps}");
         }

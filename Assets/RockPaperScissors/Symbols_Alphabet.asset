@@ -28,3 +28,7 @@ MonoBehaviour:
   symbolRPSRock: '[R]'
   symbolRPSPaper: '|P|'
   symbolRPSScissors: \\S/
+  symbolIconRPSNone: {fileID: -1592031934, guid: 34a87eeb42f423d4d9bfa7ec7be7202f, type: 3}
+  symbolIconRPSRock: {fileID: 1705377582, guid: 34a87eeb42f423d4d9bfa7ec7be7202f, type: 3}
+  symbolIconRPSPaper: {fileID: -888959997, guid: 34a87eeb42f423d4d9bfa7ec7be7202f, type: 3}
+  symbolIconRPSScissors: {fileID: 1058458376, guid: 34a87eeb42f423d4d9bfa7ec7be7202f, type: 3}

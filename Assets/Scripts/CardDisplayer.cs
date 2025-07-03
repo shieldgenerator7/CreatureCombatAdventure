@@ -10,13 +10,13 @@ public class CardDisplayer : MonoBehaviour
     public SpriteRenderer srBack;
     public SpriteRenderer srImage;
     public SpriteRenderer srFrame;
+    public SpriteRenderer srRPS;
     public SpriteMask smFrame;
     public SpriteRenderer srHighlight;
 
     public Canvas cvs;
     public TMP_Text txtName;
     public TMP_Text txtCost;
-    public TMP_Text txtRPS;
     public TMP_Text txtPower;
 
     private ImageDisplayer imageDisplayer;
@@ -64,10 +64,10 @@ public class CardDisplayer : MonoBehaviour
         srFrame.sprite = card.data.frame;
         srFrame.color = card.data.frameColor;
         smFrame.sprite = card.data.frame;
+        srRPS.sprite = GameManager.SymbolSetData.GetSymbolSprite(card.data.rps);
 
         txtName.text = card.data.name;
         //txtCost.text = $"{Utility.GetSymbolString(card.data.cost)}";
-        txtRPS.text = $"{GameManager.SymbolSetData.GetSymbolString(card.data.rps)}";
         txtPower.text = $"{GameManager.SymbolSetData.GetSymbolString(card.data.power)}";
 
         //sorting layers
@@ -81,6 +81,7 @@ public class CardDisplayer : MonoBehaviour
         }
         cvs.sortingLayerName = sortingLayer;
         srHighlight.sortingLayerName = sortingLayer;
+        srRPS.sortingLayerName = sortingLayer;
 
 
         //layers
@@ -94,6 +95,7 @@ public class CardDisplayer : MonoBehaviour
             srImage.sortingOrder = baseLayer + 2;
         }
         smFrame.frontSortingOrder = baseLayer + 2;
+        srRPS.sortingOrder = baseLayer + 3;
         int layeroffset = 0;
 
         if (card.data.imagePrefab)
