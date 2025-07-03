@@ -16,6 +16,8 @@ public class ArenaDisplayer : MonoBehaviour
 
     public List<TMP_Text> txtAllyList;
     public List<TMP_Text> txtEnemyList;
+    public List<SpriteRenderer> srRPSAllyList;
+    public List<SpriteRenderer> srRPSEnemyList;
 
     public Match match;
     public Arena arena;
@@ -57,17 +59,25 @@ public class ArenaDisplayer : MonoBehaviour
                 {
                     NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, apr))}>{ssd.GetSymbolString(lane.AllyRPS)} {ssd.GetSymbolString(number)}"
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ap, apr))}>{ssd.GetSymbolString(number)}"
                         );
                     scoreAnimations.Add(nuia);
+
+                    SpriteUIAnimation suia =
+                    SpriteUIAnimation.ChangeSprite(srRPSAllyList[index], ssd.GetSymbolSprite(lane.AllyRPS));
+                    scoreAnimations.Add(suia);
                 }
                 if (pep != ep)
                 {
                     NumberUIAnimation nuia =
                     NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, epr))}>{ssd.GetSymbolString(lane.EnemyRPS)} {ssd.GetSymbolString(number)}"
+                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(getColor(ep, epr))}>{ssd.GetSymbolString(number)}"
                         );
                     scoreAnimations.Add(nuia);
+
+                    SpriteUIAnimation suia =
+                    SpriteUIAnimation.ChangeSprite(srRPSEnemyList[index], ssd.GetSymbolSprite(lane.EnemyRPS));
+                    scoreAnimations.Add(suia);
                 }
             };
         }
