@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour
                 CreatureCardData cardData = match.wranglers[1].cardList[rand].data;
                 playerWrangler.addCard(cardData);
             }
-            updateDisplay();
+            updateDisplayNow(false);
         };
         txtGameResult.gameObject.SetActive(false);
 
 
-        updateDisplay();
+        updateDisplayNow();
     }
 
     private void createPlayers()
@@ -106,17 +106,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void updateDisplay()
+    void updateDisplayNow(bool updateWranglerPower = true)
     {
-        txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
-
-        txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
-    }
-
-    void updateDisplayAbsolute()
-    {
+        if (updateWranglerPower) {
         txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
         txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
+        }
         txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
 
         txtGameResult.text = (match.winner) ? $"{match.winner.name} WINS" : "DRAW";
@@ -131,7 +126,7 @@ public class GameManager : MonoBehaviour
         Bin.Instance.clearBin();
         UIAnimationQueue.Instance.Reset();
         StartMatch();
-        updateDisplayAbsolute();
+        updateDisplayNow();
     }
     internal void NextMatch()
     {
