@@ -13,6 +13,8 @@ public class NumberUIAnimation : UIAnimation
 
     private int number = 0;
 
+    private Color color;
+
     private SymbolSetData symbolSetData;
     private Func<int, string> formatFunc;
 
@@ -35,6 +37,7 @@ public class NumberUIAnimation : UIAnimation
             {
                 txtNumber.text = symbolSetData.GetSymbolString(number);
             }
+            txtNumber.color = color;
         }
     }
 
@@ -59,7 +62,7 @@ public class NumberUIAnimation : UIAnimation
         Number = endNumber;
     }
 
-    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, SymbolSetData ssd, Func<int, string> formatFunc = null)
+    public static NumberUIAnimation adjustTo(TMP_Text text, int startNumber, int endNumber, Color color, SymbolSetData ssd, Func<int, string> formatFunc = null)
     {
         NumberUIAnimation nuia = null;// text.GetComponent<NumberUIAnimation>();
         if (!nuia)
@@ -70,6 +73,7 @@ public class NumberUIAnimation : UIAnimation
         nuia.txtNumber = text;
         nuia.startNumber = startNumber;
         nuia.endNumber = endNumber;
+        nuia.color = color;
         nuia.symbolSetData = ssd;
         nuia.formatFunc = formatFunc;
         nuia.diff = endNumber - startNumber;

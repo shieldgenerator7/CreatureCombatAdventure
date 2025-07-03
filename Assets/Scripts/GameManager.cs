@@ -97,13 +97,13 @@ public class GameManager : MonoBehaviour
         if (pep != ep)
         {
             NumberUIAnimation nuia = 
-        NumberUIAnimation.adjustTo(txtPowerEnemy, pep, ep, symbolSetData);
+        NumberUIAnimation.adjustTo(txtPowerEnemy, pep, ep, Color.white, symbolSetData);
             anims.Add(nuia);
         }
         if (pap != ap)
         {
             NumberUIAnimation nuia =
-        NumberUIAnimation.adjustTo(txtPowerAlly, pap, ap, symbolSetData);
+        NumberUIAnimation.adjustTo(txtPowerAlly, pap, ap, Color.white, symbolSetData);
             anims.Add(nuia);
         }
         if (anims.Count > 1)

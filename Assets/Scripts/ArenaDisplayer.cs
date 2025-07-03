@@ -5,6 +5,7 @@ using Color = UnityEngine.Color;
 
 public class ArenaDisplayer : MonoBehaviour
 {
+    public Color colorEmpty = new Color(1, 1, 1, 0.5f);
     public Color colorNormal = Color.white;
     public Color colorLess = Color.red;
     public Color colorGreater = Color.green;
@@ -59,9 +60,7 @@ public class ArenaDisplayer : MonoBehaviour
                 {
                     Color color = getColor(ap, apr);
                     NumberUIAnimation nuia =
-                    NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{ssd.GetSymbolString(number)}"
-                        );
+                    NumberUIAnimation.adjustTo(txtAllyList[index], pap, ap, color, ssd);
                     scoreAnimations.Add(nuia);
 
                     SpriteUIAnimation suia =
@@ -72,9 +71,7 @@ public class ArenaDisplayer : MonoBehaviour
                 {
                     Color color = getColor(ep, epr);
                     NumberUIAnimation nuia =
-                    NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, ssd,
-                        (number) => $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{ssd.GetSymbolString(number)}"
-                        );
+                    NumberUIAnimation.adjustTo(txtEnemyList[index], pep, ep, color, ssd);
                     scoreAnimations.Add(nuia);
 
                     SpriteUIAnimation suia =
@@ -101,6 +98,10 @@ public class ArenaDisplayer : MonoBehaviour
     {
         if (power == rawPower)
         {
+            if (power == 0)
+            {
+                return colorEmpty;
+            }
             return colorNormal;
         }
         if (power < rawPower)
