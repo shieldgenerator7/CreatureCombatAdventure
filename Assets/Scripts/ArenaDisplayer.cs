@@ -79,6 +79,7 @@ public class ArenaDisplayer : MonoBehaviour
                     scoreAnimations.Add(suia);
                 }
             };
+            updateLaneNow(i);
         }
 
         //listen for match score update
@@ -92,6 +93,29 @@ public class ArenaDisplayer : MonoBehaviour
             scoreAnimations.Clear();
         };
 
+    }
+
+    private void updateLaneNow(int laneIndex)
+    {
+        ArenaLane lane = arena.lanes[laneIndex];
+        SymbolSetData ssd = GameManager.SymbolSetData;
+
+        Color allyColor = getColor(lane.allyPower, lane.AllyPowerRaw);
+        TMP_Text txtNumberAlly = txtAllyList[laneIndex];
+        txtNumberAlly.text = ssd.GetSymbolString(lane.allyPower);
+        txtNumberAlly.color = allyColor;
+        SpriteRenderer srAlly = srRPSAllyList[laneIndex];
+        srAlly.sprite = ssd.GetSymbolSprite(lane.AllyRPS);
+        srAlly.color = allyColor;
+
+        Color enemyColor = getColor(lane.enemyPower, lane.EnemyPowerRaw);
+        TMP_Text txtNumberEnemy = txtEnemyList[laneIndex];
+        txtNumberEnemy.text = ssd.GetSymbolString(lane.enemyPower);
+        txtNumberEnemy.color = getColor(lane.enemyPower, lane.EnemyPowerRaw);
+        txtNumberEnemy.color = enemyColor;
+        SpriteRenderer srEnemy = srRPSEnemyList[laneIndex];
+        srEnemy.sprite = ssd.GetSymbolSprite(lane.EnemyRPS);
+        srEnemy.color = enemyColor;
     }
 
     private Color getColor(int power, int rawPower)
