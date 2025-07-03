@@ -46,12 +46,6 @@ public class CardDisplayer : MonoBehaviour
         acceptHover(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void updateDisplay()
     {
         if (srImage)

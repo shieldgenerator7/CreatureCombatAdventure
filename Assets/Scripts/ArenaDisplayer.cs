@@ -26,7 +26,6 @@ public class ArenaDisplayer : MonoBehaviour
     private List<UIAnimation> scoreAnimations = new List<UIAnimation>();
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void init(Wrangler ally, Wrangler enemy)
     {
 

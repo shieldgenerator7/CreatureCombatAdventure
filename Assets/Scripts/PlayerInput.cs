@@ -23,18 +23,11 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         playerControls = new PlayerControls();
         playerActions = playerControls.Player;
         playerActions.AddCallbacks(this);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 

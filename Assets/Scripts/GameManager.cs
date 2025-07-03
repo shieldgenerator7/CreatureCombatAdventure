@@ -84,13 +84,6 @@ public class GameManager : MonoBehaviour
         controllers[1].Wrangler.cardList.ForEach(card => ad.arena.enemyHand.acceptDrop(card));
     }//
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     void updateDisplay(int pap, int ap, int pep, int ep)
     {
         List<UIAnimation> anims = new List<UIAnimation>();

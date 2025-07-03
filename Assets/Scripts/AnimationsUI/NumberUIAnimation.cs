@@ -41,18 +41,11 @@ public class NumberUIAnimation : UIAnimation
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     protected override void startAnimation()
     {
         Number = startNumber;
     }
 
-    // Update is called once per frame
     protected override void animate(float percent)
     {
         Number = Mathf.RoundToInt(percent * diff + startNumber);

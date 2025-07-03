@@ -27,7 +27,6 @@ public class MoveUIAnimation : UIAnimation
         transform.eulerAngles = rot2;
     }
 
-    // Update is called once per frame
     protected override void animate(float percent)
     {
         percent = percent * percent;
