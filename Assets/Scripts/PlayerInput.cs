@@ -65,19 +65,18 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 bool dropped = false;
                 foreach (RaycastHit2D rch2d in rch2ds)
                 {
-                    if (rch2d.collider)
-                    {
+                    //early continue: no collider
+                    if (!rch2d.collider) { continue; }
                         CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
-                        if (ch != null)
-                        {
-                            if (controller.Wrangler.canPlaceCardAt(heldCard.card, ch))
-                            {
+                        //early continue: no card holder
+                        if (ch == null) { continue; }
+                            //early continue: cant place card there
+                            if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch)) { continue; }
+
+                                //place card
                                 controller.Wrangler.placeCard(heldCard.card, ch);
                                 dropped = true;
                                 break;
-                            }
-                        }
-                    }
                 }
                 if (!dropped)
                 {
@@ -123,19 +122,18 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
             foreach (RaycastHit2D rch2d in rch2ds)
             {
-                if (rch2d.collider)
-                {
+                //early continue: no collider
+                if (!rch2d.collider) { continue; }
                     CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
-                    if (ch != null)
-                    {
-                        if (controller.Wrangler.canPlaceCardAt(heldCard.card, ch.CardHolder))
-                        {
+                    //early continue: no card holder displayer
+                    if (ch == null) { continue; }
+                        //early continue: cant place card there
+                        if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch.CardHolder)) { continue; }
+
+                            //hover holder
                             hoverHolder = ch;
                             hoverHolder.acceptMouseHover(true);
                             break;
-                        }
-                    }
-                }
             }
         }
         else
@@ -228,17 +226,16 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         List<T> cards = new List<T>();
         foreach (RaycastHit2D rch2d in rch2ds)
         {
-            if (rch2d.collider)
-            {
+            //early continue: no collider
+            if (!rch2d.collider) { continue; }
                 T cd = rch2d.collider.gameObject.GetComponent<T>();
-                if (cd)
-                {
-                    if (filterFunc == null || filterFunc(cd))
-                    {
+                //early continue: no T component
+                if (!cd) { continue; }
+                    //early continue: filter func says no
+                    if (filterFunc != null && !filterFunc(cd)) {  continue; }
+
+                        //add the card to the list
                         cards.Add(cd);
-                    }
-                }
-            }
         }
         if (cards.Count > 0)
         {
