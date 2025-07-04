@@ -9,4 +9,5 @@ public class EncounterData : ScriptableObject
     public ArenaData arena;
     public AIBrain aiBrain;
     public List<CreatureCardData> enemyCreatures;
+    public List<SecretData> secrets;
 }

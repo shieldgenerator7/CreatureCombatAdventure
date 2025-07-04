@@ -55,6 +55,15 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 cd.cardLayer = pickupLayer;
                 cd.updateDisplay();
             }
+            else
+            {
+                SecretDisplayer sd = getMousedOverSecret();
+                if (sd != null)
+                {
+                    CreatureCardData ccd = sd.found();
+                    controller.Wrangler.addCard(ccd);
+                }
+            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -217,6 +226,14 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             cd => controller.Wrangler.canPickupCard(cd.card), 
             cd => cd.cardLayer
             );
+    }
+
+    private SecretDisplayer getMousedOverSecret()
+    {
+        SecretDisplayer sd;
+        Vector2 v;
+        (sd, v) = getMousedOverObject<SecretDisplayer>();
+        return sd;
     }
 
     private (T, Vector2) getMousedOverObject<T>(Func<T,bool> filterFunc = null, Func<T,int> sortValueFunc = null) where T : MonoBehaviour
