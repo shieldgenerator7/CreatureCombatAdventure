@@ -106,9 +106,10 @@ public class GameManager : MonoBehaviour
 
     void updateDisplayNow(bool updateWranglerPower = true)
     {
-        if (updateWranglerPower) {
-        txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
-        txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
+        if (updateWranglerPower)
+        {
+            txtPowerAlly.text = $"{symbolSetData.GetSymbolString(match.allyPower)}";
+            txtPowerEnemy.text = $"{symbolSetData.GetSymbolString(match.enemyPower)}";
         }
         txtPowerGoal.text = $"{symbolSetData.GetSymbolString(match.powerGoal)}";
 

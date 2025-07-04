@@ -74,16 +74,16 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
                 {
                     //early continue: no collider
                     if (!rch2d.collider) { continue; }
-                        CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
-                        //early continue: no card holder
-                        if (ch == null) { continue; }
-                            //early continue: cant place card there
-                            if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch)) { continue; }
+                    CardHolder ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>()?.CardHolder;
+                    //early continue: no card holder
+                    if (ch == null) { continue; }
+                    //early continue: cant place card there
+                    if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch)) { continue; }
 
-                                //place card
-                                controller.Wrangler.placeCard(heldCard.card, ch);
-                                dropped = true;
-                                break;
+                    //place card
+                    controller.Wrangler.placeCard(heldCard.card, ch);
+                    dropped = true;
+                    break;
                 }
                 if (!dropped)
                 {
@@ -131,16 +131,16 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
             {
                 //early continue: no collider
                 if (!rch2d.collider) { continue; }
-                    CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
-                    //early continue: no card holder displayer
-                    if (ch == null) { continue; }
-                        //early continue: cant place card there
-                        if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch.CardHolder)) { continue; }
+                CardHolderDisplayer ch = rch2d.collider.gameObject.GetComponent<CardHolderDisplayer>();
+                //early continue: no card holder displayer
+                if (ch == null) { continue; }
+                //early continue: cant place card there
+                if (!controller.Wrangler.canPlaceCardAt(heldCard.card, ch.CardHolder)) { continue; }
 
-                            //hover holder
-                            hoverHolder = ch;
-                            hoverHolder.acceptMouseHover(true);
-                            break;
+                //hover holder
+                hoverHolder = ch;
+                hoverHolder.acceptMouseHover(true);
+                break;
             }
         }
         else
@@ -221,7 +221,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     private (CardDisplayer, Vector2) getMousedOverCard()
     {
         return getMousedOverObject<CardDisplayer>(
-            cd => controller.Wrangler.canPickupCard(cd.card), 
+            cd => controller.Wrangler.canPickupCard(cd.card),
             cd => cd.cardLayer
             );
     }
@@ -234,7 +234,7 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         return sd;
     }
 
-    private (T, Vector2) getMousedOverObject<T>(Func<T,bool> filterFunc = null, Func<T,int> sortValueFunc = null) where T : MonoBehaviour
+    private (T, Vector2) getMousedOverObject<T>(Func<T, bool> filterFunc = null, Func<T, int> sortValueFunc = null) where T : MonoBehaviour
     {
         Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
@@ -243,22 +243,22 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         {
             //early continue: no collider
             if (!rch2d.collider) { continue; }
-                T cd = rch2d.collider.gameObject.GetComponent<T>();
-                //early continue: no T component
-                if (!cd) { continue; }
-                    //early continue: filter func says no
-                    if (filterFunc != null && !filterFunc(cd)) {  continue; }
+            T cd = rch2d.collider.gameObject.GetComponent<T>();
+            //early continue: no T component
+            if (!cd) { continue; }
+            //early continue: filter func says no
+            if (filterFunc != null && !filterFunc(cd)) { continue; }
 
-                        //add the card to the list
-                        cards.Add(cd);
+            //add the card to the list
+            cards.Add(cd);
         }
         if (cards.Count > 0)
         {
             T cd;
             if (sortValueFunc != null)
             {
-            int max = cards.Max(sortValueFunc);
-            cd = cards.Find(c => sortValueFunc(c) == max);
+                int max = cards.Max(sortValueFunc);
+                cd = cards.Find(c => sortValueFunc(c) == max);
             }
             else
             {

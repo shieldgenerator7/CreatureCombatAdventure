@@ -13,12 +13,13 @@ public class SortY : MonoBehaviour
     {
         if (srs == null || srs.Count == 0)
         {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
             srs.Add(sr);
         }
-        for(int i =0;  i < srs.Count; i++) {
+        for (int i = 0; i < srs.Count; i++)
+        {
             SpriteRenderer sr = srs[i];
-        sr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 10) + offset + (offsetPerIndex*i);
+            sr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 10) + offset + (offsetPerIndex * i);
         }
     }
 }
