@@ -32,5 +32,9 @@ public class Bin : MonoBehaviour
             return instance;
         }
     }
+
+    /// <summary>
+    /// Pass this in to Instantiate() to make it go into the bin
+    /// </summary>
     public static Transform Transform => Instance.transform;
 }
