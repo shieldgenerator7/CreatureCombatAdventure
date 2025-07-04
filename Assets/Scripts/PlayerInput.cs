@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -46,7 +47,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
     {
         if (context.phase == InputActionPhase.Started)
         {
-            CardDisplayer cd = getMousedOverCard();
+            CardDisplayer cd;
+            (cd, holdOffset) = getMousedOverCard();
             if (cd != null)
             {
                 heldCard = cd;
@@ -138,7 +140,8 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         }
         else
         {
-            CardDisplayer cd = getMousedOverCard();
+            CardDisplayer cd;
+            (cd, holdOffset) = getMousedOverCard();
             if (cd)
             {
                 if (cd != mousedOverCard && mousedOverCard)
@@ -210,20 +213,27 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         }
     }
 
-    private CardDisplayer getMousedOverCard()
+    private (CardDisplayer, Vector2) getMousedOverCard()
+    {
+        return getMousedOverObject<CardDisplayer>(
+            cd => controller.Wrangler.canPickupCard(cd.card), 
+            cd => cd.cardLayer
+            );
+    }
+
+    private (T, Vector2) getMousedOverObject<T>(Func<T,bool> filterFunc = null, Func<T,int> sortValueFunc = null) where T : MonoBehaviour
     {
         Vector2 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D[] rch2ds = Physics2D.RaycastAll(mousepos, Vector2.zero, 0);
-        List<CardDisplayer> cards = new List<CardDisplayer>();
+        List<T> cards = new List<T>();
         foreach (RaycastHit2D rch2d in rch2ds)
         {
             if (rch2d.collider)
             {
-                CardDisplayer cd = rch2d.collider.gameObject.GetComponent<CardDisplayer>();
+                T cd = rch2d.collider.gameObject.GetComponent<T>();
                 if (cd)
                 {
-                    Card card = cd.card;
-                    if (controller.Wrangler.canPickupCard(card))
+                    if (filterFunc == null || filterFunc(cd))
                     {
                         cards.Add(cd);
                     }
@@ -232,11 +242,19 @@ public class PlayerInput : WranglerInput, PlayerControls.IPlayerActions
         }
         if (cards.Count > 0)
         {
-            int max = cards.Max(cd => cd.cardLayer);
-            CardDisplayer cd = cards.Find(c => c.cardLayer == max);
-            holdOffset = (Vector2)cd.transform.position - mousepos;
-            return cd;
+            T cd;
+            if (sortValueFunc != null)
+            {
+            int max = cards.Max(sortValueFunc);
+            cd = cards.Find(c => sortValueFunc(c) == max);
+            }
+            else
+            {
+                cd = cards.First();
+            }
+            Vector2 offset = (Vector2)cd.transform.position - mousepos;
+            return (cd, offset);
         }
-        return null;
+        return (null, Vector2.zero);
     }
 }
