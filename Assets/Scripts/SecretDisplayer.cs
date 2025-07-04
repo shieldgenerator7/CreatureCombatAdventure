@@ -7,6 +7,8 @@ public class SecretDisplayer : MonoBehaviour
     public void init(SecretData secret)
     {
         this.secret = secret;
+        this.transform.position = secret.pos;
+        this.transform.localScale = Vector3.one * secret.scale;
     }
 
     public CreatureCardData found()

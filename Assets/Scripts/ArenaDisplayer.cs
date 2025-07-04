@@ -99,7 +99,6 @@ public class ArenaDisplayer : MonoBehaviour
         //secrets
         match.encounterData.secrets.ForEach(secret =>{
             GameObject go = Instantiate(secret.prefab, Bin.Transform);
-            go.transform.position = secret.pos;
             SecretDisplayer sd = go.GetComponent<SecretDisplayer>();
             sd.init(secret);
         });
