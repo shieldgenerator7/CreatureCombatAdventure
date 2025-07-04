@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    internal void Reset()
+    public void Reset()
     {
         match.close();
         Bin.Instance.clearBin();
@@ -127,13 +127,13 @@ public class GameManager : MonoBehaviour
         StartMatch();
         updateDisplayNow();
     }
-    internal void NextMatch()
+    public void NextMatch()
     {
         match.close();
         encounterIndex = Mathf.Clamp(encounterIndex + 1, 0, encounterDataList.Count - 1);
         Reset();
     }
-    internal void PrevMatch()
+    public void PrevMatch()
     {
         match.close();
         encounterIndex = Mathf.Clamp(encounterIndex - 1, 0, encounterDataList.Count - 1);
