@@ -87,3 +87,33 @@ There are multiple pathways to the core. Each trigger has an associated conditio
 Some ability symbols might not have every piece. If they don’t have a trigger, it defaults to when this creature is played. If it doesn’t have a condition, it defaults to true. If it doesn’t have an effect, it does nothing. Abilities might also have a cost, which is part of the condition. The default condition of true also has a default cost associated with it, depending on the creature.
 
 Some creatures have abilities by default. You can also add/change abilities on creatures you have.
+
+# Plot
+
+So if I get an artist or someone else, im probably going to let them have authority over this. But in the meantime, I would like to connect this game to one of my existing worlds. And that world, I decided, would be Agranari.
+
+It’s already been established (in some thought stream doc somewhere, probably) that the Anthro animals were made by an alien device that landed and mutated existing animals to have human DNA. Additionally, another alien tech landed on the same planet, but these were nanobots that could control feral animals.
+
+When you start the game, all you know is that you control the animals. You don’t know any story or anything. But then you find these Anthro versions of the animals, that fight back and cant be captured by your nanobots (which you don’t know about yet).
+
+Then you realize that the Anthro animals are the “good guys” and the nanobots are the “bad guys”. Im not sure how yet, especially with the visuals of the tech being a bit “good”-looking. Or what that even means.
+
+And then, you find out later that the character you control is actually one of these Anthro animals, who is wearing a headset that lets them control these nanobots. And what are they doing with it? Im not sure.
+
+But this has some interesting lore implications, for sure.
+
+So the game “ends” when either you defeat the alien tech making the Anthro animals, or the nano bots get wiped out, or you find a way to lock the Anthro bot and the nanobots into a purgatory where neither can win.
+
+So in the actual lore, these two alien techs come from the same planet (Earth), but they’re rivals. They both are machines sent on behalf of their creators. They both want to take over the planet using the native animals of that planet, but go about it using different means. Both of their end goals are to wipe out the competition, and then colonize the planet for humans, making the animals (feral or Anthro) their slaves. So whoever wins, its bad news for the native animals there. The best bet for them is to lock both bots in a never ending war between themselves, and bury them somewhere where they wont hurt the animals of the planet.
+
+This place was the Arachnid Archives, by the way.
+
+So this game will take place at the time when Alpha, Adirada, and the other “gods” got their start, and during their adventures, but from the point of view of the enemy. Which also happens to be the point of view of whoever picked up the headset, which might actually be Adirada. Im not sure yet.
+
+And the main reason why I want it to be someone whos not familiar with the nanobots is bc I want their to be alien symbols that the player doesn’t understand right away and has to figure out. Bc I think learning a new symbol set might be a fun part of the game.
+
+But also, having Adirada be the one with the headset might be the thing that Alpha sees, and makes him break his loyalty, or tests his loyalty. And it also might test Adirada’s truth, and might put a strain on their relationship. This might also be how Adirada first finds out about the terrible fate that awaits them if they successfully eradicate the nanobots. I think maybe the spider convinced Adirada to keep it a secret, for safety reasons. Then something happens, and both of them realize they should have told their teammates sooner.
+
+One thing to note: the nanobots cant control the anthros bc they were programmed to be unable to control humans, and the anthros have some human DNA, thus they cant be controlled. But the anthros are able to disable and disarm the nanobots. Its just that its easier to create more nanobots and control more animals more quickly than it is to turn an animal into an Anthro, or give birth to a new one.
+
+So that’s the backstory behind the game, if it goes in that direction. Might also introduce the characters a bit.
