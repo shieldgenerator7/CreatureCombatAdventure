@@ -1,0 +1,922 @@
+fileFormatVersion: 2
+guid: 90d57ce100b0ccf418c287239c525a2f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4779227643390727265
+    second: creature_sketches_0
+  - first:
+      213: 2741652231233181922
+    second: creature_sketches_1
+  - first:
+      213: -2045132705973767064
+    second: creature_sketches_2
+  - first:
+      213: 6439234103959034119
+    second: creature_sketches_3
+  - first:
+      213: 2246971655873733920
+    second: creature_sketches_4
+  - first:
+      213: -6230555890347020554
+    second: creature_sketches_5
+  - first:
+      213: 7517206665246685626
+    second: creature_sketches_6
+  - first:
+      213: 7810528671229631754
+    second: creature_sketches_7
+  - first:
+      213: 3280891215554666554
+    second: creature_sketches_8
+  - first:
+      213: -6085242517078868296
+    second: creature_sketches_9
+  - first:
+      213: 929708302210535015
+    second: creature_sketches_10
+  - first:
+      213: -4742016896277539990
+    second: creature_sketches_11
+  - first:
+      213: 1986140180677526752
+    second: creature_sketches_12
+  - first:
+      213: -5193043811823917097
+    second: creature_sketches_13
+  - first:
+      213: 6504351342267861383
+    second: creature_sketches_14
+  - first:
+      213: -5369591159570978222
+    second: creature_sketches_15
+  - first:
+      213: -138124054874648092
+    second: creature_sketches_16
+  - first:
+      213: 8601968941889873607
+    second: creature_sketches_17
+  - first:
+      213: 8609876401556462834
+    second: creature_sketches_18
+  - first:
+      213: 6893376420646288880
+    second: creature_sketches_19
+  - first:
+      213: -5305528751057606208
+    second: creature_sketches_20
+  - first:
+      213: 2864572093850498530
+    second: creature_sketches_21
+  - first:
+      213: -8469173721674444563
+    second: creature_sketches_22
+  - first:
+      213: 6920720077459934459
+    second: creature_sketches_23
+  - first:
+      213: 7459713358854475068
+    second: creature_sketches_24
+  - first:
+      213: 1528120895723915927
+    second: creature_sketches_25
+  - first:
+      213: -6874753488281895992
+    second: creature_sketches_26
+  - first:
+      213: -4581388230570061375
+    second: creature_sketches_27
+  - first:
+      213: 5424064656687162325
+    second: creature_sketches_28
+  - first:
+      213: -5186832586898374171
+    second: creature_sketches_29
+  - first:
+      213: 5153032964259406488
+    second: creature_sketches_30
+  - first:
+      213: 7137077921644092642
+    second: creature_sketches_31
+  - first:
+      213: -1185176727016833547
+    second: creature_sketches_32
+  - first:
+      213: 7794587686437681785
+    second: creature_sketches_33
+  - first:
+      213: -7513320607679389256
+    second: creature_sketches_34
+  - first:
+      213: 8288530133172994922
+    second: creature_sketches_35
+  - first:
+      213: 1471601604022901596
+    second: creature_sketches_36
+  - first:
+      213: 4884431972916555162
+    second: creature_sketches_37
+  - first:
+      213: 5072996133042789080
+    second: creature_sketches_38
+  - first:
+      213: -4080388727002113447
+    second: creature_sketches_39
+  - first:
+      213: 4557460539635729324
+    second: creature_sketches_40
+  - first:
+      213: -5682407685491977246
+    second: creature_sketches_41
+  - first:
+      213: 9136238243564416314
+    second: creature_sketches_42
+  - first:
+      213: 6858364764337400982
+    second: creature_sketches_43
+  - first:
+      213: 99146757039900094
+    second: creature_sketches_44
+  - first:
+      213: 5580001547652015513
+    second: creature_sketches_45
+  - first:
+      213: -2182228927617239542
+    second: creature_sketches_46
+  - first:
+      213: -3812039570054235833
+    second: creature_sketches_47
+  - first:
+      213: -12560343945483747
+    second: creature_sketches_48
+  - first:
+      213: 8456084533921779713
+    second: creature_sketches_49
+  - first:
+      213: -8769750693591623191
+    second: creature_sketches_50
+  - first:
+      213: -6377188346375904986
+    second: creature_sketches_51
+  - first:
+      213: 8847755231879227555
+    second: creature_sketches_52
+  - first:
+      213: 5983320901061414443
+    second: creature_sketches_53
+  - first:
+      213: -2705892416925412086
+    second: creature_sketches_54
+  - first:
+      213: 8080231911210552959
+    second: creature_sketches_55
+  - first:
+      213: 5043960773270183362
+    second: creature_sketches_56
+  - first:
+      213: -1021671930645654967
+    second: creature_sketches_57
+  - first:
+      213: 6260703523398632502
+    second: creature_sketches_58
+  - first:
+      213: -105277613212573814
+    second: creature_sketches_59
+  - first:
+      213: 846598842620265893
+    second: creature_sketches_60
+  - first:
+      213: -1529017112246754096
+    second: creature_sketches_61
+  - first:
+      213: -1071631455496079724
+    second: creature_sketches_62
+  - first:
+      213: -484090415229610686
+    second: creature_sketches_63
+  - first:
+      213: 1055553049366324866
+    second: creature_sketches_64
+  - first:
+      213: -5511506102545074110
+    second: creature_sketches_65
+  - first:
+      213: 7773017876057519739
+    second: creature_sketches_66
+  - first:
+      213: -1696461456235452821
+    second: creature_sketches_67
+  - first:
+      213: 8829772268326877639
+    second: creature_sketches_68
+  - first:
+      213: 2239081909680387682
+    second: creature_sketches_69
+  - first:
+      213: 1251893057244098441
+    second: creature_sketches_70
+  - first:
+      213: 534288387669348097
+    second: creature_sketches_71
+  - first:
+      213: -354979977845650261
+    second: creature_sketches_72
+  - first:
+      213: 51865443246403274
+    second: creature_sketches_73
+  - first:
+      213: 4572774147287343966
+    second: creature_sketches_74
+  - first:
+      213: -2368686072436031509
+    second: creature_sketches_75
+  - first:
+      213: -6239163102171945156
+    second: creature_sketches_76
+  - first:
+      213: 4550208768785074273
+    second: creature_sketches_77
+  - first:
+      213: 2004520425347714911
+    second: creature_sketches_78
+  - first:
+      213: -2058521070764474062
+    second: creature_sketches_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wolf
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 42
+        width: 627
+        height: 511
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1641801683a335240800000000000000
+      internalID: 4779227643390727265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardinal
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 124
+        width: 262
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e89f4cad2e4c0620800000000000000
+      internalID: 2741652231233181922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horse
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 18
+        width: 639
+        height: 529
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86476e5b3aa3e93e0800000000000000
+      internalID: -2045132705973767064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goat
+      rect:
+        serializedVersion: 2
+        x: 5656
+        y: 49
+        width: 340
+        height: 387
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025a9b8e0d8de2f10800000000000000
+      internalID: 2246971655873733920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goose
+      rect:
+        serializedVersion: 2
+        x: 8221
+        y: 57
+        width: 323
+        height: 379
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab93a3952ab725860800000000000000
+      internalID: 7517206665246685626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skunk
+      rect:
+        serializedVersion: 2
+        x: 3131
+        y: 17
+        width: 299
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0958a2f53777a80800000000000000
+      internalID: -8469173721674444563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: possum
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 61
+        width: 103
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dc1c0d6c9368760800000000000000
+      internalID: 7459713358854475068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck
+      rect:
+        serializedVersion: 2
+        x: 7579
+        y: 91
+        width: 400
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb749c5028f790a0800000000000000
+      internalID: -6874753488281895992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouse
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 112
+        width: 281
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b1e5afe6b25bb790800000000000000
+      internalID: -7513320607679389256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raccoon
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 40
+        width: 319
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63c5e9dd36c60370800000000000000
+      internalID: 8288530133172994922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ferret
+      rect:
+        serializedVersion: 2
+        x: 2703
+        y: 40
+        width: 273
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b1eaaacdd2c6410800000000000000
+      internalID: 1471601604022901596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: squirrel
+      rect:
+        serializedVersion: 2
+        x: 4398
+        y: 81
+        width: 237
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d6043200df8c340800000000000000
+      internalID: 4884431972916555162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warthog
+      rect:
+        serializedVersion: 2
+        x: 6189
+        y: 56
+        width: 567
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da12f8ea17e66640800000000000000
+      internalID: 5072996133042789080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coyote
+      rect:
+        serializedVersion: 2
+        x: 6959
+        y: 47
+        width: 418
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ad785521c8f57c0800000000000000
+      internalID: -4080388727002113447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robin
+      rect:
+        serializedVersion: 2
+        x: 8882
+        y: 48
+        width: 164
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca309ded63a5f3f30800000000000000
+      internalID: 4557460539635729324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 74
+        width: 239
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621e08c9cfcaf77a0800000000000000
+      internalID: -6377188346375904986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chipmunk
+      rect:
+        serializedVersion: 2
+        x: 3947
+        y: 50
+        width: 245
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8e3c7818a89ca70800000000000000
+      internalID: 8847755231879227555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puma
+      rect:
+        serializedVersion: 2
+        x: 9815
+        y: 37
+        width: 666
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63446341fac72e650800000000000000
+      internalID: 6260703523398632502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear
+      rect:
+        serializedVersion: 2
+        x: 10657
+        y: 55
+        width: 542
+        height: 338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a543a17929bfbb00800000000000000
+      internalID: 846598842620265893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cow
+      rect:
+        serializedVersion: 2
+        x: 12453
+        y: 23
+        width: 690
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2866f05e7e316ae00800000000000000
+      internalID: 1055553049366324866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bobcat
+      rect:
+        serializedVersion: 2
+        x: 9234
+        y: 45
+        width: 367
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b767b27339e4fdb60800000000000000
+      internalID: 7773017876057519739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bison
+      rect:
+        serializedVersion: 2
+        x: 11422
+        y: 6
+        width: 831
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53e62ffbd1c57f30800000000000000
+      internalID: 4572774147287343966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: be33438fef8f4f1408ad58903d4c9437
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bear: 846598842620265893
+      bison: 4572774147287343966
+      bobcat: 7773017876057519739
+      cardinal: 2741652231233181922
+      chipmunk: 8847755231879227555
+      cow: 1055553049366324866
+      coyote: -4080388727002113447
+      creature_sketches_0: -346235693
+      creature_sketches_10: 929708302210535015
+      creature_sketches_11: -4742016896277539990
+      creature_sketches_12: 1986140180677526752
+      creature_sketches_13: -5193043811823917097
+      creature_sketches_14: 6504351342267861383
+      creature_sketches_15: -5369591159570978222
+      creature_sketches_16: -138124054874648092
+      creature_sketches_17: 8601968941889873607
+      creature_sketches_18: 8609876401556462834
+      creature_sketches_19: 6893376420646288880
+      creature_sketches_20: -5305528751057606208
+      creature_sketches_21: 2864572093850498530
+      creature_sketches_23: 6920720077459934459
+      creature_sketches_25: 1528120895723915927
+      creature_sketches_27: -4581388230570061375
+      creature_sketches_28: 5424064656687162325
+      creature_sketches_29: -5186832586898374171
+      creature_sketches_3: 6439234103959034119
+      creature_sketches_30: 5153032964259406488
+      creature_sketches_31: 7137077921644092642
+      creature_sketches_32: -1185176727016833547
+      creature_sketches_33: 7794587686437681785
+      creature_sketches_41: -5682407685491977246
+      creature_sketches_42: 9136238243564416314
+      creature_sketches_43: 6858364764337400982
+      creature_sketches_44: 99146757039900094
+      creature_sketches_45: 5580001547652015513
+      creature_sketches_46: -2182228927617239542
+      creature_sketches_47: -3812039570054235833
+      creature_sketches_48: -12560343945483747
+      creature_sketches_49: 8456084533921779713
+      creature_sketches_5: -6230555890347020554
+      creature_sketches_50: -8769750693591623191
+      creature_sketches_53: 5983320901061414443
+      creature_sketches_54: -2705892416925412086
+      creature_sketches_55: 8080231911210552959
+      creature_sketches_56: 5043960773270183362
+      creature_sketches_57: -1021671930645654967
+      creature_sketches_59: -105277613212573814
+      creature_sketches_61: -1529017112246754096
+      creature_sketches_62: -1071631455496079724
+      creature_sketches_63: -484090415229610686
+      creature_sketches_65: -5511506102545074110
+      creature_sketches_67: -1696461456235452821
+      creature_sketches_68: 8829772268326877639
+      creature_sketches_69: 2239081909680387682
+      creature_sketches_7: 7810528671229631754
+      creature_sketches_70: 1251893057244098441
+      creature_sketches_71: 534288387669348097
+      creature_sketches_72: -354979977845650261
+      creature_sketches_73: 51865443246403274
+      creature_sketches_75: -2368686072436031509
+      creature_sketches_76: -6239163102171945156
+      creature_sketches_77: 4550208768785074273
+      creature_sketches_78: 2004520425347714911
+      creature_sketches_79: -2058521070764474062
+      creature_sketches_8: 3280891215554666554
+      creature_sketches_9: -6085242517078868296
+      duck: -6874753488281895992
+      ferret: 1471601604022901596
+      frog: -6377188346375904986
+      goat: 2246971655873733920
+      goose: 7517206665246685626
+      horse: -2045132705973767064
+      mouse: -7513320607679389256
+      possum: 7459713358854475068
+      puma: 6260703523398632502
+      raccoon: 8288530133172994922
+      robin: 4557460539635729324
+      skunk: -8469173721674444563
+      squirrel: 4884431972916555162
+      warthog: 5072996133042789080
+      wolf: 4779227643390727265
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
