@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e00899b9d11f794e9c3fcf821e5f2c2, type: 3}
-  m_Name: Test
+  m_Name: cat5
   m_EditorClassIdentifier: 
-  name: A Bunch of Cats
-  powerGoal: 3
+  name: A Big Bunch of Cats
+  powerGoal: 5
   arena: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
   aiBrain: {fileID: 11400000, guid: 7ecbeb7917d77d240b7239a708e88781, type: 2}
   enemyCreatures:
   - {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
   - {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
   - {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
+  - {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+  - {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+  - {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
+  secrets:
+  - {fileID: 11400000, guid: c1240a9ad802ddc43bd844b6c10678df, type: 2}
