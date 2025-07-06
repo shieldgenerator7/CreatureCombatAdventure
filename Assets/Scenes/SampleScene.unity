@@ -424,9 +424,9 @@ MonoBehaviour:
   playerWrangler:
     name: Player
     cardList:
-    - data: {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
-    - data: {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
-    - data: {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
+    - data: {fileID: 11400000, guid: 1ae0e060124e80c42832a5042d692daa, type: 2}
+    - data: {fileID: 11400000, guid: 537ac72c884d1e142950b065852f44cb, type: 2}
+    - data: {fileID: 11400000, guid: fe0d84e1cc0bd344d94f1a7d48e065cb, type: 2}
   symbolSetData: {fileID: 11400000, guid: 9575f3af25fc0d541be091ffa08ad99d, type: 2}
   controllers:
   - {fileID: 1056722128}
