@@ -419,16 +419,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4646665d88bbb3c4d9917da9b79a19b1, type: 2}
   - {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
   - {fileID: 11400000, guid: 890ff19520d23754e8376d000a192c84, type: 2}
-  - {fileID: 11400000, guid: 87db0bb805a34b94f8dd8823068988d7, type: 2}
   - {fileID: 11400000, guid: 1bcce6558f27d2d429286d9b8ccbdf6c, type: 2}
-  - {fileID: 11400000, guid: a1addedd3049b7143b6bfecad8353e19, type: 2}
   encounterIndex: 0
   playerWrangler:
     name: Player
     cardList:
-    - data: {fileID: 11400000, guid: 710116fe18884e94b96d33cacb993a16, type: 2}
-    - data: {fileID: 11400000, guid: f6d890895543f454197ab787ba75a01b, type: 2}
-    - data: {fileID: 11400000, guid: 198a36982039555419ede2214908747e, type: 2}
+    - data: {fileID: 11400000, guid: 04772edf0b32c84409e50dab321b7ddb, type: 2}
+    - data: {fileID: 11400000, guid: 8a52be3ea6294f4458ea21587d433417, type: 2}
+    - data: {fileID: 11400000, guid: 894ab9990e742d740b6cfbba21949488, type: 2}
   symbolSetData: {fileID: 11400000, guid: 9575f3af25fc0d541be091ffa08ad99d, type: 2}
   controllers:
   - {fileID: 1056722128}
