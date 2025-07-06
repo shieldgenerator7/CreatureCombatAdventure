@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e00899b9d11f794e9c3fcf821e5f2c2, type: 3}
+  m_Name: birds
+  m_EditorClassIdentifier: 
+  name: Birds
+  powerGoal: 5
+  arena: {fileID: 11400000, guid: 83ea9e0928624ec4c956120363d3a164, type: 2}
+  aiBrain: {fileID: 11400000, guid: 7ecbeb7917d77d240b7239a708e88781, type: 2}
+  enemyCreatures:
+  - {fileID: 11400000, guid: fe0d84e1cc0bd344d94f1a7d48e065cb, type: 2}
+  - {fileID: 11400000, guid: 8bbe40e12cb3ec346a64f1f5a6c957a1, type: 2}
+  - {fileID: 11400000, guid: 9618c91f940569249b4fa4e5c86fd915, type: 2}
+  - {fileID: 11400000, guid: a200a386358f2054083ffffaed87f7c2, type: 2}
+  secrets: []

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e00899b9d11f794e9c3fcf821e5f2c2, type: 3}
+  m_Name: smallcritters 2
+  m_EditorClassIdentifier: 
+  name: Mouse & Ferret
+  powerGoal: 2
+  arena: {fileID: 11400000, guid: 177d065a6ac92074dba5e72d74eaf065, type: 2}
+  aiBrain: {fileID: 11400000, guid: dc47a065a3abd8346b3e986601cb0bc4, type: 2}
+  enemyCreatures:
+  - {fileID: 11400000, guid: 553041359b98634448b2db298595c359, type: 2}
+  - {fileID: 11400000, guid: a50c187d5118d8c479328a4b6cc5b3b1, type: 2}
+  secrets: []

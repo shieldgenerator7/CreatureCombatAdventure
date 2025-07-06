@@ -414,12 +414,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encounterDataList:
+  - {fileID: 11400000, guid: 73454d536e8182c48900e26ac9b31245, type: 2}
+  - {fileID: 11400000, guid: a89eaf58b9562024ab52ed6c53b64bd8, type: 2}
+  - {fileID: 11400000, guid: bc05362ff5161484ab3afc53cb81b9f3, type: 2}
   - {fileID: 11400000, guid: d2c41db9e9ffa55438523441eff61b63, type: 2}
   - {fileID: 11400000, guid: b9c3538c01bae684da186df865dc6a1a, type: 2}
   - {fileID: 11400000, guid: 4646665d88bbb3c4d9917da9b79a19b1, type: 2}
+  - {fileID: 11400000, guid: 55ef1774cae2d214cba7dce451ffcf14, type: 2}
   - {fileID: 11400000, guid: 43fb480c057d7434d956e454f95bc498, type: 2}
   - {fileID: 11400000, guid: 890ff19520d23754e8376d000a192c84, type: 2}
+  - {fileID: 11400000, guid: 53d5ba897ad7a914fb9f5ce3e61a9888, type: 2}
+  - {fileID: 11400000, guid: 460eb265b8b341945925b41fbde2dd4c, type: 2}
   - {fileID: 11400000, guid: 1bcce6558f27d2d429286d9b8ccbdf6c, type: 2}
+  - {fileID: 11400000, guid: ac61bf4805521c34696011797d5e30b9, type: 2}
+  - {fileID: 11400000, guid: a70d6ee5606c81644bdf31d857f75231, type: 2}
+  - {fileID: 11400000, guid: 1cc2ecaf4baf2f841be2a27ecf4a63d0, type: 2}
+  - {fileID: 11400000, guid: 6de10c96f0229d44fb3a13738bd1d1cb, type: 2}
+  - {fileID: 11400000, guid: eaef87345be51a14d9bdd1d7d11bc4a7, type: 2}
+  - {fileID: 11400000, guid: 930299467454b4648afb24f1e819b6af, type: 2}
   encounterIndex: 0
   playerWrangler:
     name: Player
