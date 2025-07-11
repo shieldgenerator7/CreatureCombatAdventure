@@ -20,6 +20,7 @@ public class WranglerController : MonoBehaviour
     public void init(Wrangler wrangler)
     {
         Wrangler = wrangler;
+        wrangler.cardList = wrangler.cardList.OrderBy(card => ((int)card.data.rps * 100) + card.data.power).ToList();
 
         createCards();
 
