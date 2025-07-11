@@ -10354,6 +10354,14 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3287413782864771988, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: m_Size.x
+      value: 56.51564
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287413782864771988, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: m_Offset.x
+      value: 22.26735
+      objectReference: {fileID: 0}
     - target: {fileID: 3295804420974288860, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: m_Size.y
       value: 18.330881
@@ -10369,6 +10377,10 @@ PrefabInstance:
     - target: {fileID: 3301793898059680121, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310257660671257905, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.36
       objectReference: {fileID: 0}
     - target: {fileID: 3310257660671257905, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10461,6 +10473,14 @@ PrefabInstance:
     - target: {fileID: 5714096085738501203, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: instantDrop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714096085738501203, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: spreadDir.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714096085738501203, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: spreadWidth
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5714096085738501203, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: mouseOverPopupDistance
@@ -10625,6 +10645,10 @@ PrefabInstance:
     - target: {fileID: 8421743983269566342, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: m_Color.r
       value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533439777575267077, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.17
       objectReference: {fileID: 0}
     - target: {fileID: 8851575590200627528, guid: 4c2269470cfbd934a9ccf45060d3411c, type: 3}
       propertyPath: m_SizeDelta.x
