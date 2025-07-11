@@ -69,6 +69,19 @@ public class ArenaDisplayer : MonoBehaviour
                     SpriteUIAnimation suia =
                     SpriteUIAnimation.ChangeSprite(srRPSAllyList[index], ssd.GetSymbolSprite(lane.AllyRPS), color);
                     scoreAnimations.Add(suia);
+
+                    int cardcount = lane.allyHolder.CardCount;
+                    NumberUIAnimation nuia2 =
+                    NumberUIAnimation.adjustTo(
+                        txtAllyCapacityList[index],
+                        cardcount,
+                        cardcount,
+                        getColor(cardcount), 
+                        ssd, 
+                        (count) =>$"{count}/{arena.data.lanes[index].limit}"
+                        );
+                    scoreAnimations.Add(nuia2);
+
                 }
                 //TODO: handle changing of RPS better
                 if (true || pep != ep)
@@ -82,6 +95,19 @@ public class ArenaDisplayer : MonoBehaviour
                     SpriteUIAnimation suia =
                     SpriteUIAnimation.ChangeSprite(srRPSEnemyList[index], ssd.GetSymbolSprite(lane.EnemyRPS), color);
                     scoreAnimations.Add(suia);
+
+                    int cardCount = lane.enemyHolder.CardCount;
+                    NumberUIAnimation nuia2 =
+                    NumberUIAnimation.adjustTo(
+                        txtAllyCapacityList[index],
+                        cardCount,
+                        cardCount,
+                        getColor(cardCount),
+                        ssd,
+                        (count) => $"{count}/{arena.data.lanes[index].limit}"
+                        );
+                    scoreAnimations.Add(nuia2);
+
                 }
             };
             updateLaneNow(i);
@@ -127,7 +153,7 @@ public class ArenaDisplayer : MonoBehaviour
         TMP_Text txtCapacityAlly = txtAllyCapacityList[laneIndex];
         txtCapacityAlly.text = $"{lane.allyHolder.CardCount}/{laneLimit}";
         txtCapacityAlly.gameObject.SetActive(isLaneValid);
-        txtCapacityAlly.color = (lane.allyHolder.CardCount > 0) ? colorNormal : colorEmpty;
+        txtCapacityAlly.color = getColor(lane.allyHolder.CardCount);
 
         Color enemyColor = getColor(lane.enemyPower, lane.EnemyPowerRaw);
         TMP_Text txtNumberEnemy = txtEnemyList[laneIndex];
@@ -142,11 +168,15 @@ public class ArenaDisplayer : MonoBehaviour
         TMP_Text txtCapacityEnemy = txtEnemyCapacityList[laneIndex];
         txtCapacityEnemy.text = $"{lane.enemyHolder.CardCount}/{laneLimit}";
         txtCapacityEnemy.gameObject.SetActive(isLaneValid);
-        txtCapacityEnemy.color = (lane.enemyHolder.CardCount > 0) ? colorNormal : colorEmpty;
+        txtCapacityEnemy.color = getColor(lane.enemyHolder.CardCount);
     }
 
-    private Color getColor(int power, int rawPower)
+    private Color getColor(int power, int rawPower = -1)
     {
+        if (rawPower < 0)
+        {
+            rawPower = power;
+        }
         if (power == rawPower)
         {
             if (power == 0)
