@@ -19,6 +19,8 @@ public class ArenaDisplayer : MonoBehaviour
     public List<TMP_Text> txtEnemyList;
     public List<SpriteRenderer> srRPSAllyList;
     public List<SpriteRenderer> srRPSEnemyList;
+    public List<TMP_Text> txtAllyCapacityList;
+    public List<TMP_Text> txtEnemyCapacityList;
 
     public Match match;
     public Arena arena;
@@ -110,7 +112,8 @@ public class ArenaDisplayer : MonoBehaviour
     {
         ArenaLane lane = arena.lanes[laneIndex];
         SymbolSetData ssd = GameManager.SymbolSetData;
-        bool isLaneValid = laneIndex < arena.data.lanes.Count && arena.data.lanes[laneIndex].limit > 0;
+        int laneLimit = arena.data.lanes[laneIndex].limit;
+        bool isLaneValid = laneIndex < arena.data.lanes.Count && laneLimit> 0;
 
         Color allyColor = getColor(lane.allyPower, lane.AllyPowerRaw);
         TMP_Text txtNumberAlly = txtAllyList[laneIndex];
@@ -121,6 +124,9 @@ public class ArenaDisplayer : MonoBehaviour
         srAlly.sprite = ssd.GetSymbolSprite(lane.AllyRPS);
         srAlly.color = allyColor;
         srAlly.gameObject.SetActive(isLaneValid);
+        TMP_Text txtCapacityAlly = txtAllyCapacityList[laneIndex];
+        txtCapacityAlly.text = $"{lane.allyHolder.CardCount}/{laneLimit}";
+        txtCapacityAlly.gameObject.SetActive(isLaneValid);
 
         Color enemyColor = getColor(lane.enemyPower, lane.EnemyPowerRaw);
         TMP_Text txtNumberEnemy = txtEnemyList[laneIndex];
@@ -132,6 +138,9 @@ public class ArenaDisplayer : MonoBehaviour
         srEnemy.sprite = ssd.GetSymbolSprite(lane.EnemyRPS);
         srEnemy.color = enemyColor;
         srEnemy.gameObject.SetActive(isLaneValid);
+        TMP_Text txtCapacityEnemy = txtEnemyCapacityList[laneIndex];
+        txtCapacityEnemy.text = $"{lane.enemyHolder.CardCount}/{laneLimit}";
+        txtCapacityEnemy.gameObject.SetActive(isLaneValid);
     }
 
     private Color getColor(int power, int rawPower)
