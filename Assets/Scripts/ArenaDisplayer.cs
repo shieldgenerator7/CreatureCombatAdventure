@@ -127,6 +127,7 @@ public class ArenaDisplayer : MonoBehaviour
         TMP_Text txtCapacityAlly = txtAllyCapacityList[laneIndex];
         txtCapacityAlly.text = $"{lane.allyHolder.CardCount}/{laneLimit}";
         txtCapacityAlly.gameObject.SetActive(isLaneValid);
+        txtCapacityAlly.color = (lane.allyHolder.CardCount > 0) ? colorNormal : colorEmpty;
 
         Color enemyColor = getColor(lane.enemyPower, lane.EnemyPowerRaw);
         TMP_Text txtNumberEnemy = txtEnemyList[laneIndex];
@@ -141,6 +142,7 @@ public class ArenaDisplayer : MonoBehaviour
         TMP_Text txtCapacityEnemy = txtEnemyCapacityList[laneIndex];
         txtCapacityEnemy.text = $"{lane.enemyHolder.CardCount}/{laneLimit}";
         txtCapacityEnemy.gameObject.SetActive(isLaneValid);
+        txtCapacityEnemy.color = (lane.enemyHolder.CardCount > 0) ? colorNormal : colorEmpty;
     }
 
     private Color getColor(int power, int rawPower)
