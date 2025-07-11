@@ -110,23 +110,28 @@ public class ArenaDisplayer : MonoBehaviour
     {
         ArenaLane lane = arena.lanes[laneIndex];
         SymbolSetData ssd = GameManager.SymbolSetData;
+        bool isLaneValid = laneIndex < arena.data.lanes.Count && arena.data.lanes[laneIndex].limit > 0;
 
         Color allyColor = getColor(lane.allyPower, lane.AllyPowerRaw);
         TMP_Text txtNumberAlly = txtAllyList[laneIndex];
         txtNumberAlly.text = ssd.GetSymbolString(lane.allyPower);
         txtNumberAlly.color = allyColor;
+        txtNumberAlly.gameObject.SetActive(isLaneValid);
         SpriteRenderer srAlly = srRPSAllyList[laneIndex];
         srAlly.sprite = ssd.GetSymbolSprite(lane.AllyRPS);
         srAlly.color = allyColor;
+        srAlly.gameObject.SetActive(isLaneValid);
 
         Color enemyColor = getColor(lane.enemyPower, lane.EnemyPowerRaw);
         TMP_Text txtNumberEnemy = txtEnemyList[laneIndex];
         txtNumberEnemy.text = ssd.GetSymbolString(lane.enemyPower);
         txtNumberEnemy.color = getColor(lane.enemyPower, lane.EnemyPowerRaw);
         txtNumberEnemy.color = enemyColor;
+        txtNumberEnemy.gameObject.SetActive(isLaneValid);
         SpriteRenderer srEnemy = srRPSEnemyList[laneIndex];
         srEnemy.sprite = ssd.GetSymbolSprite(lane.EnemyRPS);
         srEnemy.color = enemyColor;
+        srEnemy.gameObject.SetActive(isLaneValid);
     }
 
     private Color getColor(int power, int rawPower)
