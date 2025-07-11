@@ -99,7 +99,7 @@ public class ArenaDisplayer : MonoBehaviour
                     int cardCount = lane.enemyHolder.CardCount;
                     NumberUIAnimation nuia2 =
                     NumberUIAnimation.adjustTo(
-                        txtAllyCapacityList[index],
+                        txtEnemyCapacityList[index],
                         cardCount,
                         cardCount,
                         getColor(cardCount),
